@@ -29,7 +29,6 @@ class Utilizavel  extends Item{
     function setCargas($cargas) {
         $this->cargas = $cargas;
     }
-    
 
   
 }
