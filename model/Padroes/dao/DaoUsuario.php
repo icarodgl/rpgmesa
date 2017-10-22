@@ -10,9 +10,7 @@
  *
  * @author icaro
  */
-interface DaoGenerica {
-    function listar();
-    function deletar($objeto);
-    function alterar($objeto);
-    function inserir($objeto);
+interface DaoUsuario extends DaoGenerica{
+    
+public function buscarLoginSenha($login, $senha);
 }

@@ -7,12 +7,14 @@
  */
 
 /**
+ * Description of DaoUsuarioImp
  *
  * @author icaro
  */
-interface DaoGenerica {
-    function listar();
-    function deletar($objeto);
-    function alterar($objeto);
-    function inserir($objeto);
+class DaoUsuarioImp extends DaoGenericaImp implements DaoUsuario{
+    
+    public function buscarLoginSenha($login, $senha) {
+        
+    }
+
 }

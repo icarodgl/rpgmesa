@@ -1,0 +1,11 @@
+{
+    "name": "vendor/rpgmesa",
+    "description": "Descrição do projeto rpgmesa.",
+    "authors": [
+        {
+            "name": "icaro",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {}
+}
