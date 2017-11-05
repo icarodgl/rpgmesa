@@ -1,22 +1,26 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of Atributos
- *
- * @author icaro
+ * @Entity
  */
-class Atributos {
+class Atributo {
+    /**
+    * @Id
+    * @Column(type="integer", name="IdAtributo")
+    * @GeneratedValue(strategy="AUTO")*/
+    protected $id;
+    
+    /** @Column(type="integer", name="Forca") */
     private $forca;
+    /** @Column(type="integer", name="Vigor") */
     private $vigor;
+    /** @Column(type="integer", name="Agiliade") */
     private $agilidade;
-    private $intelcto;
+    /** @Column(type="integer", name="Intelecto") */
+    private $intelecto;
+    /** @Column(type="integer", name="Espirito") */
     private $espirito;
+    
+    
     function getForca() {
         return $this->forca;
     }
@@ -29,8 +33,8 @@ class Atributos {
         return $this->agilidade;
     }
 
-    function getIntelcto() {
-        return $this->intelcto;
+    function getIntelecto() {
+        return $this->$intelecto;
     }
 
     function getEspirito() {
@@ -49,8 +53,8 @@ class Atributos {
         $this->agilidade = $agilidade;
     }
 
-    function setIntelcto($intelcto) {
-        $this->intelcto = $intelcto;
+    function setIntelecto($intelecto) {
+        $this->$intelecto = $intelecto;
     }
 
     function setEspirito($espirito) {

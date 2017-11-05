@@ -1,21 +1,39 @@
 <?php
-
+/**
+ * @Entity
+ * @Table(name="Ficha")
+ */
 class Ficha {
-    
+    /**
+     * @Id
+     * @Column(type="integer", name="IdFicha")
+     * @GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ManyToOne(targetEntity="Personagem")
+     * @JoinColumn(name="IdPersonagem", referencedColumnName="IdPersonagem")
+     */
+    protected $personagem;
+    /** @Column(type="string", name="Raca") */
     private $raca;
+    /** @Column(type="string", name="Classe") */
     private $classe;
+    /** @Column(type="string", name="Tendencia") */
     private $tendencia;
+    /** @Column(type="integer", name="Idade") */
     private $idade;
+    /** @Column(type="integer", name="Peso") */
     private $peso;
+    /** @Column(type="integer", name="Altura") */
     private $altura;
     private $sexo;
+    /** @Column(type="string", name="Deslocamento") */
     private $deslocamento;
+    /** @Column(type="integer", name="Iniciativa") */
     private $iniciativa;
-    private $carga;
+    /** @Column(type="integer", name="CargaMax") */
     private $cargaMax;
-    private $atributos;
-    private $pericias = [];
-    
     
     function __construct() {
         
@@ -73,10 +91,6 @@ class Ficha {
         return $this->iniciativa;
     }
 
-    function getCarga() {
-        return $this->carga;
-    }
-
     function getCargaMax() {
         return $this->cargaMax;
     }
@@ -115,10 +129,6 @@ class Ficha {
 
     function setIniciativa($iniciativa) {
         $this->iniciativa = $iniciativa;
-    }
-
-    function setCarga($carga) {
-        $this->carga = $carga;
     }
 
     function setCargaMax($cargaMax) {
