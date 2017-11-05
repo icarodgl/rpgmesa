@@ -134,6 +134,4 @@ class Ficha {
     function setCargaMax($cargaMax) {
         $this->cargaMax = $cargaMax;
     }
-
-
 }

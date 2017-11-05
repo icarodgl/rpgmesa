@@ -30,6 +30,4 @@ class Pericia {
     function setNivel($nivel) {
         $this->nivel = $nivel;
     }
-
-
 }

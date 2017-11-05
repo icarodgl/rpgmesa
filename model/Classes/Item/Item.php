@@ -180,6 +180,4 @@ class Item {
    function setArcano($arcano) {
        $this->arcano = $arcano;
    }
-
-
 }

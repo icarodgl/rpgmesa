@@ -60,6 +60,4 @@ class Atributo {
     function setEspirito($espirito) {
         $this->espirito = $espirito;
     }
-
-
 }

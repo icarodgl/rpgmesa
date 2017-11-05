@@ -42,8 +42,5 @@ class Personagem {
     /**
      * @Column(type="string", name="Imagem")
      */
-    protected $imagem;
-    
-    
-    
+    protected $imagem;    
 }
