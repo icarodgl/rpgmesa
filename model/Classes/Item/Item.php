@@ -59,8 +59,15 @@ class Item {
    function getId() {
        return $this->id;
    }
+   function getNome() {
+       return $this->nome;
+   }
 
-   function getIdFicha() {
+   function setNome($nome) {
+       $this->nome = $nome;
+   }
+
+      function getIdFicha() {
        return $this->idFicha;
    }
 
@@ -141,7 +148,8 @@ class Item {
    }
 
    function usar(Personagem $personagem){
-       $descricao = "$this->nome . foi usado em . $personagem->nome ";
+       $nome = $personagem->getNome();
+       $descricao = "$this->nome foi usado em $nome ";
        return $descricao;
    }
 

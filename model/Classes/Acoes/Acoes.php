@@ -74,18 +74,21 @@ class Acoes {
     }
     function InserirAcao(String $descricao){
         $this->descricao = $descricao;
-        $this->data = date("d/m/Y H:i:s");
+        $this->data = date("d/m/y H:i:s");
         $this->sucesso = TRUE;
         $this->atualizar();
     }
     
     function  finalizarHistoria(){
+       
         $this->descricao = "E viveram felizes para sempre";
-        $this->data = date( "d/m/Y H:i:s");
+        $this->data = date( "d/m/y H:i:s");
         $this->sucesso = TRUE;
         $this->atualizar();
+        
     }
     function atualizar(){
+        echo '<li class="collection-item">';
          echo $this->data ;
         echo ' : ';
         echo $this->descricao ;
@@ -96,6 +99,7 @@ class Acoes {
         }else{
             echo 'Falhou!   ';
         }
-        echo "<br>";        
+        echo '</li>'; 
+        
     }
 }

@@ -88,7 +88,7 @@ class Personagem {
 
 
     function atacar(Personagem $personagem){
-        $descricao = $this->nome . " Atacou " . $personagem->nome;
+        $descricao = $this->nome . " Atacou " . $personagem->getNome();
         return $descricao;
     }
     function acao(){}
