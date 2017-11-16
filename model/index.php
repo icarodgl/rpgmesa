@@ -13,20 +13,12 @@
         max-height:600px;
         width: auto;
         height: auto;
+        z-index: -1;
 	}
     #inimigo {
-	position:absolute;
-	top:40%;
-	left:15%;
-        max-width:200px;
-        max-height:200px;
-        width: auto;
-        height: auto;
-	}
-    #inimigo2 {
-	position:absolute;
-	top:40%;
-	left:25%;
+	position:relative;
+        top: 150px;
+        left: 30%;
         max-width:200px;
         max-height:200px;
         width: auto;
@@ -63,10 +55,9 @@
         </nav>
         <div class="row">
             <div class="col s7">
-                
                 <img src="Imagens/castelo1.jpg" id="cenario" alt="Castelo" > 
                 <img src="Imagens/guerreiro.png" id="inimigo" alt="inimigo" > 
-                <img src="Imagens/guerreiro.png" id="inimigo2" alt="inimigo" >  
+                <img src="Imagens/guerreiro.png" id="inimigo" alt="inimigo" >  
             </div>
             <div class="col s5">
                 
