@@ -1,11 +1,50 @@
 <?php
-
+/**
+ * Personagem
+ * 
+ * @Entity
+ * @Table(name="Personagem")
+ */
 class Personagem {
-    private $nome;
-    private $imagem;
-    private $experiencia;
-    private $level;
-    private $saude;
+
+     /**
+     * @Id
+     * @Column(type="integer", name="IdPersonagem")
+     * @GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ManyToOne(targetEntity="Usuario")
+     * @JoinColumn(name="IdUsuario", referencedColumnName="IdUsuario")
+     */
+    protected $usuario;
+    
+    /**
+     * @Column(type="string", name="Nome")
+     */
+    protected $nome;
+    
+    /**
+     * @Column(type="integer", name="Experiencia")
+     */
+    protected $experiencia;
+    
+    /**
+     * @Column(type="integer", name="Level")
+     */
+    protected $level;
+    
+    /**
+     * @Column(type="integer", name="Saude")
+     */
+    protected $saude;
+    
+    /**
+     * @Column(type="string", name="Imagem")
+     */
+    protected $imagem;    
+
     
     function getNome() {
         return $this->nome;
@@ -54,4 +93,5 @@ class Personagem {
     }
     function acao(){}
     function testePericia(){}
+
 }

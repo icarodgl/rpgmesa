@@ -18,9 +18,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script type="text/javascript" src="js/materialize.min.js"></script>
     </head>
-    <body>
-        
 
+    <body>
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Logo</a>
@@ -30,15 +29,18 @@
                     <li><a href="#">Histórias</a></li>
                 </ul>
             </div>
-            
         </nav>
 
     <?php
     require_once 'Classes/Acoes/Acoes.php';
     require_once 'Classes/Personagem/Jogador.php';
     require_once 'Classes/Personagem/NaoJogador.php';
-    
-    
+    /*teste de usuario*/
+        require_once '../bootstrap.php';
+        echo "Olá!<br>";
+        $usuario = $entityManager->find('Usuario', 1);
+        echo $usuario->getUsername();
+   /*teste de usuario*/
     
     
     $acao = new Acoes();
