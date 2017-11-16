@@ -11,12 +11,36 @@
  *
  * @author icaro
  */
+ use Doctrine\ORM\Mapping as ORM;   
+
+/**
+ * @Entity 
+ * @Table(name="users")
+ */
 class Acoes {
+
+    /**
+     * @Id @GeneratedValue 
+     * @GeneratedValue("AUTO")
+     * @Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private $sucesso;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
     private $descricao;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
     private $data;
-    private $hora;
-    
+
     function getSucesso() {
         return $this->sucesso;
     }
@@ -48,6 +72,30 @@ class Acoes {
     function setHora($hora) {
         $this->hora = $hora;
     }
+    function InserirAcao(String $descricao){
+        $this->descricao = $descricao;
+        $this->data = date("d/m/Y H:i:s");
+        $this->sucesso = TRUE;
+        $this->atualizar();
+    }
+    
+    function  finalizarHistoria(){
+        $this->descricao = "E viveram felizes para sempre";
+        $this->data = date( "d/m/Y H:i:s");
+        $this->sucesso = TRUE;
+        $this->atualizar();
+    }
+    function atualizar(){
+         echo $this->data ;
+        echo ' : ';
+        echo $this->descricao ;
+        echo ' : ';
 
-
+        if($this->sucesso){
+            echo 'Sucesso!';
+        }else{
+            echo 'Falhou!   ';
+        }
+        echo "<br>";        
+    }
 }

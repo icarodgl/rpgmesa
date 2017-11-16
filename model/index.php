@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">  
         <title>RPG Mesa</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
@@ -15,12 +16,11 @@
         <!--Import materialize.css-->   
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
     </head>
     <body>
         
-    <conteiner>
+
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Logo</a>
@@ -32,12 +32,28 @@
             </div>
             
         </nav>
-    </conteiner>
-    <conteiner>
 
-    </conteiner>
-    <conteiner>
+    <?php
+    require_once 'Classes/Acoes/Acoes.php';
+    require_once 'Classes/Personagem/Jogador.php';
+    require_once 'Classes/Personagem/NaoJogador.php';
+    
+    
+    
+    
+    $acao = new Acoes();
+    $joao = new Jogador();
+    $gigante = new NaoJogador();
+    
+    $joao->setNome("João");
+    $gigante->setNome("Gigante");
+    
+    $acao->InserirAcao("Procurar item no cenário");
+    $acao->InserirAcao($joao->atacar($gigante));
+    
+    $acao->finalizarHistoria();
+    
+    ?>
 
-    </conteiner>
 </body>
 </html>

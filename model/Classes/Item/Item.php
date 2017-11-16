@@ -39,5 +39,5 @@ class Item {
        $this->efeito = $efeito;
    }
 
-
+   function usar(Personagem $personagem){}
 }

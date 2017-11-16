@@ -8,10 +8,12 @@
         }
     ],
     "require": {
-        "doctrine/orm": "v2.5.11",
         "symfony/yaml": "2.*"
     },
     "autoload": {
         "psr-0": {"": "model/Classes/"}
+    },
+    "require-dev": {
+        "doctrine/orm": "2.*"
     }
 }
