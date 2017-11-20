@@ -115,6 +115,7 @@ class DaoGenericaImp implements DaoGenerica {
     }
 
     public function getEntityManager(array $options = null) {
+        
         if (is_null($this->entityManager) && !is_null($options)) {
             // TODO must be implement validations of requiment sets and throws exception
             $config = new Configuration();
@@ -146,7 +147,7 @@ class DaoGenericaImp implements DaoGenerica {
     }
     function arrayConection($options){
         $dataConnection = array();
-        $dataConnection["driver"] = $options["driver"];
+        $dataConnection["driver"] = $options["pdo_mysql"];
         $dataConnection["host"] = $options["localhost"];
         $dataConnection["dbname"] = $options["rpgmesa"];
         $dataConnection["user"] = $options["user"];

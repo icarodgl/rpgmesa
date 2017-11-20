@@ -33,19 +33,22 @@
                 </ul>
             </div>
         </nav>
-        <div class="row">
-            <div class="col s7">
-                <img src="Imagens/castelo1.jpg" id="cenario" alt="Castelo" > 
+        <div class="container">
+            <div class="row">
+                <div class="col s7" id="cenario">
+                   <div class="row">
+                    <div class="" id="espaco">.</div>
+                    <div class="col" id="inimigo">100%<img style="float: top; margin: auto;" src="../estaticos/Imagens/guerreiro.png" id="inimigo" alt="inimigo" > </div>
+                    <div class="col" id="inimigo">100%<img style="float: top; margin: auto;" src="../estaticos/Imagens/guerreiro.png" id="inimigo" alt="inimigo" >  </div>
+                    <div class="col" id="inimigo">100%<img style="float: top; margin: auto;" src="../estaticos/Imagens/guerreiro.png" id="inimigo" alt="inimigo" >  </div>
+                   </div>
+                </div>
+                <div class="col s5">
 
-                <img src="Imagens/guerreiro.png" id="inimigo" alt="inimigo" > 
-                <img src="Imagens/guerreiro.png" id="inimigo" alt="inimigo" >  
-                <img src="Imagens/guerreiro.png" id="inimigo" alt="inimigo" >  
-            </div>
-            <div class="col s5">
+                    <ul class="collection" id="linhadotempo" >
 
-                <ul class="collection" id="linhadotempo" >
-                    
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>

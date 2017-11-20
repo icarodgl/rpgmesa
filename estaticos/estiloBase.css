@@ -1,20 +1,15 @@
 
 #cenario {
-    position:absolute;
-    top:10%;
-    left:5%;
-    max-width:600px;
-    max-height:600px;
-    width: auto;
-    height: auto;
-    z-index: -1;
+    background-image: url("Imagens/castelo1.jpg");
+    height: 400px;
 }
 #inimigo {
-    position:relative;
-    top: 150px;
-    left: 20%;
-    max-width:200px;
-    max-height:200px;
+    
+    max-width:30%;
     width: auto;
     height: auto;
+}
+#espaco{
+    height: 200px;
+    
 }
