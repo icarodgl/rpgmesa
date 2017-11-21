@@ -120,9 +120,11 @@ apresentar classes de acesso ao banco de dados. apresentar diagramas de sequênc
 ##### Padrões Arquiteturais
 ##### Padrões de Projeto
 
-No diagrama abaixo é destacado o padrão de projeto método fábrica que foi utilizado para melhorar a coesão e diminiuir o acoplamento entre as clases do sistema. O pode-se notar a classe FabricaDeFormatos cria os objetos FormatoPng, FormatoJpeg e FormatoGif tirando a dependencia entre a classes Main e essas classes. Vale ressaltar que o padrão utiliza um Interface Formato para diminiuir o acoplamento entre as classes.
 
-![Alt text](https://github.com/felipefo/poo2/blob/master/Padroes_de_Projeto/Cria%C3%A7%C3%A3o/metodo_fabrica/ImagemMetodoFabrica/padrao_metodo_fabrica_conversao_imagem.png)
+No diagrama abaixo é destacado o padrão de projeto método fabrica. Ele foi utilizado para gerar diferentes tipos de objetos da Interface Acao. Sendo eles AcaoAtaque, AcaoTrocaCena e AcaoIteracao. Esse padrão facilita o entendimento das ações realizadas pelos personagens e também facilita a adição de novos tipos de ações, pelo motivo das implementações estarem isoladas.
+
+![Alt text](https://github.com/icarodgl/rpgmesa/blob/master/Doc/FabricaAcao.PNG)
+
 
 
 O padrão foi utilizado para resolver o problema de .....
