@@ -53,7 +53,7 @@
         </div>
         
         <div class="container">
-            <?php /*
+            <?php
                 require_once '../model/GenericDAO/DaoGenerica.php';
                 require_once '../model/GenericDAO/DaoGenericaImp.php';
                 require_once '../model/Classes/Usuario/Usuario.php';
@@ -64,7 +64,7 @@
                 $dao->inserir($usuario);
                 
             
-            */?>
+            ?>
             
         </div>
     </body>
