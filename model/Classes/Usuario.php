@@ -33,6 +33,10 @@ class Usuario
      */
     protected $dataCadastro;
     
+    function __construct() {
+        $this->id = 0;
+    }
+
     
     function getId() {
         return $this->id;
@@ -74,6 +78,6 @@ class Usuario
         $this->dataCadastro = $dataCadastro;
     }
 
-
-    
+    function login($login, $senha){}
+    function logout($tolken){}
 }
