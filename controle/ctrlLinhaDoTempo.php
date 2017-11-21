@@ -1,29 +1,40 @@
 <?php
-require_once '../model/Classes/Acoes/Acoes.php';
+require_once '../model/Classes/Acoes/Acao.php';
+require_once '../model/Classes/Acoes/Atacar.php';
+require_once '../model/Classes/Acoes/Interagir.php';
+require_once '../model/Classes/Acoes/TrocarCena.php';
+require_once '../model/FabricaAcao/FabricaAcao.php';
 require_once '../model/Classes/Personagem/Jogador.php';
 require_once '../model/Classes/Personagem/NaoJogador.php';
 require_once '../model/Classes/Item/Utilizavel.php';
+require_once '../model/Classes/Usuario/Usuario.php';
+
+
 /* teste de usuario
   require_once '../bootstrap.php';
   echo "Olá!<br>";
   $usuario = $entityManager->find('Usuario', 1);
   echo $usuario->getUsername();
-  teste de usuario */
+ teste de usuario */
+
+$fabrica = new FabricaAcao();
+$acao;
+$interador = new Jogador();
+$interagido = new NaoJogador();
+$interador->setNome("João");
+$interagido->setNome("alguem");
 
 
-$acao = new Acoes();
-$joao = new Jogador();
-$gigante = new NaoJogador();
-$pocao = new Utilizavel();
+$acao = $fabrica->geraAcao("ataque");
 
-$pocao->setNome("Pocao de Cura Fraca");
-$joao->setNome("João");
-$gigante->setNome("Gigante");
+$acao->gerar($interador, $interagido);
 
-$acao->InserirAcao("Procurar item no cenário");
-$acao->InserirAcao($joao->atacar($gigante));
-$acao->InserirAcao($gigante->atacar($joao));
-$acao->InserirAcao($pocao->usar($joao));
+$acao = $fabrica->geraAcao("interagir");
 
-$acao->finalizarHistoria();
+$acao->gerar($interador, $interagido);
+
+$acao = $fabrica->geraAcao("trocacena");
+
+$interagido->setNome("Castelo");
+$acao->gerar($interador, $interagido);
 ?>

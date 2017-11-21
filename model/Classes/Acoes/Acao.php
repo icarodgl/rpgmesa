@@ -7,12 +7,17 @@
  */
 
 /**
+ * Description of Acoes
  *
  * @author icaro
  */
-interface DaoGenerica {
-    function listar($objeto);
-    function deletar($objeto);
-    function alterar($objeto);
-    function inserir($objeto);
+ use Doctrine\ORM\Mapping as ORM;   
+
+/**
+ * @Entity 
+ * @Table(name="users")
+ */
+interface Acao {
+    
+function gerar($interador, $interagido) ;
 }

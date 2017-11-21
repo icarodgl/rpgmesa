@@ -7,17 +7,11 @@
  */
 
 /**
- * Description of Acoes
+ * Description of LinhaDoTempo
  *
  * @author icaro
  */
- use Doctrine\ORM\Mapping as ORM;   
-
-/**
- * @Entity 
- * @Table(name="users")
- */
-class Acoes {
+class LinhaDoTempo {
 
     /**
      * @Id @GeneratedValue 
@@ -40,6 +34,7 @@ class Acoes {
      * @ORM\Column(type="string", length=20)
      */
     private $data;
+    
 
     function getSucesso() {
         return $this->sucesso;
@@ -72,34 +67,35 @@ class Acoes {
     function setHora($hora) {
         $this->hora = $hora;
     }
-    function InserirAcao(String $descricao){
+
+    function InserirAcao(String $descricao) {
         $this->descricao = $descricao;
         $this->data = date("d/m/y H:i:s");
         $this->sucesso = TRUE;
         $this->atualizar();
     }
-    
-    function  finalizarHistoria(){
-       
+
+    function finalizarHistoria() {
+
         $this->descricao = "E viveram felizes para sempre";
-        $this->data = date( "d/m/y H:i:s");
+        $this->data = date("d/m/y H:i:s");
         $this->sucesso = TRUE;
         $this->atualizar();
-        
     }
-    function atualizar(){
+
+    function atualizar() {
         echo '<li class="collection-item">';
-         echo $this->data ;
+        echo $this->data;
         echo ' : ';
-        echo $this->descricao ;
+        echo $this->descricao;
         echo ' : ';
 
-        if($this->sucesso){
+        if ($this->sucesso) {
             echo 'Sucesso!';
-        }else{
+        } else {
             echo 'Falhou!   ';
         }
-        echo '</li>'; 
-        
+        echo '</li>';
     }
+
 }

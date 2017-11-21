@@ -11,10 +11,10 @@
  *
  * @author icaro
  */
+use Doctrine;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
-use Doctrine;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 

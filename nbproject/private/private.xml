@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/rpgmesa/estaticos/estiloBase.css</file>
+            <file>file:/var/www/rpgmesa/model/Classes/Acoes/Interagir.php</file>
+            <file>file:/var/www/rpgmesa/model/Classes/Acoes/TrocarCena.php</file>
+            <file>file:/var/www/rpgmesa/model/FabricaAcao/FabricaAcao.php</file>
+            <file>file:/var/www/rpgmesa/controle/ctrlLinhaDoTempo.php</file>
+            <file>file:/var/www/rpgmesa/model/Classes/Acoes/Atacar.php</file>
             <file>file:/var/www/rpgmesa/views/index.php</file>
         </group>
     </open-files>
