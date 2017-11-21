@@ -11,7 +11,7 @@ class Item {
    /** @Column(type="integer", name="IdFicha") */
    protected $idFicha;
    
-   /** @Column(type="string", name="Descricao") */
+   /** @Column(type="string", name="Nome") */
    private $nome;
    
    /** @Column(type="string", name="Descricao") */

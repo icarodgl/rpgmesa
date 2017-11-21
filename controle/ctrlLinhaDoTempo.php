@@ -8,7 +8,7 @@ require_once '../model/Classes/Personagem/Jogador.php';
 require_once '../model/Classes/Personagem/NaoJogador.php';
 require_once '../model/Classes/Item/Utilizavel.php';
 require_once '../model/Classes/Usuario/Usuario.php';
-
+use model\Classes\Acoes\FabricaAcao;
 
 /* teste de usuario
   require_once '../bootstrap.php';
@@ -37,4 +37,5 @@ $acao = $fabrica->geraAcao("trocacena");
 
 $interagido->setNome("Castelo");
 $acao->gerar($interador, $interagido);
+
 ?>

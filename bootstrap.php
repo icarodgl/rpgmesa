@@ -5,7 +5,6 @@
 // o Autoload é responsável por carregar as classes sem necessidade de incluí-las previamente
 require_once "vendor/autoload.php";
 
-
 // o Doctrine utiliza namespaces em sua estrutura, por isto estes uses 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
@@ -18,7 +17,7 @@ $isDevMode = true;
 $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
-    'password' => 'root',
+    'password' => '123123',
     'dbname'   => 'rpgmesaDB',
 );
 

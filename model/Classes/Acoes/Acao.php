@@ -1,5 +1,5 @@
 <?php
-
+namespace model\Classes\Acoes;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,8 +10,7 @@
  * Description of Acoes
  *
  * @author icaro
- */
- use Doctrine\ORM\Mapping as ORM;   
+ */ 
 
 /**
  * @Entity 

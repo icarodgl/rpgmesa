@@ -1,5 +1,5 @@
 {
-    "name": "vendor/rpgmesa",
+    "name": "rpgmesa",
     "description": "Descrição do projeto rpgmesa.",
     "authors": [
         {
@@ -8,12 +8,12 @@
         }
     ],
     "require": {
-        "symfony/yaml": "*"
+        "php":"7.0.*",
+        "doctrine/orm": "^2.5",
+	"symfony/yaml": "2.*"
     },
     "autoload": {
-        "psr-4": {"": "model"}
-    },
-    "require": {
-        "doctrine/orm": "*"
+        "classmap": ["model/", "views/"]
+        
     }
 }

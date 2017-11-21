@@ -1,4 +1,8 @@
 <?php
+namespace model\Classes\Acoes;
+use model\Classes\Acoes\Atacar;
+use model\Classes\Acoes\Interagir;
+use model\Classes\Acoes\TrocarCena;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

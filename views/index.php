@@ -27,9 +27,9 @@
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Partidas</a></li>
-                    <li><a href="#">Histórias</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="formulario.php">Partidas</a></li>
+                    <li><a href="formupload.html">Histórias</a></li>
                 </ul>
             </div>
         </nav>
@@ -53,18 +53,7 @@
         </div>
         
         <div class="container">
-            <?php
-                require_once '../model/GenericDAO/DaoGenerica.php';
-                require_once '../model/GenericDAO/DaoGenericaImp.php';
-                require_once '../model/Classes/Usuario/Usuario.php';
-                
-                $usuario = new Usuario();
-                $dao = new DaoGenericaImp();
-                
-                $dao->inserir($usuario);
-                
             
-            ?>
             
         </div>
     </body>

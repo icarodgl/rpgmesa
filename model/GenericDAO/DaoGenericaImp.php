@@ -1,20 +1,22 @@
 <?php
-
-
+namespace model\GenericDAO;
+use model\GenericDAO\DaoGenerica;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+require_once 'DaoGenerica.php';
+require_once "../vendor/autoload.php";
 
 class DaoGenericaImp implements DaoGenerica {
     
-    private $entidades = array("model/Classes");
+    private $entidades = array(__DIR__ . "/model/Classes");
     private $isDevMode = true;
     private $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
-    'password' => 'root',
+    'password' => '123123',
     'dbname'   => 'rpgmesaDB');
     
-    private $entityManager = null;
+    private $entityManager = NULL;
     
     public function __construct() {
         $this->getEntityManager();
@@ -86,8 +88,8 @@ class DaoGenericaImp implements DaoGenerica {
 
     public function rollBack() {
         $this->getEntityManager();
-        $this->$entityManager->getConnection()->rollBack();
-        $this->$entityManager->getConnection()->close();
+        $this->entityManager->getConnection()->rollBack();
+        $this->entityManager->getConnection()->close();
     }
 
     public function refresh($entity) {
@@ -97,7 +99,7 @@ class DaoGenericaImp implements DaoGenerica {
 
     public function getEntityManager() {
         
-        if ($this->entityManager == null){
+        if ($this->entityManager === NULL){
             $config = Setup::createAnnotationMetadataConfiguration($this->entidades, $this->isDevMode);
             $this->entityManager = EntityManager::create($this->dbParams, $config);
         }

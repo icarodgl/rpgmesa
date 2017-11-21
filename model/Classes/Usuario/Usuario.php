@@ -1,23 +1,47 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+namespace model\Classes\Usuario;
 /**
- * Description of Usuario
- *
- * @author icaro
+ * Usuario
+ * 
+ * @Entity
+ * @Table(name="Usuario")
  */
-class Usuario {
-    private $login;
-    private $senha;
-    private $email;
-    private $nome;
-    function getLogin() {
-        return $this->login;
+class Usuario
+{
+    /**
+     * @Id
+     * @Column(type="integer", name="IdUsuario")
+     * @GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @Column(type="string", name="Username")
+     */
+    protected $username;
+    
+    /**
+     * @Column(type="string", name="Senha")
+     */
+    protected $senha;
+    
+    /**
+     * @Column(type="string", name="Email")
+     */
+    protected $email;
+    
+    /**
+     * @Column(type="datetime", name="DataCadastro")
+     */
+    protected $dataCadastro;
+    
+
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function getUsername() {
+        return $this->username;
     }
 
     function getSenha() {
@@ -28,26 +52,35 @@ class Usuario {
         return $this->email;
     }
 
-    function getNome() {
-        return $this->nome;
+    function getDataCadastro() {
+        return $this->dataCadastro;
     }
 
-    function setLogin($login) {
-        $this->login = $login;
+    function setId($id) {
+        $this->id = $id;
     }
 
-    function setSenha($senha) {
+    public function setUsername($username) {
+        $this->username = $username;
+    }
+
+    public function setSenha($senha) {
         $this->senha = $senha;
     }
 
-    function setEmail($email) {
+    public function setEmail($email) {
         $this->email = $email;
     }
 
-    function setNome($nome) {
-        $this->nome = $nome;
+    public function setDataCadastro($dataCadastro) {
+        $this->dataCadastro = $dataCadastro;
     }
 
-    function login($login, $senha){}
-function logout($tolken){}
+    public function login($login, $senha){}
+    public function logout($tolken){}
+
+    public function setLogin($param) {
+       
+    }
+
 }
