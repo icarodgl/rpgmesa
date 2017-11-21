@@ -51,6 +51,22 @@
                 </div>
             </div>
         </div>
+        
+        <div class="container">
+            <?php /*
+                require_once '../model/GenericDAO/DaoGenerica.php';
+                require_once '../model/GenericDAO/DaoGenericaImp.php';
+                require_once '../model/Classes/Usuario/Usuario.php';
+                
+                $usuario = new Usuario();
+                $dao = new DaoGenericaImp();
+                
+                $dao->inserir($usuario);
+                
+            
+            */?>
+            
+        </div>
     </body>
     <script type="text/javascript" src="../estaticos/linhadotempo.js"></script>
 </html>
