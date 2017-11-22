@@ -24,7 +24,7 @@ class Atacar implements Acao {
         echo "$agora : ";
         echo "$a  ataca  $b<br>";
         echo '</li>';
-        return $descricao = "atacar!";
+        return $descricao = "$agora :"."$a".' ataca!'."$b";
     }
 
 }

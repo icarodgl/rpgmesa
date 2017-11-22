@@ -25,22 +25,23 @@ and open the template in the editor.
         <link rel="stylesheet" href="../estaticos/estiloBase.css" >
     </head>
     <body>
+        <div class="container">
      <div class="row">
-         <form class="col s12" action="../controle/ctrlCriaUsuario.php" method="post">
+         <form class="col s10" action="../controle/ctrlCriaUsuario.php" method="post">
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s5">
         <input placeholder="Seu nome" id="first_name" type="text" class="validate" name="nome">
         <label for="Nome">Nome</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s5">
         <input id="password" type="password" class="validate" name="senha">
         <label for="password">Senha</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s5">
         <input id="email" type="email" class="validate" name="email">
         <label for="email">Email</label>
       </div>
@@ -49,5 +50,6 @@ and open the template in the editor.
       <input type="submit" value="Enviar">
   </form>
 </div>
+            </div>
     </body>
 </html>

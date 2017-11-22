@@ -11,6 +11,10 @@
  *
  * @author icaro
  */
+
+/**
+ * @Entity
+ */
 class LinhaDoTempo {
 
     /**
@@ -48,10 +52,6 @@ class LinhaDoTempo {
         return $this->data;
     }
 
-    function getHora() {
-        return $this->hora;
-    }
-
     function setSucesso($sucesso) {
         $this->sucesso = $sucesso;
     }
@@ -63,39 +63,4 @@ class LinhaDoTempo {
     function setData($data) {
         $this->data = $data;
     }
-
-    function setHora($hora) {
-        $this->hora = $hora;
-    }
-
-    function InserirAcao(String $descricao) {
-        $this->descricao = $descricao;
-        $this->data = date("d/m/y H:i:s");
-        $this->sucesso = TRUE;
-        $this->atualizar();
-    }
-
-    function finalizarHistoria() {
-
-        $this->descricao = "E viveram felizes para sempre";
-        $this->data = date("d/m/y H:i:s");
-        $this->sucesso = TRUE;
-        $this->atualizar();
-    }
-
-    function atualizar() {
-        echo '<li class="collection-item">';
-        echo $this->data;
-        echo ' : ';
-        echo $this->descricao;
-        echo ' : ';
-
-        if ($this->sucesso) {
-            echo 'Sucesso!';
-        } else {
-            echo 'Falhou!   ';
-        }
-        echo '</li>';
-    }
-
 }

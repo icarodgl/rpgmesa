@@ -29,7 +29,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="formulario.php">Partidas</a></li>
-                    <li><a href="formupload.html">Histórias</a></li>
+                    <li><a href="formacao.php">Histórias</a></li>
                 </ul>
             </div>
         </nav>

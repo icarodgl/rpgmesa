@@ -1,4 +1,6 @@
 <?php
+namespace model\Classes\Personagem;
+use model\Classes\Usuario\Usuario;
 /**
  * Personagem
  * 
@@ -15,10 +17,9 @@ class Personagem {
     protected $id;
     
     /**
-     * @ManyToOne(targetEntity="Usuario")
-     * @JoinColumn(name="IdUsuario", referencedColumnName="IdUsuario")
+     * @ManyToOne(targetEntity="Usuario", inversedBy="Personagem")
      */
-    protected $usuario;
+    //protected $usuario;
     
     /**
      * @Column(type="string", name="Nome")

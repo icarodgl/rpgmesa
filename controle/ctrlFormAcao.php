@@ -26,25 +26,48 @@ and open the template in the editor.
     </head>
     <body>
        <?php
-
+require_once '../model/Classes/Acoes/Acao.php';
+require_once '../model/Classes/Acoes/Atacar.php';
+require_once '../model/Classes/Acoes/Interagir.php';
+require_once '../model/Classes/Acoes/TrocarCena.php';
+require_once '../model/FabricaAcao/FabricaAcao.php';
+require_once '../model/Classes/Personagem/Jogador.php';
+require_once '../model/Classes/Personagem/NaoJogador.php';
 require_once '../model/Classes/Usuario/Usuario.php';
+require_once '../model/Classes/LinhaDoTempo/LinhaDoTempo.php';
 require_once '../model/GenericDAO/DaoGenericaImp.php';
 
+use model\Classes\Acoes\FabricaAcao;
+use model\Classes\Personagem\Jogador;
+use model\Classes\Personagem\NaoJogador;
 use model\GenericDAO\DaoGenericaImp as DaoGenericaImp;
-use model\Classes\Usuario\Usuario as Usuario;
 
-$nome = $_POST["nome"];
-$email = $_POST["email"];
-$senha = $_POST["senha"];
-$usuario = new Usuario;
-$dao = new DaoGenericaImp;
-$usuario->setUsername($nome);
-$usuario->setEmail($email);
-$usuario->setDataCadastro(new DateTime("now"));
-$usuario->setSenha($senha);
-$dao->inserir($usuario);
 
-echo 'Usuario salvo: '."<br>Nome: ".$usuario->getUsername() ."<br> ID: ". $usuario->getId() ."<br>Email: ". $usuario->getEmail();
+$dor = $_POST["interador"];
+$gido = $_POST["interagido"];
+$tipoAcao = $_POST["tipocacao"];
+
+$log = new LinhaDoTempo();
+$fabrica = new FabricaAcao();
+$dao = new DaoGenericaImp();
+$per1 = new Jogador();
+$per1->setNome($dor);
+$per2 = new NaoJogador();
+$per2->setNome($gido);
+
+$acao = $fabrica->geraAcao($tipoAcao);
+$act = $acao->gerar($per1, $per2);
+$log->getDescricao($act);
+
+$log->setData(new DateTime("now"));
+$log->setSucesso(rand(0, 1));
+$dao->inserir($log);
+
+$d = $log->getDescricao();
+$t = $log->getData();
+$s = $log->getSucesso();
+echo "$act";
+echo "$d $d : $s";
 ?>
     </body>
 </html>

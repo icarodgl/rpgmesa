@@ -1,5 +1,7 @@
 <?php
 namespace model\Classes\Usuario;
+
+
 /**
  * Usuario
  * 
@@ -33,8 +35,13 @@ class Usuario
      * @Column(type="datetime", name="DataCadastro")
      */
     protected $dataCadastro;
+    /*
+        /**
+     * @OneToMany(targetEntity="Personagem", mappedBy="user")
+     * @var personagem[] An ArrayCollection of personagem objects.
+     **/
+    //protected $personagens = null;
     
-
     
     function getId() {
         return $this->id;

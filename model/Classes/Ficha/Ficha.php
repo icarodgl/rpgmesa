@@ -14,7 +14,7 @@ class Ficha {
      * @ManyToOne(targetEntity="Personagem")
      * @JoinColumn(name="IdPersonagem", referencedColumnName="IdPersonagem")
      */
-    protected $personagem;
+    //protected $personagem;
     /** @Column(type="string", name="Raca") */
     private $raca;
     /** @Column(type="string", name="Classe") */
