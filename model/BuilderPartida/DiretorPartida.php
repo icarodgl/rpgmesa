@@ -6,10 +6,18 @@ class DiretorPartida{
     
     }
     
-    function ConstruirPatidaDeD($jogadores, $mestre, $historia){
+    function ConstruirPatidaDeD($jogadores, $mestre, $historia, $nomeJogo){
         $partida = new Partida();
         
-        $PartidaDedBuilde = new PartidaDedBuilder();
+        $partidaDedBuilder = new PartidaDedBuilder($partida);
+        
+        $partidaDedBuilder->criarPartida($nomeJogo);
+        
+        $partidaDedBuilder->associaJogo($historia);
+        
+        $partidaDedBuilder->associaMestre($mestre);
+        
+        $partidaDedBuilder->associaJogadores($jogadores);
     
     }
 }

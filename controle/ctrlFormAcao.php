@@ -44,9 +44,11 @@ echo "$d $d : $s"; */
 require_once '../bootstrap.php';
 require_once '../model/GenericDAO/DaoGenerica.php';
 require_once '../model/GenericDAO/DaoGenericaImp.php';
+require_once '../model/Classes/LinhaDoTempo/LinhaDoTempo.php';
 
 use model\GenericDAO\DaoGenerica;
 use model\GenericDAO\DaoGenericaImp;
+
 
 $dao = new DaoGenericaImp();
 
@@ -61,6 +63,8 @@ $datastr = date_format($pegadata, 'y-m-d h:m:s');
 $sucesso = rand( 0, 1);
 $sql = "INSERT INTO `linhadotempo` (`IdLinhaDoTempo`, `IdPersonagem`, `IdPartida`, `Sucesso`, `Descricao`, `Data`) 
 VALUES (NULL, '1', '3', '$sucesso', '"."$dor $tipoAcao $gido "."', '$datastr');";
+
+
 
 if ($dao->setQuery($sql)) {
     echo "sucesso!";
