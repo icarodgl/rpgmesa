@@ -1,7 +1,6 @@
 <?php
 namespace model\Classes\Usuario;
 
-
 /**
  * Usuario
  * 

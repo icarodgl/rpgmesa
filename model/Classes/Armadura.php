@@ -1,9 +1,19 @@
 <?php
-
 require_once 'Item.php';
+/**
+ * @Entity
+ */
 class Armadura extends Item{
+    
+    
+    
+    /** @Column(type="integer", name="Defesa") */
     private $defesa;
+   
+    /** @Column(type="integer", name="Agilidade") */
     private $agilidade;
+   
+    /** @Column(type="integer", name="Arcano") */
     private $arcano;
     
     function getDefesa() {
@@ -29,6 +39,4 @@ class Armadura extends Item{
     function setArcano($arcano) {
         $this->arcano = $arcano;
     }
-
-
 }

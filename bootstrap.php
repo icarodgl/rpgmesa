@@ -10,14 +10,14 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 //onde irão ficar as entidades do projeto? Defina o caminho aqui
-$entidades = array("model/Classes");
+$entidades = array("model/Classes", __DIR__ . "/model/Classes/Personagem");
 $isDevMode = true;
 
 // configurações de conexão. Coloque aqui os seus dados
 $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
-    'password' => '123123',
+    'password' => 'root',
     'dbname'   => 'rpgmesaDB',
 );
 

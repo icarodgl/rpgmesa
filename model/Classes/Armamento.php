@@ -1,12 +1,26 @@
 <?php
 
 require_once 'Item.php';
+/**
+ * @Entity
+ */
 class Armamento extends Item{
+    
+    /** @Column(type="integer", name="Dano") */
     private $dano;
+    
+    /** @Column(type="integer", name="Acerto") */
     private $acerto;
+   
+    /** @Column(type="integer", name="Mao") */
     private $mao;
+   
+    /** @Column(type="integer", name="TipoDado") */
     private $tipoDado;
-    private $quantDado;
+   
+    /** @Column(type="integer", name="QuatDado") */
+    private $quatDado;
+    
     
     function getDano() {
         return $this->dano;
@@ -25,7 +39,7 @@ class Armamento extends Item{
     }
 
     function getQuantDado() {
-        return $this->quantDado;
+        return $this->quatDado;
     }
 
     function setDano($dano) {
@@ -45,7 +59,7 @@ class Armamento extends Item{
     }
 
     function setQuantDado($quantDado) {
-        $this->quantDado = $quantDado;
+        $this->quatDado = $quantDado;
     }
 
 

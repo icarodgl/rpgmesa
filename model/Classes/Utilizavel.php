@@ -1,10 +1,18 @@
 <?php
 require_once 'Item.php';
+/**
+ * @Entity
+ */
 class Utilizavel  extends Item{
-    private $tempo;
-    private $dano;
-    private $cargas;
     
+    /** @Column(type="integer", name="Tempo") */
+    private $tempo;
+   
+    /** @Column(type="integer", name="Dano") */
+    private $dano;
+   
+    /** @Column(type="integer", name="Cargas") */
+    private $cargas;
     
     function getTempo() {
         return $this->tempo;

@@ -11,7 +11,7 @@ $isDevMode = false;
 $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
-    'password' => '123123',
+    'password' => 'root',
     'dbname'   => 'rpgmesaDB',
 );
 

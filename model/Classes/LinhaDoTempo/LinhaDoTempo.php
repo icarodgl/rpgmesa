@@ -1,45 +1,53 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of LinhaDoTempo
- *
- * @author icaro
- */
+use model\Classes\Personagem\Personagem;
+//use model\Classes\Partida\Personagem;
 
 /**
  * @Entity
+ * @Table(name="LinhaDoTempo")
  */
 class LinhaDoTempo {
-
+    
     /**
      * @Id @GeneratedValue 
      * @GeneratedValue("AUTO")
-     * @Column(type="integer")
+     * @Column(type="integer", name="IdLinhaDoTempo")
      */
-    private $id;
+    private $IdLinhaDoTempo;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, name="Sucesso")
      */
     private $sucesso;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string", length=200, name="Descricao")
      */
     private $descricao;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="DATETIME", length=20, name="Data")
      */
     private $data;
     
-
+    function getId(){
+        return $this->IdLinhaDoTempo;
+    }
+    
+    /**
+     * @ManyToOne(targetEntity="Personagem")
+     * @JoinColumn(name="IdPersonagem", referencedColumnName="IdPersonagem")
+     */
+    protected $personagem;
+     
+    /**
+     * @ManyToOne(targetEntity="Partida")
+     * @JoinColumn(name="IdPartida", referencedColumnName="IdPartida")
+     */
+    //protected $partida;
+    
     function getSucesso() {
         return $this->sucesso;
     }
@@ -52,6 +60,10 @@ class LinhaDoTempo {
         return $this->data;
     }
 
+    function setId($id) {
+        $this->IdLinhaDoTempo = $id;
+    }
+    
     function setSucesso($sucesso) {
         $this->sucesso = $sucesso;
     }
@@ -62,5 +74,20 @@ class LinhaDoTempo {
 
     function setData($data) {
         $this->data = $data;
+    }
+        function getPersonagem() {
+        return $this->personagem;
+    }
+
+    function getPartida() {
+        return $this->partida;
+    }
+
+    function setPersonagem($personagem) {
+        $this->personagem = $personagem;
+    }
+
+    function setPartida($partida) {
+        $this->partida = $partida;
     }
 }
