@@ -3,9 +3,6 @@ por **Ícaro Duarte Gavazza Lima**
         
 # Sumário
 
-
-#Gerência de Requisitos
-
 ## Motivação e Propósito do Sistema 
 O RPG de mesa foi projetado para auxiliar os jogadores de RPG de mesa a jogarem com seus amigos sem a necessidade de se encontrar em um lugar físico, pois as seções de RPG costumam durar horas e são marcadas com certa frequência tendo problemas com os encontros. O sistema torna o jogo mais fluido e interativo mesmo com a distancia entre os usuários.
 
@@ -17,9 +14,8 @@ O RPG de mesa foi projetado para auxiliar os jogadores de RPG de mesa a jogarem 
 O sistema deve auxiliar os jogadores de RPG jogar partidas online permitindo os jogadores a salvar suas fichas de personagens (nome, descrição, raça , status, ataques), a interação entre os jogadores e o jogo deve ser ditada pelo mestre onde ele decide monstros (que possuem fichas de personagens) e cenários que são imagens disponibilizadas e visualizadas por todos. Ao encontrar um inimigo o mestre permite aos jogadores que façam suas ações que serão validadas por dados jogados por eles. O jogo deve mostrar os cenários já cadastrados a uma história dando a possibilidade do mestre percorre por eles de acordo com as decisões dos jogadores.
 
 ## Requisitos de Usuários
-### Requisitos Funcionais (Histórias de Usuário)
-> POO2
 
+### Requisitos Funcionais (Histórias de Usuário)
 | ID | Categoria| História de Usuário | MosCoW| Estimativa | Real| Pronto?| Sprint|
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | RF01 | none |eu, como **jogador**, gostaria de criar um personagem, para poder **jogar** | Must| 2 | ? | Não | -|
