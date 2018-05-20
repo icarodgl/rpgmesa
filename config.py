@@ -4,6 +4,14 @@ from models import *
 db = SqliteDatabase('banco.db')
 criar_tabelas = True
 
+modelos = [
+            Personagem,
+            Item,
+            Inventario,
+            Npc,
+            Cenario
+            ]
+
 if (criar_tabelas):
     db.connect()
-    db.create_tables([Personagem, Item])
+    db.create_tables(modelos)
