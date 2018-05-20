@@ -1,26 +1,33 @@
-from random import *
+from random import randint
 from models import Npc, Item
-porcentagem = .5
 class NpcControle():
 
     def cria(self, dados):
         classe = ""
-        nome = dados[2]
-        nivel = dados[3]
+        try:
+            nome = dados[1] 
+            nivel = int(dados[2])
+        except:
+            return "Erro, tente: /crianpc Nome Nivel"
 
-        forca = int(randint(1,10)*(nivel*porcentagem))
-        inteligencia = int(randint(1,10)*(nivel*porcentagem))
-        resiliencia = int(randint(1,10)*(nivel*porcentagem)))
-        destreza = int(randint(1,10)*(nivel*porcentagem))
-        agilidade = int(randint(1,10)*(nivel*porcentagem))
-
-
-        personagem = Npc.create(
-            nome=nome,
-            forca=forca,
-            inteligencia=inteligencia,
-            resiliencia=resiliencia,
-            destreza=destreza,
-            agilidade=agilidade
-            )
-        return personagem
+        forca = randint(1,10)*(nivel)
+        inteligencia = randint(1,10)*(nivel)
+        resiliencia = randint(1,10)*(nivel)
+        destreza = randint(1,10)*(nivel)
+        agilidade = randint(1,10)*(nivel)
+        vida=nivel*resiliencia
+        try:
+            npc = Npc.create(
+                nome=nome,
+                vida=vida,
+                nivel=nivel,
+                classe=classe,
+                forca=forca,
+                inteligencia=inteligencia,
+                resiliencia=resiliencia,
+                destreza=destreza,
+                agilidade=agilidade
+                )
+        except:
+            return "Erro ao criar NPC"
+        return  "criado: "+str(npc.nome)+" nivel: "+str(npc.nivel)
