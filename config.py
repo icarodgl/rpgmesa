@@ -9,7 +9,9 @@ modelos = [
             Item,
             Inventario,
             Npc,
-            Cenario
+            Cenario,
+            Objetos,
+            Drop
             ]
 
 if (criar_tabelas):

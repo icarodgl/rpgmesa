@@ -7,6 +7,7 @@ from controle import Controle
 def handle(msg):
     command = msg['text']
     print ('Got command: %s' % command)
+
     controle = Controle(bot)
     controle.comando(msg)
 

@@ -1,15 +1,56 @@
 from models import Personagem
 import random
 class AcaoControle():
-    def interage(self, dados):
-        # 0         1      2
-        #/acao Personagem Ação
+    def roll(self):
+        return "D20: "+str(random.randint(1,20))
+    def dadoAgi(self, dados):
+        personagem = self.getPersonagem(dados[2])
+        if personagem is None:
+            return "Personagem não encontrado"
+        d20 = self.jogaD20(personagem.agilidade)
+        return personagem.nome+" conseguiu "+", ".join(map(str,d20))
+
+    def dadoDex(self, dados):
+
+        personagem = self.getPersonagem(dados[2])
+        if personagem is None:
+            return "Personagem não encontrado"
+        d20 = self.jogaD20(personagem.destreza)
+        return personagem.nome+" conseguiu "+", ".join(map(str,d20))
+
+    def dadoInt(self, dados):
+
+        personagem = self.getPersonagem(dados[2])
+        if personagem is None:
+            return "Personagem não encontrado"
+        d20 = self.jogaD20(personagem.inteligencia)
+        return personagem.nome+" conseguiu "+", ".join(map(str,d20))
+
+    def dadoFor(self, dados):
+
+        personagem = self.getPersonagem(dados[2])
+        if personagem is None:
+            return "Personagem não encontrado"
+        d20 = self.jogaD20(personagem.forca)
+        return personagem.nome+" conseguiu "+", ".join(map(str,d20))
+
+    def dadoRes(self, dados):
+
+        personagem = self.getPersonagem(dados[2])
+        if personagem is None:
+            return "Personagem não encontrado"
+        d20 = self.jogaD20(personagem.resiliencia)
+        return personagem.nome+" conseguiu "+", ".join(map(str,d20))
+
+    def getPersonagem(self, nome):
         try:
-            personagem = Personagem.get(Personagem.nome == dados[1])
+            return Personagem.get(Personagem.nome == nome)
         except :
-            return "Personagem não existe, tente: /acao Personagem Ação" 
+            return None
+
+    def jogaD20(self,quantidade):
         d20 = []
-        for i in personagem.agilidade():
+        for i in range(quantidade):
             d20.append(random.randint(1,20))
-        print(personagem.nome+" conseguiu "+" ".join(map(str,d20)))
-        return personagem.nome+" conseguiu "+" ".join(map(str,d20))
+        return d20
+        
