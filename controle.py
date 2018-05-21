@@ -21,7 +21,7 @@ class Controle(object):
         dados = self.command.split()
         comando = self.command.split()[0]
         dados =dados[1:]
-        dados.insert(0,msg['from']['first_name'])
+        dados.insert(0,msg['from']['first_name']+" "+msg['from']["last_name"])
         if "/criapersonagem" in self.command:
             #/criapersonagem Nome Classe
             self.objeto = PersonagemControle()
@@ -66,7 +66,7 @@ class Controle(object):
             #/roll Atributo personagem
             self.objeto = AcaoControle()
             self.d20Acao(dados)
-        elif comando in ["/interage","/interagir","/cao","/ação"]:
+        elif comando in ["/interage","/interagir","/ação"]:
             # 0         1           2       3
             #/interagir Personagem Objeto Ação
             self.objeto = ObjetosControle()

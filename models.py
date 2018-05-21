@@ -1,8 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField, SqliteDatabase
-db = SqliteDatabase('banco.db')
-
+from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField, SqliteDatabase, PostgresqlDatabase
+#db = SqliteDatabase('banco.db')
+db = PostgresqlDatabase(
+    'pfjbzmar',  # Required by Peewee.
+    user='pfjbzmar',  # Will be passed directly to psycopg2.
+    password='e3vvH5pZZH_rdqfIBj7NFrW4hnS7n31C',  # Ditto.
+    host='tantor.db.elephantsql.com')  # Ditto.
 '''
 Itens dos personagens
 '''

@@ -34,9 +34,10 @@ class ObjetosControle():
             return "Personagem"+erro
         d20 = random.randint(1,20)
         frase = ""
-        if d20 >= objeto.dificuldade:
+        if d20 > objeto.dificuldade:
             frase =  personagem.nome+" "+" ".join(dados[2:len(dados)-1])+" "+objeto.nome+" com sucesso! ("+str(d20)+"/"+str(objeto.dificuldade)+")"
-        frase =  personagem.nome+" Não "+" ".join(dados[2:len(dados)-1])+" "+objeto.nome+" ("+str(d20)+"/"+str(objeto.dificuldade)+")"
+        else:
+            frase =  personagem.nome+" Nao "+" ".join(dados[2:len(dados)-1])+" "+objeto.nome+" ("+str(d20)+"/"+str(objeto.dificuldade)+")"
         objeto.delete_instance()
         return frase
     def listaObjetos(self):
