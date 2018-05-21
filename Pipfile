@@ -1,23 +1,11 @@
 [[source]]
-url = "https://pypi.python.org/simple"
+url = "https://pypi.org/simple"
 verify_ssl = true
+name = "pypi"
+
+[dev-packages]
 
 [packages]
-astroid = "*"
-backports.functools-lru-cache = "*"
-configparser = "*"
-enum34 = "*"
-futures = "*"
-isort = "*"
-lazy-object-proxy = "*"
-mccabe = "*"
-peewee = "*"
-pylint = "*"
-singledispatch = "*"
-six = "*"
-telepot = "*"
-urllib3 = "*"
-wrapt = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.5"
