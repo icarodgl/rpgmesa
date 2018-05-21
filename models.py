@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField, SqliteDatabase
 db = SqliteDatabase('banco.db')
 
@@ -40,6 +42,8 @@ class Personagem(Model):
 '''
 inventario dos personagens
 '''
+
+
 class Inventario(Model):
     item = ForeignKeyField(Item)
     personagem = ForeignKeyField(Personagem)
@@ -63,7 +67,7 @@ class Npc(Model):
         database = db
 
 '''
-tudo que está no chão
+tudo que esta no chao
 '''
 class Drop(Model):
     item = ForeignKeyField(Item)

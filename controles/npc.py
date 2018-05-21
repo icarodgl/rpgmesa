@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from random import randint
 from models import Npc, Item
 class NpcControle():

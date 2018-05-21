@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from models import Drop, Personagem, Item, Inventario
 import peewee
 class DropControle ():

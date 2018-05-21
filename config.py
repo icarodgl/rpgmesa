@@ -1,6 +1,8 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from peewee import *
 from models import *
-## configurações do banco
+## configura do banco
 db = SqliteDatabase('banco.db')
 criar_tabelas = True
 

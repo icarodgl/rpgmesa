@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from controles.personagem import PersonagemControle
 from controles.npc import NpcControle
 from controles.ataque import ataqueControle

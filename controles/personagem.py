@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from random import *
 from models import Personagem, Item, Inventario, Drop
 class PersonagemControle():
