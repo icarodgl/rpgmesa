@@ -5,6 +5,9 @@ import telepot
 from telepot.loop import MessageLoop
 import config
 from controle import Controle
+from boto.s3.connection import S3Connection
+s3 = S3Connection(os.environ['KEY_BOT'], os.environ['BD_RPGMESA'])
+
 
 #from flask import Flask, request
 #from flask_restful import Resource, Api
