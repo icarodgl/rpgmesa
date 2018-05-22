@@ -31,7 +31,7 @@ def handle(msg):
 
 #api.add_resource(Ligar, '/')
 if __name__ == '__main__':
-    bot = telepot.Bot('533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8')
+    bot = telepot.Bot('KEY_BOT')
     MessageLoop(bot, handle).run_as_thread()
     print ('I am listening ...')
     while 1:
