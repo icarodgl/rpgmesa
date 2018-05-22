@@ -5,7 +5,7 @@ from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField, S
 db = PostgresqlDatabase(
     'pfjbzmar',  # Required by Peewee.
     user='pfjbzmar',  # Will be passed directly to psycopg2.
-    password='e3vvH5pZZH_rdqfIBj7NFrW4hnS7n31C',  # Ditto.
+    password='BD_RPGMESA',  # Ditto.
     host='tantor.db.elephantsql.com')  # Ditto.
 '''
 Itens dos personagens
