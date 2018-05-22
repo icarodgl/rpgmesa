@@ -5,8 +5,7 @@ import telepot
 from telepot.loop import MessageLoop
 import config
 from controle import Controle
-from boto.s3.connection import S3Connection
-s3 = S3Connection(os.environ['KEY_BOT'], os.environ['BD_RPGMESA'])
+import os 
 
 
 #from flask import Flask, request
@@ -34,7 +33,7 @@ def handle(msg):
 
 #api.add_resource(Ligar, '/')
 if __name__ == '__main__':
-    bot = telepot.Bot('KEY_BOT')
+    bot = telepot.Bot(os.environ.get('KEY_BOT'))
     MessageLoop(bot, handle).run_as_thread()
     print ('I am listening ...')
     while 1:

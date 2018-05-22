@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 from peewee import *
 from models import *
+import os 
 ## configura do banco
 #db = SqliteDatabase('banco.db')
 db = PostgresqlDatabase(
     'pfjbzmar',  # Required by Peewee.
     user='pfjbzmar',  # Will be passed directly to psycopg2.
-    password='e3vvH5pZZH_rdqfIBj7NFrW4hnS7n31C',  # Ditto.
+    password= os.environ.get('BD_RPGMESA'),  # Ditto.
     host='tantor.db.elephantsql.com')  # Ditto.
 criar_tabelas = True
 
