@@ -11,9 +11,15 @@ class PersonagemControle():
     @staticmethod
     def equipamentos(dados):
         usuario = dados[0]
-        person = Personagem.get(Personagem.usuario == usuario)
-        lista = [Item.get_by_id(person.cabeca), Item.get_by_id(person.bra_dir), Item.get_by_id(person.bra_esq),
+        try:
+            person = Personagem.get(Personagem.usuario == usuario)
+        except:
+            return "Você não possui personagem cadastrado :disappointed:"
+        try:
+            lista = [Item.get_by_id(person.cabeca), Item.get_by_id(person.bra_dir), Item.get_by_id(person.bra_esq),
                  Item.get_by_id(person.peito), Item.get_by_id(person.perna), Item.get_by_id(person.sapato)]
+        except:
+            return "Erro ao listar seus itens :disappointed:"
         frase = "Equipamentos: \n"
         nomes = ["cabeça", "direita", "esquerda", "peito", "calça", "sapato"]
         for i in range(len(lista)):

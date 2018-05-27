@@ -41,7 +41,7 @@ class Controle(object):
             # /equipar objeto slot
             self.objeto = PersonagemControle()
             self.equipar(dados)
-        elif comando in ["/equips", "/equipamento", "/eqp", "/itens"]:
+        elif comando in ["/equips", "/equipamentos", "/eqp", "/itens"]:
             # /equipamentos Nome
             self.objeto = PersonagemControle()
             self.equipamentos(dados)
