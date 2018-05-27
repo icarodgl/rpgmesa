@@ -246,17 +246,14 @@ class PersonagemControle():
                 inventario.item = segura
                 inventario.personagem = pe
                 try:
-                    (Inventario
-                     .delete()
-                     .where(
-                        (Personagem.id == pe.id) &
-                        (Item.id == i.id)).execute())
-                except:
-                    return "Erro ao deletar item"
-                try:
                     pe.save({mod: i})
+
+                except:
+                    return "Erro ao equipar itens "
+                try:
+
                     Inventario.create({Personagem.id: pe.id, Item.id: segura.nome}).execute()
                 except:
-                    pass
+                    return "Erro ao voltar item para inventario "
                 return "%s equipado!" % i.nome
         return "Você não possui %s em seu inventario" % dado[1]
