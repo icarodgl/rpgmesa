@@ -186,12 +186,16 @@ class PersonagemControle():
         saco = []
         inventario = Inventario
         try:
-            pe = Personagem.get(Personagem.usuario == dado[0])
-
             equipamento = dado[1]
             posicao = dado[-1]
         except:
-            return "%s não possui personagem cadastrado" % (dado[0])
+            return "Erro, tente:\n /equipar item posição: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda"
+        try:
+            pe = Personagem.get(Personagem.usuario == dado[0])
+
+        except:
+            return "%s não possui personagem cadastrado :kissing_heart:" % (dado[0])
+
         try:
             query = (Item
                      .select()

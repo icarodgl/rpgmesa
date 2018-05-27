@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="26e910b7-f847-40fc-b997-7c1254247d87" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/controle.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controles/personagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/personagem.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personagem.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="personagem.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controles/personagem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="233" column="64" selection-start-line="233" selection-start-column="64" selection-end-line="233" selection-end-column="64" />
+            <state relative-caret-position="288">
+              <caret line="191" column="34" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="34" />
               <folding>
                 <element signature="e#42#62#0" expanded="true" />
               </folding>
@@ -43,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controle.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="117" column="34" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
+            <state relative-caret-position="188">
+              <caret line="141" column="12" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="12" />
               <folding>
                 <element signature="e#42#93#0" expanded="true" />
               </folding>
@@ -72,6 +73,7 @@
       <find>addatributo</find>
       <find>IntegrityError</find>
       <find>equi</find>
+      <find>equipar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,8 +95,8 @@
         <option value="$PROJECT_DIR$/webrun.py" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/controles/mestre.py" />
-        <option value="$PROJECT_DIR$/controles/personagem.py" />
         <option value="$PROJECT_DIR$/controle.py" />
+        <option value="$PROJECT_DIR$/controles/personagem.py" />
       </list>
     </option>
   </component>
@@ -380,16 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controles/personagem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="233" column="64" selection-start-line="233" selection-start-column="64" selection-end-line="233" selection-end-column="64" />
-          <folding>
-            <element signature="e#42#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controles/mestre.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -402,10 +394,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="117" column="34" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
+        <state relative-caret-position="188">
+          <caret line="141" column="12" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="12" />
           <folding>
             <element signature="e#42#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controles/personagem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="191" column="34" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="34" />
+          <folding>
+            <element signature="e#42#62#0" expanded="true" />
           </folding>
         </state>
       </provider>

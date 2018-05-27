@@ -115,7 +115,7 @@ class Controle(object):
             self.objeto = MestreControle()
             self.addmestre(dados)
         else:
-            ret = "comando não '%s' existe :scream:" % comando
+            ret = "comando '%s' não existe :scream:" % comando
             self.retorna(ret)
 
 
