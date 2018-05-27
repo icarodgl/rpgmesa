@@ -246,14 +246,12 @@ class PersonagemControle():
                 inventario.item = segura
                 inventario.personagem = pe
                 try:
-                    pe.save({mod: i})
-
+                    pe.save()
                 except:
-                    return "Erro ao equipar itens "
+                    return "Erro ao equipar itens :mask:"
                 try:
-
-                    Inventario.create({Personagem.id: pe.id, Item.id: segura.nome}).execute()
+                    Inventario.create(inventario).execute()
                 except:
-                    return "Erro ao voltar item para inventario "
+                    return "Erro ao voltar item para inventario :mask: "
                 return "%s equipado!" % i.nome
         return "Você não possui %s em seu inventario" % dado[1]

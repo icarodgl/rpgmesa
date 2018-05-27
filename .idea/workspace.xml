@@ -22,8 +22,8 @@
       <file leaf-file-name="personagem.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controles/personagem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="257" column="46" lean-forward="true" selection-start-line="257" selection-start-column="46" selection-end-line="257" selection-end-column="46" />
+            <state relative-caret-position="197">
+              <caret line="248" column="29" lean-forward="true" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
               <folding>
                 <element signature="e#42#62#0" expanded="true" />
               </folding>
@@ -218,7 +218,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297491" />
       <window_info anchor="bottom" id="Python Console" sideWeight="0.49919093" weight="0.3255814" />
       <window_info id="Structure" order="1" sideWeight="0.50132626" side_tool="true" weight="0.14805825" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5008091" side_tool="true" type="SLIDING" weight="0.42039356" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5008091" side_tool="true" type="SLIDING" weight="0.32021466" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" sideWeight="0.50132626" side_tool="true" weight="0.14805825" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -380,8 +380,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controles/personagem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="257" column="46" lean-forward="true" selection-start-line="257" selection-start-column="46" selection-end-line="257" selection-end-column="46" />
+        <state relative-caret-position="197">
+          <caret line="248" column="29" lean-forward="true" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
           <folding>
             <element signature="e#42#62#0" expanded="true" />
           </folding>
