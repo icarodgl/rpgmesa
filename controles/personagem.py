@@ -85,7 +85,7 @@ class PersonagemControle():
 
     def levelup(self, dados):
         if not MestreControle.mestre(dados[0]):
-            return "Você não é mestre"
+            return "Você não é mestre :kissing_heart:"
         try:
             personagem = Personagem.get(Personagem.nome == dados[1])  # type: Personagem
         except:
@@ -100,7 +100,7 @@ class PersonagemControle():
     def darPontos(self, dados):
         # /doar personagem quantidade
         if not MestreControle.mestre(dados[0]):
-            return "Você não é mestre"
+            return "Você não é mestre :kissing_heart:"
         try:
             quantidade = int(dados[2])
         except:
@@ -187,14 +187,14 @@ class PersonagemControle():
         inventario = Inventario
         try:
             equipamento = dado[1]
-            posicao = dado[-1]
+            posicao = dado[2]
+            usuario = dado [0]
         except:
             return "Erro, tente:\n /equipar item posição: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda"
         try:
-            pe = Personagem.get(Personagem.usuario == dado[0])
-
+            pe = Personagem.get(Personagem.usuario == usuario)
         except:
-            return "%s não possui personagem cadastrado :kissing_heart:" % (dado[0])
+            return "%s não possui personagem cadastrado :kissing_heart:" % usuario
 
         try:
             query = (Item
@@ -207,30 +207,30 @@ class PersonagemControle():
         except:
             return "Erro ao listar itens"
         for i in saco:
-            if dado[1] == i.nome:
+            if equipamento == i.nome:
                 segura = Item
                 mod = ""
-                if dado[-1] in ["cabeça", "cabeca", "top", "capacete", "elmo","1"]:
+                if posicao in ["cabeça", "cabeca", "top", "capacete", "elmo","1"]:
                     segura = pe.cabeca
                     mod = "cabeca"
                     pe.cabeca = i
-                elif dado[-1] in ["calça", "perna", "calca","5"]:
+                elif posicao in ["calça", "perna", "calca","5"]:
                     segura = pe.perna
                     mod = "perna"
                     pe.perna = i
-                elif dado[-1] in ["peito", "armadura","4"]:
+                elif posicao in ["peito", "armadura","4"]:
                     segura = pe.peito
                     mod = "peito"
                     pe.peito = i
-                elif dado[-1] in ["pe", "sapato", "foot", "pé","6"]:
+                elif posicao in ["pe", "sapato", "foot", "pé","6"]:
                     segura = pe.sapato
                     mod = "sapato"
                     pe.sapato = i
-                elif dado[-1] in ["direito", "direita", "mão_direita", "mao_direita", "braço_direito","2"]:
+                elif posicao in ["direito", "direita", "mão_direita", "mao_direita", "braço_direito","2"]:
                     segura = pe.bra_dir
                     mod = "bra_dir"
                     pe.bra_dir = i
-                elif dado[-1] in ["esquerda", "esquerdo", "mao_esquerda", "braço_esquerdo", "mão_esquerda","3"]:
+                elif posicao in ["esquerda", "esquerdo", "mao_esquerda", "braço_esquerdo", "mão_esquerda","3"]:
                     segura = pe.bra_esq
                     mod = "bra_esq"
                     pe.bra_esq = i

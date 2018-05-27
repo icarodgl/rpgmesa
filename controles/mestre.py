@@ -8,7 +8,7 @@ class MestreControle:
 
     def killall(self,dado):
         if not self.mestre(dado):
-            return "Você não é mestre"
+            return "Você não é mestre :kissing_heart:"
         try:
             npcs = Npc.select()  # type: list
             for n in npcs:  # type: Npc
