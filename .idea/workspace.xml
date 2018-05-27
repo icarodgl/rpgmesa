@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26e910b7-f847-40fc-b997-7c1254247d87" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/controles/mestre.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/mestre.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controles/personagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/personagem.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,13 +20,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mestre.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mestre.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controles/mestre.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="320">
               <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
               <folding>
                 <element signature="e#42#72#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="personagem.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controles/personagem.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="233" column="64" selection-start-line="233" selection-start-column="64" selection-end-line="233" selection-end-column="64" />
+              <folding>
+                <element signature="e#42#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controle.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controle.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
+              <folding>
+                <element signature="e#42#93#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,6 +72,7 @@
       <find>itens</find>
       <find>addatributo</find>
       <find>IntegrityError</find>
+      <find>equi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -55,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/controle.py" />
         <option value="$PROJECT_DIR$/controles/npc.py" />
         <option value="$PROJECT_DIR$/controles/drop.py" />
         <option value="$PROJECT_DIR$/controles/objetos.py" />
@@ -65,11 +90,12 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/banco.py" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/controles/personagem.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/webrun.py" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/controles/mestre.py" />
+        <option value="$PROJECT_DIR$/controle.py" />
+        <option value="$PROJECT_DIR$/controles/personagem.py" />
       </list>
     </option>
   </component>
@@ -206,7 +232,7 @@
     <frame x="-8" y="-8" width="1296" height="696" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49867374" visible="true" weight="0.14805825" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49867374" visible="true" weight="0.14805825" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297491" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -237,16 +263,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
-          <folding>
-            <element signature="e#42#93#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -331,16 +347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controles/personagem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-          <folding>
-            <element signature="e#42#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -377,10 +383,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controles/mestre.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="320">
           <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
           <folding>
             <element signature="e#42#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="117" column="52" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
+          <folding>
+            <element signature="e#42#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controles/personagem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="233" column="64" selection-start-line="233" selection-start-column="64" selection-end-line="233" selection-end-column="64" />
+          <folding>
+            <element signature="e#42#62#0" expanded="true" />
           </folding>
         </state>
       </provider>

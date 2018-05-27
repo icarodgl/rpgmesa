@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from random import *
-from models import Personagem, Item, Inventario, Drop
+from models import Personagem, Item, Inventario
 from peewee import *
 from controles.mestre import MestreControle
 
@@ -81,7 +81,7 @@ class PersonagemControle():
         personagem.vida = personagem.vidamax
         personagem.save()
         return "%s Vida: [%d / %d ] :heart:" % (
-            personagem.nome, personagem.nivel, personagem.pontos)
+            personagem.nome, personagem.vida, personagem.vidamax)
 
     def levelup(self, dados):
         if not MestreControle.mestre(dados[0]):
@@ -206,32 +206,32 @@ class PersonagemControle():
             if dado[1] == i.nome:
                 segura = Item
                 mod = ""
-                if dado[-1] in ["cabeça", "cabeca", "top", "capacete", "elmo"]:
+                if dado[-1] in ["cabeça", "cabeca", "top", "capacete", "elmo","1"]:
                     segura = pe.cabeca
                     mod = "cabeca"
                     pe.cabeca = i
-                elif dado[-1] in ["calça", "perna", "calca"]:
+                elif dado[-1] in ["calça", "perna", "calca","5"]:
                     segura = pe.perna
                     mod = "perna"
                     pe.perna = i
-                elif dado[-1] in ["peito", "armadura", ""]:
+                elif dado[-1] in ["peito", "armadura","4"]:
                     segura = pe.peito
                     mod = "peito"
                     pe.peito = i
-                elif dado[-1] in ["pe", "sapato", "foot"]:
+                elif dado[-1] in ["pe", "sapato", "foot", "pé","6"]:
                     segura = pe.sapato
                     mod = "sapato"
                     pe.sapato = i
-                elif dado[-1] in ["direito", "direita", "dir", "mao_direita", "braço_direito"]:
+                elif dado[-1] in ["direito", "direita", "mão_direita", "mao_direita", "braço_direito","2"]:
                     segura = pe.bra_dir
                     mod = "bra_dir"
                     pe.bra_dir = i
-                elif dado[-1] in ["esquerda", "esquerdo", "esq", "braço_esquerdo", "mao_esquerda"]:
+                elif dado[-1] in ["esquerda", "esquerdo", "mao_esquerda", "braço_esquerdo", "mão_esquerda","3"]:
                     segura = pe.bra_esq
                     mod = "bra_esq"
                     pe.bra_esq = i
                 else:
-                    return "Escolha uma posição para colocar %s " % (dado[1])
+                    return "Escolha uma posição para colocar %s: \n cabeça\n  perna\n peito\n direita \n esquerda" % (dado[1])
 
                 inventario.item = segura
                 inventario.personagem = pe

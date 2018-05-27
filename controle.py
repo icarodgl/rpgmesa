@@ -90,7 +90,7 @@ class Controle(object):
         elif comando in ["/dropar", "/criaitem", "/drop"]:
             self.objeto = DropControle()
             self.criaDrop(dados)
-        elif comando in ["/pega", "/cat", "/cata"]:
+        elif comando in ["/pega", "/cat", "/pegar"]:
             self.objeto = DropControle()
             self.pegaDrop(dados)
         elif comando in ["/limpaDrop", "/decompor"]:
@@ -114,6 +114,9 @@ class Controle(object):
         elif comando in ["/deixarmestre"]:
             self.objeto = MestreControle()
             self.addmestre(dados)
+        else:
+            self.retorna("comando não existe :scream:")
+
 
     def addmestre(self, dados):
         ret = self.objeto.addMestre(dados)
