@@ -1,8 +1,22 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from models import Mestre
+from peewee import ModelSelect
 
+from models import Mestre, Npc
+import peewee
 class MestreControle:
+
+    def killall(self,dado):
+        if not self.mestre(dado):
+            return "Você não é mestre"
+        try:
+            npcs = Npc.select()  # type: list
+            for n in npcs:  # type: Npc
+                n.delete_instance()
+        except:
+            print(peewee.IntegrityError)
+            return "erro"
+
     def addMestre(self,dado):
         try:
             mestre = dado[0]
