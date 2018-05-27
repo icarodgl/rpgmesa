@@ -1,9 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from models import Objetos, Personagem
+from controles.mestre import MestreControle
 import random
 class ObjetosControle():
     def cria(self,dados):
+        if not MestreControle.mestre(dados[0]):
+            return "Você não é mestre"
+
         try:
             nome = dados[1] 
             dificuldade = int(dados[2])
@@ -22,37 +26,40 @@ class ObjetosControle():
 
     def interage(self, dados):
         # 0         1           1:len(dados-2)       :len(dados-1)
-        #/interagir Personagem ação objeto
+        #/interagir ação objeto
         erro = " não existe, tente: /interagir Personagem Ação Objeto"
-        try:
-            objeto = Objetos.get(Objetos.nome == dados[len(dados)-1:])
-        except :
+        try :
+            objeto = Objetos.get(Objetos.nome == dados[-1])
+        except  :
             return "Objeto"+erro
         try:
-            personagem = Personagem.get(Personagem.nome == dados[1])
-        except :
+            personagem = Personagem.get(Personagem.usuario == dados[0])
+        except  :
             return "Personagem"+erro
         d20 = random.randint(1,20)
         frase = ""
         if d20 > objeto.dificuldade:
-            frase =  personagem.nome+" "+" ".join(dados[2:len(dados)-1])+" "+objeto.nome+" com sucesso! ("+str(d20)+"/"+str(objeto.dificuldade)+")"
-        else:
-            frase =  personagem.nome+" Nao "+" ".join(dados[2:len(dados)-1])+" "+objeto.nome+" ("+str(d20)+"/"+str(objeto.dificuldade)+")"
+            frase =  "%s %s %s" %(personagem.nome, dados[1:-2], objeto.nome)
+        else :
+            frase =  "%s não %s %s" %(personagem.nome, dados[1:-2], objeto.nome)
         objeto.delete_instance()
         return frase
+
     def listaObjetos(self):
         try:
             objetos = Objetos.select()
-        except:
+        except :
             return "erro ao listar objetos"
-        frase = "Objetos:" 
+        frase = "Objetos: [Dificuldade] \'descrição\' \n" 
         for o in objetos:
-            frase += " "+o.nome+"("+str(o.dificuldade)+")"
+            frase += "- %s : [%d/20] \'%s\'\n" %(o.nome,o.dificuldade, o.descricao)
         return frase
-    def limpaObjetos(self):
+
+    def limpaObjetos(self, dados):
+
         try:
             objetos = Objetos.select()
-        except:
+        except :
             return "erro ao listar objetos"
         for o in objetos:
             o.delete_instance()

@@ -1,9 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from models import Drop, Personagem, Item, Inventario
+from controles.mestre import MestreControle
 import peewee
 class DropControle ():
     def criaDrop(self,dado):
+        if not MestreControle.mestre(dado[0]):
+            return "Você não é mestre"
+
         #/drop item ataque defesa
         try:
             nome = dado[1]
@@ -29,30 +33,32 @@ class DropControle ():
             return "Erro ao dropar"
         return item.nome+" Atk: "+str(item.ataque)+" Def: "+str(item.defesa)
     def pegaDrop(self,dado):
-        #/pega personagem Item
-        if len(dado) < 2:
-            return "Erro, tente: /pega personagem Item"
-        
+        #/pega Item
+              
         pego = None
         drops = []
         drop = any 
+        try:
+            item = dado[1]
+        except :
+            return "Esqueceu o item a ser pego"
         try:
             drops = Drop.select(Drop, Item).join(Item)
         except:
             return "erro ao listar Drops"
         if len(drops)>0:
             for i in drops:
-                if i.item.nome == dado[2]:
+                if i.item.nome == item:
                     pego = i.item
                     drop = i
             if pego is None:
-                return "item não está no drop: "+dado[2]
+                return "%s não está no drop." %(item)
         else:
             return "não tem drop"
         try:
-            per = Personagem.get(Personagem.nome == dado[1])
+            per = Personagem.get(Personagem.usuario == dado[0])
         except:
-            return "Personagem não encontrado"
+            return "%s não possui um personagem"%(dado[0])
         
         try:
             inv = Inventario()
@@ -61,10 +67,9 @@ class DropControle ():
             personagem = per
             )
         except:
-            return "erro ao criar inventario"
+            return "Erro ao pegar item :("
         drop.delete_instance()
-        return per.nome+" Pegou "+pego.nome
-
+        return "%s pegou %s [ATK: %d / DEF: %d ] do drop" %(per.nome,pego.nome,pego.ataque, pego.defesa )
     def limpaDrop(self):
         try:
             objetos = Drop.select()
@@ -78,8 +83,8 @@ class DropControle ():
             drops = Drop.select()
         except:
             return "erro ao listar Drops"
-        frase = "Drops:" 
+        frase = "Drops:\n" 
         for d in drops:
             item = d.item
-            frase += " "+item.nome+"(Atk: "+str(item.ataque)+" /Def: "+str(item.defesa)+")"
+            frase += " - %s [ATK: %d / DEF: %d ]\n"%(item.nome,item.ataque,item.defesa)
         return frase
