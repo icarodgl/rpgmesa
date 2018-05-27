@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26e910b7-f847-40fc-b997-7c1254247d87" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/banco.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controles/mestre.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rpgmesa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rpgmesa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controle.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/acao.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/acao.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/ataque.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/ataque.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/cenario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/cenario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/drop.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/drop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/npc.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/npc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/objetos.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/objetos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controles/personagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/personagem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,7 +23,19 @@
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="411">
-              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+              <caret line="36" column="75" lean-forward="true" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
+              <folding>
+                <element signature="e#42#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -226,7 +222,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297491" />
       <window_info anchor="bottom" id="Python Console" sideWeight="0.49919093" weight="0.3255814" />
       <window_info id="Structure" order="1" sideWeight="0.50132626" side_tool="true" weight="0.14805825" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5008091" side_tool="true" type="SLIDING" weight="0.22898032" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5008091" side_tool="true" type="SLIDING" weight="0.42039356" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" sideWeight="0.50132626" side_tool="true" weight="0.14805825" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -345,16 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#42#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controles/personagem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -372,10 +358,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <caret line="36" column="75" lean-forward="true" selection-start-line="36" selection-start-column="75" selection-end-line="36" selection-end-column="75" />
+          <folding>
+            <element signature="e#42#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
