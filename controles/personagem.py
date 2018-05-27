@@ -235,7 +235,7 @@ class PersonagemControle():
                     mod = "bra_esq"
                     pe.bra_esq = i
                 else:
-                    return "Escolha uma posição para colocar %s: \n cabeça\n  perna\n peito\n direita \n esquerda" % (dado[1])
+                    return "Escolha uma posição para colocar %s: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda" % (dado[1])
 
                 inventario.item = segura
                 inventario.personagem = pe
@@ -253,4 +253,4 @@ class PersonagemControle():
                 except:
                     pass
                 return "%s equipado!" % i.nome
-        return "Você não possui %s em seu inventario" % dado
+        return "Você não possui %s em seu inventario" % dado[1]

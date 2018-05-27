@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26e910b7-f847-40fc-b997-7c1254247d87" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/controle.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controles/personagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/controles/personagem.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -35,8 +34,8 @@
       <file leaf-file-name="personagem.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controles/personagem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="191" column="34" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="34" />
+            <state relative-caret-position="277">
+              <caret line="242" column="31" lean-forward="true" selection-start-line="242" selection-start-column="31" selection-end-line="242" selection-end-column="31" />
               <folding>
                 <element signature="e#42#62#0" expanded="true" />
               </folding>
@@ -404,8 +403,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controles/personagem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="191" column="34" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="34" />
+        <state relative-caret-position="277">
+          <caret line="242" column="31" lean-forward="true" selection-start-line="242" selection-start-column="31" selection-end-line="242" selection-end-column="31" />
           <folding>
             <element signature="e#42#62#0" expanded="true" />
           </folding>
