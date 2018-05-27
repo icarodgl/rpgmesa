@@ -23,14 +23,14 @@ import os
 
 def handle(msg):
     command = emojize(msg['text'], use_aliases=True)
-    print ('Got command: %s' % command )
+    print('Got command: %s' % command )
     controle = Controle(bot)
     controle.comando(msg)
 
 if __name__ == '__main__':
     bot = telepot.Bot(os.environ.get('KEY_BOT'))
     MessageLoop(bot, handle).run_as_thread()
-    print ('I am listening ...')
+    print('I am listening ...')
     while 1:
         time.sleep(10)
 
