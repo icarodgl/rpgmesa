@@ -250,7 +250,7 @@ class PersonagemControle():
                 except:
                     return "Erro ao equipar itens :mask:"
                 try:
-                    inventario.save().
+                    inventario.save()
                 except:
                     return "Erro ao voltar item para inventario :mask: "
                 return "%s equipado!" % i.nome
