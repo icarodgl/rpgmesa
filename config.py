@@ -1,27 +1,24 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from peewee import *
-from models import *
-import os 
-## configura do banco
-#db = SqliteDatabase('banco.db')
-db = PostgresqlDatabase(
-    'pfjbzmar',  # Required by Peewee.
-    user='pfjbzmar',  # Will be passed directly to psycopg2.
-    password= os.environ.get('BD_RPGMESA'),  # Ditto.
-    host='tantor.db.elephantsql.com')  # Ditto.
-criar_tabelas = True
+
+from models import Personagem, Inventario, Item, Npc, Cenario, Objetos, Drop, Mestre
+from banco import BancoConfig
 
 modelos = [
-            Personagem,
-            Item,
-            Inventario,
-            Npc,
-            Cenario,
-            Objetos,
-            Drop
-            ]
+    Personagem,
+    Item,
+    Inventario,
+    Npc,
+    Cenario,
+    Objetos,
+    Drop,
+    Mestre
+]
 
-if (criar_tabelas):
+if False:  # true para criar banco
+    db = BancoConfig.banco()
     db.connect()
+    if False:  # True para Limpar banco
+        db.drop_tables(modelos)
     db.create_tables(modelos)
+    db.close()

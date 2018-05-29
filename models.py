@@ -1,32 +1,46 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField, SqliteDatabase, PostgresqlDatabase
-import os 
-#db = SqliteDatabase('banco.db')
-db = PostgresqlDatabase(
-    'pfjbzmar',  # Required by Peewee.
-    user='pfjbzmar',  # Will be passed directly to psycopg2.
-    password= os.environ.get('BD_RPGMESA'),  # Ditto.
-    host='tantor.db.elephantsql.com')  # Ditto.
+from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField
+from banco import BancoConfig
+
+db = BancoConfig.banco()
+
+'''
+ModeloBase das classes
+'''
+
+
+class ModeloBase(Model):
+    def __str__(self):
+        return str(self)
+
+    class Meta:
+        database = db
+
 '''
 Itens dos personagens
 '''
-class Item(Model):
+class Item(ModeloBase):
     nome = CharField()
     ataque = IntegerField(default=0)
     defesa = IntegerField(default=0)
-    class Meta:
-        database = db
+
+
+class Mestre(ModeloBase):
+    usuario = CharField(null=True)
+
 '''
 personagens
 '''
-class Personagem(Model):
+class Personagem(ModeloBase):
     #dono do personagem
     usuario = CharField(null=True)
     #personagem
     nome = CharField()
     classe = CharField()
     nivel = IntegerField(default=1)
+    vidamax = IntegerField(default=50)
+    pontos = IntegerField(default=0)
     vida= IntegerField(default=10)
     #atributos
     forca = IntegerField()
@@ -36,31 +50,30 @@ class Personagem(Model):
     agilidade = IntegerField()
 
     #itens
-    cabeca = ForeignKeyField(Item,null=True)
-    bra_dir = ForeignKeyField(Item,null=True)
-    bra_esq = ForeignKeyField(Item,null=True)
-    perna = ForeignKeyField(Item,null=True)
-    peito = ForeignKeyField(Item,null=True)
-    sapato = ForeignKeyField(Item,null=True)
-    class Meta:
-        database = db
+    cabeca = ForeignKeyField(Item,null=True,backref="cabeca")
+    bra_dir = ForeignKeyField(Item,null=True,backref="bra_dir")
+    bra_esq = ForeignKeyField(Item,null=True,backref="bra_esq")
+    perna = ForeignKeyField(Item,null=True,backref="perna")
+    peito = ForeignKeyField(Item,null=True,backref="peito")
+    sapato = ForeignKeyField(Item,null=True,backref="sapato")
+
 '''
 inventario dos personagens
 '''
 
 
-class Inventario(Model):
+class Inventario(ModeloBase):
     item = ForeignKeyField(Item)
     personagem = ForeignKeyField(Personagem)
-    class Meta:
-        database = db
+
 '''
 figurantes ou monstros
 '''
-class Npc(Model):
+class Npc(ModeloBase):
     nome = CharField()
     classe = CharField()
-    vida= IntegerField(default=10)
+    vida = IntegerField(default=50)
+    vidamax = IntegerField(default=50)
     nivel = IntegerField(default=1)
     #atributos
     forca = IntegerField()
@@ -68,30 +81,26 @@ class Npc(Model):
     resiliencia = IntegerField()
     destreza = IntegerField()
     agilidade = IntegerField()
-    class Meta:
-        database = db
+
 
 '''
 tudo que esta no chao
 '''
-class Drop(Model):
+class Drop(ModeloBase):
     item = ForeignKeyField(Item)
-    class Meta:
-        database = db
+
 '''
 Objetos do jogo para interagir
 '''
-class Objetos(Model):
+class Objetos(ModeloBase):
     nome = CharField()
     dificuldade = IntegerField(default=1)
     descricao = TextField()     
-    class Meta:
-        database = db
+
 '''
 cenários.
 '''
-class Cenario(Model):
+class Cenario(ModeloBase):
     nome = CharField()
     descricao = TextField()
-    class Meta:
-        database = db
+
