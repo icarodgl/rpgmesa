@@ -247,21 +247,20 @@ class PersonagemControle():
 
                 try:
                     pe.save()
-                except:
+                except IntegrityError :
                     return "Erro ao equipar itens :mask:"
                 try:
                     Inventario.remove(Item
                      .select()
                      .where(Personagem.nome == pe.nome & Item.id == i.id ))
-                except:
-                    print(IntegrityError)
+                except IntegrityError:
                     return "Erro ao remover do inventario :mask:"
                 try:
                     Inventario.create(
                         item = segura,
                         personagem = pe
                     )
-                except:
+                except IntegrityError:
                     return "Erro ao voltar item para inventario :mask: "
                 return "%s equipado!" % i.nome
         return "Você não possui %s em seu inventario" % dado[1]
