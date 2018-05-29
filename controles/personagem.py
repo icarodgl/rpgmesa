@@ -209,7 +209,7 @@ class PersonagemControle():
                      .select()
                      .join(Inventario)
                      .join(Personagem)
-                     .where(Personagem.nome == pe.nome & Item.nome == equipamento ))
+                     .where(Personagem.nome == pe.nome))
             for item in query:
                 saco.append(item)
         except:
@@ -254,7 +254,7 @@ class PersonagemControle():
                      .select()
                      .join(Inventario)
                      .join(Personagem)
-                     .where(Personagem.nome == pe.nome & Item.nome == equipamento ))
+                     .where(Personagem.nome == pe.nome & Item.id == i.id ))
                 except:
                     return "Erro ao remover do inventario :mask:"
                 try:
