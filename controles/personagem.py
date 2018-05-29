@@ -163,7 +163,9 @@ class PersonagemControle():
             personagem.vida) + "\n Classe: " + personagem.classe + " Nivel: " + str(
             personagem.nivel) + "\n for: " + str(personagem.forca) + "\n agi: " + str(
             personagem.agilidade) + "\n des: " + str(personagem.destreza) + "\n int: " + str(
-            personagem.inteligencia) + "\n res: " + str(personagem.resiliencia)
+            personagem.inteligencia) + "\n res: " + str(personagem.resiliencia
+            ) + "\n Pontos não distribuidos: " + str(personagem.pontos)
+
 
     def inventario(self, dado):
         # /saco
@@ -250,7 +252,7 @@ class PersonagemControle():
                 except:
                     return "Erro ao equipar itens :mask:"
                 try:
-                    inventario.save()
+                    inventario.create()
                 except:
                     return "Erro ao voltar item para inventario :mask: "
                 return "%s equipado!" % i.nome
