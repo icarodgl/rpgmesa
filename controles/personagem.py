@@ -250,9 +250,8 @@ class PersonagemControle():
                 except IntegrityError :
                     return "Erro ao equipar itens :mask:"
                 try:
-                    Inventario.remove(Inventario
-                     .select()
-                     .where(Personagem.nome == pe.nome & Item.id == i.id ))
+                    pe.inventario.remove(Item.select().where(Item.nome == equipamento))
+                    
                 except IntegrityError:
                     return "Erro ao remover do inventario :mask:"
                 try:
