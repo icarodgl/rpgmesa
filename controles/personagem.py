@@ -209,7 +209,7 @@ class PersonagemControle():
                      .select()
                      .join(Inventario)
                      .join(Personagem)
-                     .where(Personagem.nome == pe.nome))
+                     .where(Personagem.nome == pe.nome & Item.nome == equipamento ))
             for item in query:
                 saco.append(item)
         except:
@@ -249,6 +249,14 @@ class PersonagemControle():
                     pe.save()
                 except:
                     return "Erro ao equipar itens :mask:"
+                try:
+                    Inventario.remove(Item
+                     .select()
+                     .join(Inventario)
+                     .join(Personagem)
+                     .where(Personagem.nome == pe.nome & Item.nome == equipamento ))
+                except:
+                    return "Erro ao remover do inventario :mask:"
                 try:
                     Inventario.create(
                         item = segura,
