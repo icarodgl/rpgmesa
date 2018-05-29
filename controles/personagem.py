@@ -245,8 +245,6 @@ class PersonagemControle():
                 else:
                     return "Escolha uma posição para colocar %s: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda" % (dado[1])
 
-                inventario.item = segura
-                inventario.personagem = pe
                 try:
                     pe.save()
                 except:
