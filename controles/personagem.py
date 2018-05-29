@@ -252,8 +252,6 @@ class PersonagemControle():
                 try:
                     Inventario.remove(Item
                      .select()
-                     .join(Inventario)
-                     .join(Personagem)
                      .where(Personagem.nome == pe.nome & Item.id == i.id ))
                 except:
                     return "Erro ao remover do inventario :mask:"
