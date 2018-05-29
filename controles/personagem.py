@@ -254,6 +254,7 @@ class PersonagemControle():
                      .select()
                      .where(Personagem.nome == pe.nome & Item.id == i.id ))
                 except:
+                    print(IntegrityError)
                     return "Erro ao remover do inventario :mask:"
                 try:
                     Inventario.create(
