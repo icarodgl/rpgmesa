@@ -252,7 +252,10 @@ class PersonagemControle():
                 except:
                     return "Erro ao equipar itens :mask:"
                 try:
-                    inventario.create()
+                    Inventario.create(
+                        item = segura,
+                        personagem = pe
+                    )
                 except:
                     return "Erro ao voltar item para inventario :mask: "
                 return "%s equipado!" % i.nome
