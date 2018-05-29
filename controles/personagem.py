@@ -245,20 +245,24 @@ class PersonagemControle():
                 else:
                     return "Escolha uma posição para colocar %s: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda" % (dado[1])
 
+                
                 try:
-                    pe.save()
-                except IntegrityError :
-                    return "Erro ao equipar itens :mask:"
-                try:
+                    pe.inventario = saco
                     pe.inventario.remove(Item.select().where(Item.nome == equipamento))
                     
                 except IntegrityError:
                     return "Erro ao remover do inventario :mask:"
                 try:
-                    Inventario.create(
+                    pe.save()
+                except IntegrityError :
+                    return "Erro ao equipar itens :mask:"
+                try:
+                    '''Inventario.create(
                         item = segura,
                         personagem = pe
-                    )
+                    )'''
+                    pe.inventario.add   
+
                 except IntegrityError:
                     return "Erro ao voltar item para inventario :mask: "
                 return "%s equipado!" % i.nome
