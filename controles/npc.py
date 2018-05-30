@@ -54,3 +54,16 @@ class NpcControle():
         for npc in npcs:
             res+= "> %s: %d, [%d/%d], %d, %d, %d, %d, %d\n" % (npc.nome , npc.nivel, npc.vida,npc.vidamax, npc.forca,npc.agilidade,npc.destreza,npc.inteligencia,npc.resiliencia)
         return res
+
+    def mataNpc(self,dados):
+        try:
+            nome = dados[1]
+        except :
+            return "Tente: esqueceu do nome"
+        try:
+            npc = Npc.get(Npc.nome == nome)
+        except :
+            return "Npc não existe"
+
+        npc.delete()
+        return "%s morreu." % npc.nome
