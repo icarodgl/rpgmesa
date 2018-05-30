@@ -17,13 +17,14 @@ class PersonagemControle():
             return "Você não possui personagem cadastrado :disappointed:"
         try:
             lista = [Item.get_by_id(person.cabeca), Item.get_by_id(person.bra_dir), Item.get_by_id(person.bra_esq),
-                 Item.get_by_id(person.peito), Item.get_by_id(person.perna), Item.get_by_id(person.sapato)]
+                     Item.get_by_id(person.peito), Item.get_by_id(person.perna), Item.get_by_id(person.sapato)]
         except:
             return "Erro ao listar seus itens :disappointed:"
         frase = "Equipamentos: \n"
         nomes = ["cabeça", "direita", "esquerda", "peito", "calça", "sapato"]
         for i in range(len(lista)):
-            frase += " - %s => %s [ATK: %d , DEF: %d]\n" % (nomes[i], lista[i].nome, lista[i].ataque, lista[i].defesa)
+            frase += " - %s => %s [ATK: %d , DEF: %d]\n" % (
+                nomes[i], lista[i].nome, lista[i].ataque, lista[i].defesa)
         return frase
 
     @staticmethod
@@ -81,7 +82,8 @@ class PersonagemControle():
 
     def dormir(self, dados):
         try:
-            personagem = Personagem.get(Personagem.usuario == dados[0])  # type: Personagem
+            personagem = Personagem.get(
+                Personagem.usuario == dados[0])  # type: Personagem
         except:
             return "Personagem não encontrado"
         personagem.vida = personagem.vidamax
@@ -93,7 +95,8 @@ class PersonagemControle():
         if not MestreControle.mestre(dados[0]):
             return "Você não é mestre :kissing_heart:"
         try:
-            personagem = Personagem.get(Personagem.nome == dados[1])  # type: Personagem
+            personagem = Personagem.get(
+                Personagem.nome == dados[1])  # type: Personagem
         except:
             return "Personagem não encontrado"
         personagem.pontos += 5
@@ -112,7 +115,8 @@ class PersonagemControle():
         except:
             return "Errp, tente: /doar personagem quantidade"
         try:
-            personagem = Personagem.get(Personagem.nome == dados[1])  # type: Personagem
+            personagem = Personagem.get(
+                Personagem.nome == dados[1])  # type: Personagem
         except:
             return "Personagem não encontrado"
         personagem.pontos += quantidade
@@ -146,7 +150,7 @@ class PersonagemControle():
             emoji = " :muscle:"
             personagem.forca += quantidade
         elif x == "i":
-            emoji=" :mortar_board:"
+            emoji = " :mortar_board:"
             personagem.inteligencia += quantidade
         elif x == "r":
             emoji = " :beginner: :heart:"
@@ -157,7 +161,7 @@ class PersonagemControle():
             return "Não existe atributo: %s ,tente: (agi,des,for,int,res)" % atributo
         personagem.pontos -= quantidade
         personagem.save()
-        return "%s adicionou %d em %s %s.\n restam %d pontos" % (personagem.nome, quantidade, atributo,emoji, personagem.pontos)
+        return "%s adicionou %d em %s %s.\n restam %d pontos" % (personagem.nome, quantidade, atributo, emoji, personagem.pontos)
 
     def ficha(self, dados):
         try:
@@ -170,8 +174,7 @@ class PersonagemControle():
             personagem.nivel) + "\n for: " + str(personagem.forca) + "\n agi: " + str(
             personagem.agilidade) + "\n des: " + str(personagem.destreza) + "\n int: " + str(
             personagem.inteligencia) + "\n res: " + str(personagem.resiliencia
-            ) + "\n Pontos não distribuidos: " + str(personagem.pontos)
-
+                                                        ) + "\n Pontos não distribuidos: " + str(personagem.pontos)
 
     def inventario(self, dado):
         # /saco
@@ -192,7 +195,8 @@ class PersonagemControle():
             return "Erro ao listar itens"
         frase = " Itens de %s:\n" % (pe.nome)
         for i in saco:
-            frase += " - %s [ATK: %d / DEF: %d ]\n" % (i.nome, i.ataque, i.defesa)
+            frase += " - %s [ATK: %d / DEF: %d ]\n" % (
+                i.nome, i.ataque, i.defesa)
         return frase
 
     def equipar(self, dado):
@@ -202,7 +206,7 @@ class PersonagemControle():
         try:
             equipamento = dado[1]
             posicao = dado[2]
-            usuario = dado [0]
+            usuario = dado[0]
         except:
             return "Erro, tente:\n /equipar item posição: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda"
         try:
@@ -218,10 +222,10 @@ class PersonagemControle():
                      .where(Personagem.nome == pe.nome))'''
 
             pe.inventario = (Inventario
-                .select(Inventario, Personagem, Item)
-                .join(Personagem)
-                .switch(Inventario)
-                .join(Item))
+                             .select(Inventario, Personagem, Item)
+                             .join(Personagem)
+                             .switch(Inventario)
+                             .join(Item))
 
         except:
             return "Erro ao listar itens"
@@ -229,42 +233,42 @@ class PersonagemControle():
             if equipamento == i.item.nome:
                 segura = Item
                 mod = ""
-                if posicao in ["cabeça", "cabeca", "top", "capacete", "elmo","1"]:
+                if posicao in ["cabeça", "cabeca", "top", "capacete", "elmo", "1"]:
                     segura = pe.cabeca
                     mod = "cabeca"
                     pe.cabeca = i.item
-                elif posicao in ["calça", "perna", "calca","5"]:
+                elif posicao in ["calça", "perna", "calca", "5"]:
                     segura = pe.perna
                     mod = "perna"
                     pe.perna = i.item
-                elif posicao in ["peito", "armadura","4"]:
+                elif posicao in ["peito", "armadura", "4"]:
                     segura = pe.peito
                     mod = "peito"
                     pe.peito = i.item
-                elif posicao in ["pe", "sapato", "foot", "pé","6"]:
+                elif posicao in ["pe", "sapato", "foot", "pé", "6"]:
                     segura = pe.sapato
                     mod = "sapato"
                     pe.sapato = i.item
-                elif posicao in ["direito", "direita", "mão_direita", "mao_direita", "braço_direito","2"]:
+                elif posicao in ["direito", "direita", "mão_direita", "mao_direita", "braço_direito", "2"]:
                     segura = pe.bra_dir
                     mod = "bra_dir"
                     pe.bra_dir = i.item
-                elif posicao in ["esquerda", "esquerdo", "mao_esquerda", "braço_esquerdo", "mão_esquerda","3"]:
+                elif posicao in ["esquerda", "esquerdo", "mao_esquerda", "braço_esquerdo", "mão_esquerda", "3"]:
                     segura = pe.bra_esq
                     mod = "bra_esq"
                     pe.bra_esq = i.item
                 else:
                     return "Escolha uma posição para colocar %s: \n :skull: cabeça \n :jeans: perna\n :mans_shoe: pé\n :shirt: peito\n :point_right: direita \n :point_left: esquerda" % (dado[1])
-            
+
                 try:
-                   i.item = segura
-                   i.save()
+                    i.item = segura
+                    i.save()
                 except IntegrityError:
                     return "Erro ao trocar itens :mask:"
                 try:
                     pe.save()
-                except IntegrityError :
+                except IntegrityError:
                     return "Erro ao equipar itens :mask:"
-                
+
                 return "%s Equipado! :ok_hand:" % i.item.nome
-            return "Você não possui %s em seu inventario" % dado[1]
+        return "Você não possui %s em seu inventario" % dado[1]
