@@ -116,10 +116,16 @@ class Controle(object):
         elif comando in ["/deixarmestre"]:
             self.objeto = MestreControle()
             self.addmestre(dados)
+        elif comando in ["/listanpc","/lnpc"]:
+            self.objeto = NpcControle()
+            self.listanpc(dados)
         else:
             ret = "comando '%s' não existe :scream:" % comando
             self.retorna(ret)
 
+    def listanpc(self, dados):
+        ret = self.objeto.listaNpc(dados)
+        self.retorna(ret)
 
     def addmestre(self, dados):
         ret = self.objeto.addMestre(dados)

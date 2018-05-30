@@ -40,3 +40,14 @@ class NpcControle():
         except:
             return "Erro ao criar NPC"
         return "criado: " + str(npc.nome) + " nivel: " + str(npc.nivel)
+
+    def listaNpc(self, dados):
+        try:
+           npcs = Npc.select()
+        except:
+            return "Não existe npc no jogo."
+        res = "NPCs: \n"
+        res = "> Nome: nivel, vida, for, agi, dex, int, res"
+        for npc in npcs:
+            res+= "> %s: %d, [%d/%d], %d, %d, %d, %d, %d" % (npc.nome , npc.nivel, npc.vida,npc.vidamax, npc.forca,npc.agilidade,npc.destreza,npc.inteligencia,npc.resiliencia)
+        return res
