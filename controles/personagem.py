@@ -132,18 +132,24 @@ class PersonagemControle():
             personagem = Personagem.get(Personagem.usuario == usuario)
         except:
             return "Personagem não encontrado"
+        emoji = ""
         if personagem.pontos < quantidade:
             return "Você possui %d pontos" % personagem.pontos
         x = atributo[0].lower()
         if x == "a":
+            emoji = " :running:"
             personagem.agilidade += quantidade
         elif x == "d":
+            emoji = "  :dart:"
             personagem.destreza += quantidade
         elif x == "f":
+            emoji = " :muscle:"
             personagem.forca += quantidade
         elif x == "i":
+            emoji=" :mortar_board:"
             personagem.inteligencia += quantidade
         elif x == "r":
+            emoji = " :beginner: :heart:"
             personagem.resiliencia += quantidade
             personagem.vidamax = personagem.resiliencia * 10
             personagem.vida = personagem.vidamax
@@ -151,7 +157,7 @@ class PersonagemControle():
             return "Não existe atributo: %s ,tente: (agi,des,for,int,res)" % atributo
         personagem.pontos -= quantidade
         personagem.save()
-        return "%s adicionou %d em %s, restam %d pontos" % (personagem.nome, quantidade, atributo, personagem.pontos)
+        return "%s adicionou %d em %s %s, restam %d pontos" % (personagem.nome, quantidade, atributo,emoji, personagem.pontos)
 
     def ficha(self, dados):
         try:
@@ -216,7 +222,7 @@ class PersonagemControle():
                 .join(Personagem)
                 .switch(Inventario)
                 .join(Item))
-                
+
         except:
             return "Erro ao listar itens"
         for i in pe.inventario:

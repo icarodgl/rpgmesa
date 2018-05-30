@@ -74,14 +74,14 @@ class ataqueControle():
         if dmg > 0:
             self.atacado.vida = self.atacado.vida - dmg
             if self.atacado.save() :
-                resultado = str(self.atacado.nome)+" recebeu "+str(dmg)+" e ficou com: "+str(self.atacado.vida)+" de vida"
+                resultado = str(self.atacado.nome)+" recebeu "+str(dmg)+" e ficou com: "+str(self.atacado.vida)+" de vida :collision:"
                 if self.atacado.vida <= 0:
                     resultado += "\n %s morreu." % self.atacado.nome
                     if npc:
                         self.atacado.delete_instance()
                 return resultado
         else:
-            return "%s não teve dano suficiente para atingir %s [atk/def](%d/%d)"%(self.atacante.nome,self.atacado.nome,dano, defesa)
+            return "%s não deu %d de dano para atingir %s que defendeu %d"%(self.atacante.nome,dano,self.atacado.nome, defesa)
 
     def ataquenpc(self, dados):
         if not MestreControle.mestre(dados[0]):
