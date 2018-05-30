@@ -47,7 +47,7 @@ class NpcControle():
         except:
             return "Não existe npc no jogo."
         res = "NPCs: \n"
-        res = "> Nome: nivel, vida, for, agi, dex, int, res"
+        res += "> Nome: nivel, vida, for, agi, dex, int, res\n"
         for npc in npcs:
-            res+= "> %s: %d, [%d/%d], %d, %d, %d, %d, %d" % (npc.nome , npc.nivel, npc.vida,npc.vidamax, npc.forca,npc.agilidade,npc.destreza,npc.inteligencia,npc.resiliencia)
+            res+= "> %s: %d, [%d/%d], %d, %d, %d, %d, %d\n" % (npc.nome , npc.nivel, npc.vida,npc.vidamax, npc.forca,npc.agilidade,npc.destreza,npc.inteligencia,npc.resiliencia)
         return res
