@@ -28,7 +28,7 @@ def handle(msg):
     controle.comando(msg)
 
 if __name__ == '__main__':
-    bot = telepot.Bot(os.environ.get('KEY_BOT'))
+    bot = telepot.Bot(os.environ.get('KEY_BOT','533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8'))
     MessageLoop(bot, handle).run_as_thread()
     print('I am listening ...')
     while 1:
