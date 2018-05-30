@@ -157,7 +157,7 @@ class PersonagemControle():
             return "Não existe atributo: %s ,tente: (agi,des,for,int,res)" % atributo
         personagem.pontos -= quantidade
         personagem.save()
-        return "%s adicionou %d em %s %s, restam %d pontos" % (personagem.nome, quantidade, atributo,emoji, personagem.pontos)
+        return "%s adicionou %d em %s %s.\n restam %d pontos" % (personagem.nome, quantidade, atributo,emoji, personagem.pontos)
 
     def ficha(self, dados):
         try:

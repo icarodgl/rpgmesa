@@ -25,6 +25,8 @@ class Controle(object):
         comando = self.command.split()[0]
         dados = dados[1:]
         dados.insert(0, msg['from']['first_name'] + " " + msg['from']["last_name"])
+        for d in dados:
+            d.lower()
         if "/criapersonagem" in self.command:
             # /criapersonagem Nome Classe
             self.objeto = PersonagemControle()
