@@ -270,5 +270,5 @@ class PersonagemControle():
                 except IntegrityError:
                     return "Erro ao equipar itens :mask:"
 
-                return "%s Equipado! :ok_hand:" % i.item.nome
+                return "Equipado! :ok_hand:"
         return "Você não possui %s em seu inventario" % dado[1]
