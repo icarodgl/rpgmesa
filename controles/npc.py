@@ -17,30 +17,33 @@ class NpcControle():
             nivel = int(dados[2])
         except:
             return "Erro, tente: /crianpc Nome Nivel"
-
-        forca = randint(1, 20) + (nivel)
-        inteligencia = randint(1, 20) + (nivel)
-        resiliencia = randint(1, 20) + (nivel)
-        destreza = randint(1, 20) + (nivel)
-        agilidade = randint(1, 20) + (nivel)
-        vida = nivel * resiliencia
         try:
-            npc = Npc.create(
-                nome=nome,
-                vida=vida,
-                vidamax=vida,
-                nivel=nivel,
-                classe=classe,
-                forca=forca,
-                inteligencia=inteligencia,
-                resiliencia=resiliencia,
-                destreza=destreza,
-                agilidade=agilidade
-            )
+            existe = Npc.get(Npc.nome == nome)
         except:
-            return "Erro ao criar NPC"
-        return "criado: " + str(npc.nome) + " nivel: " + str(npc.nivel)
-
+            
+            forca = randint(1, 20) + (nivel)
+            inteligencia = randint(1, 20) + (nivel)
+            resiliencia = randint(1, 20) + (nivel)
+            destreza = randint(1, 20) + (nivel)
+            agilidade = randint(1, 20) + (nivel)
+            vida = 10 * resiliencia
+            try:
+                npc = Npc.create(
+                    nome=nome,
+                    vida=vida,
+                    vidamax=vida,
+                    nivel=nivel,
+                    classe=classe,
+                    forca=forca,
+                    inteligencia=inteligencia,
+                    resiliencia=resiliencia,
+                    destreza=destreza,
+                    agilidade=agilidade
+                )
+            except:
+                return "Erro ao criar NPC"
+            return "criado: " + str(npc.nome) + " nivel: " + str(npc.nivel)
+        return "Npc já existe."
     def listaNpc(self, dados):
         try:
            npcs = Npc.select()
