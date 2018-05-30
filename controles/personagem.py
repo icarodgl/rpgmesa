@@ -212,11 +212,11 @@ class PersonagemControle():
                      .where(Personagem.nome == pe.nome))'''
 
             pe.inventario = (Inventario
-         .select(Inventario, Personagem, Item)
-         .join(Personagem)
-         .switch(Inventario)
-         .join(Item))
-            for x in pe.inventario:
+                .select(Inventario, Personagem, Item)
+                .join(Personagem)
+                .switch(Inventario)
+                .join(Item))
+                
         except:
             return "Erro ao listar itens"
         for i in pe.inventario:
@@ -260,5 +260,5 @@ class PersonagemControle():
                 except IntegrityError :
                     return "Erro ao equipar itens :mask:"
                 
-                return "Equipado!" 
-        return "Você não possui %s em seu inventario" % dado[1]
+                return "%s Equipado! :ok_hand:" % i.item.nome
+            return "Você não possui %s em seu inventario" % dado[1]
