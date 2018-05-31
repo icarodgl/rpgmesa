@@ -16,6 +16,7 @@ class MestreControle:
         except:
             print(peewee.IntegrityError)
             return "erro"
+        return "Tudo morto :smiling_imp:"
 
     def addMestre(self,dado):
         try:
