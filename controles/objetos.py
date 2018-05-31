@@ -39,9 +39,9 @@ class ObjetosControle():
         d20 = random.randint(1,20)
         frase = ""
         if d20 > objeto.dificuldade:
-            frase +=  "%s %s %s" %(personagem.nome, " ".join(dados[1:-2]), objeto.nome)
+            frase +=  "%s %s %s :+1:" %(personagem.nome, " ".join(dados[1:-2]), objeto.nome)
         else :
-            frase +=  "%s não %s %s" %(personagem.nome, " ".join(dados[1:-2]), objeto.nome)
+            frase +=  "%s não %s %s :-1:" %(personagem.nome, " ".join(dados[1:-2]), objeto.nome)
         objeto.delete_instance()
         return frase
 
