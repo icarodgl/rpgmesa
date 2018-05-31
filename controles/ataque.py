@@ -16,10 +16,10 @@ class ataqueControle():
             dmg += Item.get_by_id(self.atacante.peito).ataque
             dmg += Item.get_by_id(self.atacante.perna).ataque
             dmg += Item.get_by_id(self.atacante.sapato).ataque
-            
-        except IntegrityError :
-            pass
-        dmg = randint(self.atacante.forca, self.atacante.forca + dmg) 
+        except :
+            print(IntegrityError)
+            return (1)
+        dmg += randint(self.atacante.forca, self.atacante.forca + dmg) 
         return dmg
     def defesa (self):
         defesa = 0
@@ -111,10 +111,10 @@ class ataqueControle():
                     return "Erro na defesa"
             except :
                 return "Erro: " + atacado + " inexistente"
-        dex = self.atacado.destreza + randint(1, 20)
-        agi = self.atacante.agilidade + randint(1, 20)
+        dex = self.atacante.destreza + randint(1, 20)
+        agi = self.atacado.agilidade + randint(1, 20)
         if (agi > dex):
-            return "%s Esquivou de %s  \n[dex/agi]\n(%d/%d)" % (self.atacado.nome, self.atacante.nome, dex, agi)
+            return "%s Esquivou de %s\n[AGI: %d, DEX: %d]" %(self.atacado.nome,self.atacante.nome,agi,dex)
         dano = (self.atacante.forca + randint(1, self.atacante.nivel))
         dmg = (dano - defesa)
         if dmg > 0:

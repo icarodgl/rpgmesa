@@ -67,7 +67,7 @@ class Controle(object):
             # /criaobjeto Nome Dificuldade(1 a 20) descrição
             self.objeto = ObjetosControle()
             self.criaObjeto(dados)
-        elif comando in ["/npcatacar", "/npcataque", "/npcatk"]:
+        elif comando in ["/npcatacar", "/npcataque", "/nataque","/na"]:
             self.objeto = ataqueControle()
             self.ataquenpc(dados)
         elif comando in ["/atacar", "/ataque", "/atk"]:

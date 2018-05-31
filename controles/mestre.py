@@ -15,7 +15,7 @@ class MestreControle:
                 n.delete_instance()
         except:
             print(peewee.IntegrityError)
-            return "erro"
+            return "Nenhum npc vivo."
         return "Tudo morto :smiling_imp:"
 
     def addMestre(self,dado):
