@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 from controles.personagem import PersonagemControle
 from controles.npc import NpcControle

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 from random import randint
 from models import Npc, Item, Personagem
@@ -61,11 +61,10 @@ class ataqueControle():
                     pass
             except:
                 return "Erro: "+atacado+" inexistente"
-        dex = self.atacado.destreza + randint(1,20)
-        agi = self.atacante.agilidade + randint(1,20)
+        dex = self.atacante.destreza + randint(1,20)
+        agi = self.atacado.agilidade + randint(1,20)
         if (agi > dex):
-            return "%s Esquivou de %s  \n[dex/agi]\n(%d/%d)" %(self.atacado.nome,self.atacante.nome,dex,agi)
-
+            return "%s Esquivou de %s\n[AGI: %d,DEX: %d]" %(self.atacado.nome,self.atacante.nome,dex,agi)
         try:
             dano = self.dano()
         except IntegrityError:

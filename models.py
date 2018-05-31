@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 from peewee import Model, CharField, IntegerField, ForeignKeyField, TextField
 from banco import BancoConfig
