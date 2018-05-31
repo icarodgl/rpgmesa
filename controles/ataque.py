@@ -73,7 +73,7 @@ class ataqueControle():
         if dmg > 0:
             self.atacado.vida = self.atacado.vida - dmg
             if self.atacado.save() :
-                resultado = "%s recebeu :collision %d, ficando com %d/%d de vida" %(self.atacado.nome, dmg,self.atacado.vida, self.atacado.vidamax )
+                resultado = "%s recebeu :collision: %d, ficando com %d/%d de vida" %(self.atacado.nome, dmg,self.atacado.vida, self.atacado.vidamax )
                 if self.atacado.vida <= 0:
                     resultado += "\n %s morreu.  :skull:" % self.atacado.nome
                     if npc:

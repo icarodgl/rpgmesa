@@ -113,6 +113,9 @@ class Controle(object):
         elif comando in ["/querosermestre"]:
             self.objeto = MestreControle()
             self.addmestre(dados)
+        elif comando in ["/killall", "/matartodos","/matatudo"]:
+            self.objeto = MestreControle()
+            self.killall(dados)
         elif comando in ["/deixarmestre"]:
             self.objeto = MestreControle()
             self.addmestre(dados)
@@ -129,6 +132,9 @@ class Controle(object):
 
     def addmestre(self, dados):
         ret = self.objeto.addMestre(dados)
+        self.retorna(ret)
+    def killall(self, dados):
+        ret = self.objeto.killall(dados)
         self.retorna(ret)
 
     def killmestre(self, dados):
