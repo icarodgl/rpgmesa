@@ -64,7 +64,7 @@ class ataqueControle():
         dex = self.atacante.destreza + randint(1,20)
         agi = self.atacado.agilidade + randint(1,20)
         if (agi > dex):
-            return "%s Esquivou de %s\n[AGI: %d, DEX: %d]" %(self.atacado.nome,self.atacante.nome,dex,agi)
+            return "%s Esquivou de %s\n[AGI: %d, DEX: %d]" %(self.atacado.nome,self.atacante.nome,agi,dex)
         try:
             dano = self.dano()
         except IntegrityError:

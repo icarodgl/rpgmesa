@@ -1,5 +1,5 @@
 {
     "python.linting.enabled": false,
     "python.formatting.provider": "autopep8",
-    "python.pythonPath": "/home/icaro/.local/share/virtualenvs/rpgmesa-vfCMX3zb/bin/python"
+    "python.pythonPath": "C:\\Users\\Icaro\\AppData\\Local\\Programs\\Python\\Python35-32\\python.exe"
 }
