@@ -97,7 +97,8 @@ class ataqueControle():
             return "Erro tente: /npcataque npc personagem"
         try:
             self.atacante = Npc.get(Npc.nome == npc)
-        except IntegrityError:
+        except :
+            
             return "ERRO, " + npc + " não é um npc"
         try:
             self.atacado = Npc.get(Npc.nome == atacado)
