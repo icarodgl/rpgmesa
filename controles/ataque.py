@@ -64,7 +64,7 @@ class ataqueControle():
         dex = self.atacante.destreza + randint(1,20)
         agi = self.atacado.agilidade + randint(1,20)
         if (agi > dex):
-            return "%s Esquivou de %s\n[AGI: %d,DEX: %d]" %(self.atacado.nome,self.atacante.nome,dex,agi)
+            return "%s Esquivou de %s\n[AGI: %d, DEX: %d]" %(self.atacado.nome,self.atacante.nome,dex,agi)
         try:
             dano = self.dano()
         except IntegrityError:
@@ -73,14 +73,14 @@ class ataqueControle():
         if dmg > 0:
             self.atacado.vida = self.atacado.vida - dmg
             if self.atacado.save() :
-                resultado = str(self.atacado.nome)+" recebeu "+str(dmg)+" e ficou com: "+str(self.atacado.vida)+" de vida :collision:"
+                resultado = "%s recebeu :collision %d, ficando com %d/%d de vida" %(self.atacado.nome, dmg,self.atacado.vida, self.atacado.vidamax )
                 if self.atacado.vida <= 0:
-                    resultado += "\n %s morreu." % self.atacado.nome
+                    resultado += "\n %s morreu.  :skull:" % self.atacado.nome
                     if npc:
                         self.atacado.delete_instance()
                 return resultado
         else:
-            return "%s não deu %d de dano para atingir %s que defendeu %d"%(self.atacante.nome,dano,self.atacado.nome, defesa)
+            return "%s deu %d de dano, %s que defendeu :beginner: com %d"%(self.atacante.nome,dano,self.atacado.nome, defesa)
 
     def ataquenpc(self, dados):
         if not MestreControle.mestre(dados[0]):
