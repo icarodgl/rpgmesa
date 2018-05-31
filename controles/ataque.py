@@ -31,9 +31,10 @@ class ataqueControle():
             defesa += Item.get_by_id(self.atacado.perna).defesa
             defesa += Item.get_by_id(self.atacado.sapato).defesa
             
-        except IntegrityError:
-            pass
-        defesa = randint(self.atacado.resiliencia, self.atacado.resiliencia + defesa)
+        except :
+            print(IntegrityError)
+            return 1
+        defesa += randint(self.atacado.resiliencia, self.atacado.resiliencia + defesa)
         return defesa
     def ataque(self,dados):
         defesa = 0
