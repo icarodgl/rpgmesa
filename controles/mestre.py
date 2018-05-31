@@ -17,7 +17,20 @@ class MestreControle:
             print(peewee.IntegrityError)
             return "Nenhum npc vivo."
         return "Tudo morto :smiling_imp:"
-
+    def killnpc(self,dado):
+        if not self.mestre(dado):
+            return "Você não é mestre :kissing_heart:"
+        try:
+            nome = dado[1]
+        except :
+            return "de o nome do npc"
+        try:
+            npcs = Npc.get(Npc.nome == nome)  # type: list
+            npcs.delete_instance()
+        except:
+            print(peewee.IntegrityError)
+            return "Nenhum npc com esse nome."
+        return "Morto :smiling_imp:"
     def addMestre(self,dado):
         try:
             mestre = dado[0]
