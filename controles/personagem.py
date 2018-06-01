@@ -106,6 +106,17 @@ class PersonagemControle():
         return "%s nivel: %d possui: %d pontos não distibuidos" % (
             personagem.nome, personagem.nivel, personagem.pontos)
 
+    def deletarPersonagem(self, dados):
+        if not MestreControle.mestre(dados[0]):
+            return "Você não é mestre :kissing_heart:"
+        try:
+            personagem = Personagem.get(
+                Personagem.nome == dados[1])  # type: Personagem
+        except:
+            return "Personagem não encontrado"
+        personagem.delete_instance()
+        return "%s Desapareceu do mapa " % (personagem.nome)
+
     def darPontos(self, dados):
         # /doar personagem quantidade
         if not MestreControle.mestre(dados[0]):

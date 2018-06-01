@@ -39,11 +39,11 @@ class Controle(object):
             # /ficha Nome
             self.objeto = PersonagemControle()
             self.ficha(dados)
-        elif comando in ["/equipar"]:
+        elif comando in ["/equipar", "/equipa"]:
             # /equipar objeto slot
             self.objeto = PersonagemControle()
             self.equipar(dados)
-        elif comando in ["/equips", "/equipamentos", "/equipamento", "/itens"]:
+        elif comando in ["/equips", "/equipamentos", "/equipamento", "/e"]:
             # /equipamentos Nome
             self.objeto = PersonagemControle()
             self.equipamentos(dados)
@@ -51,7 +51,7 @@ class Controle(object):
             # /equipamentos Nome
             self.objeto = PersonagemControle()
             self.inventario(dados)
-        elif "/crianpc" in self.command:
+        elif comando in ["/ncria", "/crianpc","/npc"]:
             # /crianpc Nome Nivel
             self.objeto = NpcControle()
             self.crianpc(dados)
@@ -80,10 +80,10 @@ class Controle(object):
             self.d20Acao(dados)
         elif comando in ["/interage", "/interagir", "/ação"]:
             # 0         1           2       3
-            # /interagir Personagem Objeto Ação
+            # /interagir Objeto Ação
             self.objeto = ObjetosControle()
             self.criaAcao(dados)
-        elif comando in ["/objetos", "/listaobjetos", "/obj"]:
+        elif comando in ["/objetos", "/lobjetos", "/lo"]:
             self.objeto = ObjetosControle()
             self.listaobjetos()
         elif comando in ["/limpar", "/clear", "/novo"]:
@@ -113,6 +113,9 @@ class Controle(object):
         elif comando in ["/querosermestre"]:
             self.objeto = MestreControle()
             self.addmestre(dados)
+        elif comando in ["/deletarpersonagem"]:
+            self.objeto = PersonagemControle()
+            self.deletarpersonagem(dados)
         elif comando in ["/killall", "/matartodos","/matatudo"]:
             self.objeto = MestreControle()
             self.killall(dados)
@@ -122,14 +125,19 @@ class Controle(object):
         elif comando in ["/listanpc","/lnpc"]:
             self.objeto = NpcControle()
             self.listanpc(dados)
+        elif comando in ["/help","/h"]:
+            self.objeto = AjudaControle()
+            self.listanpc(dados)
         else:
-            ret = "comando '%s' não existe :scream:" % comando
+            ret = "comando '%s' não existe use /help :scream:" % comando
             self.retorna(ret)
 
     def listanpc(self, dados):
         ret = self.objeto.listaNpc(dados)
         self.retorna(ret)
-
+    def deletarpersonagem(self,dados):
+        ret = self.objeto.deletarPersonagem(dados)
+        self.retorna(ret)
     def addmestre(self, dados):
         ret = self.objeto.addMestre(dados)
         self.retorna(ret)
