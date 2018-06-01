@@ -9,6 +9,7 @@ from controles.acao import AcaoControle
 from controles.drop import DropControle
 from controles.mestre import MestreControle
 from emoji import emojize
+from controles.help import AjudaControle
 
 
 class Controle(object):
