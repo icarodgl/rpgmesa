@@ -10,6 +10,7 @@ from controles.drop import DropControle
 from controles.mestre import MestreControle
 from emoji import emojize
 from controles.help import AjudaControle
+import telegram
 
  
 class Controle(object):
@@ -255,7 +256,7 @@ class Controle(object):
         self.retorna(ret)
 
     def retorna(self, ret):
-        self.bot.sendMessage(self.chat_id, emojize("`%s`" %ret, use_aliases=True))
+        self.bot.sendMessage(self.chat_id, emojize("` %s `" %ret, use_aliases=True))
     def teclado(self,ret):
         custom_keyboard = [['top-left', 'top-right'],['bottom-left', 'bottom-right']]
         reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard)
