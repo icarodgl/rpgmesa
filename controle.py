@@ -10,7 +10,7 @@ from controles.drop import DropControle
 from controles.mestre import MestreControle
 from emoji import emojize
 from controles.help import AjudaControle
-import telepot
+from telepot.namedtuple import InlineKeyboardMarkup,InlineKeyboardButton
 
  
 class Controle(object):
@@ -22,13 +22,12 @@ class Controle(object):
 
     def comando(self, msg):
         self.chat_id = msg['chat']['id']
-        self.command = msg['text']
+        self.command = msg['text'].lower()
         dados = self.command.split()
         comando = self.command.split()[0]
         dados = dados[1:]
         dados.insert(0, msg['from']['first_name'] + " " + msg['from']["last_name"])
-        for d in range(len(dados)):
-            dados[d] = dados[d].lower()
+
         if "/criapersonagem" in self.command:
             self.objeto = PersonagemControle()
             self.criaPersonagem(dados)
@@ -124,7 +123,7 @@ class Controle(object):
             self.ajudam(dados)
         else:
             ret = "comando '%s' não existe use /help :scream:" % comando
-            self.teclado(ret)
+            self.retorna(ret)
 
     def ajuda(self, dados):
         ret = self.objeto.ajuda(dados)
@@ -257,9 +256,11 @@ class Controle(object):
 
     def retorna(self, ret):
         self.bot.sendMessage(self.chat_id, emojize("` %s `" %ret, use_aliases=True))
-    def teclado(self,ret):
-        custom_keyboard = [['top-left', 'top-right'],['bottom-left', 'bottom-right']]
-        reply_markup = telepot.namedtuple(custom_keyboard)
+    def teclado(self,dados):
+        keyboard = InlineKeyboardMarkup(inline_keyboard=[[
+                       InlineKeyboardButton(text='Personagem', callback_data="/ajuda"),
+                       InlineKeyboardButton(text='Mestre', callback_data="/ajudam"),
+                    ]])
         self.bot.sendMessage(self.chat_id, 
-                        text="Custom Keyboard Test", 
-                        reply_markup=reply_markup)
+                        text="Ajuda:", 
+                        reply_markup=keyboard)
