@@ -11,7 +11,7 @@ from controles.mestre import MestreControle
 from emoji import emojize
 from controles.help import AjudaControle
 
-
+ 
 class Controle(object):
     def __init__(self, bot):
         self.bot = bot
@@ -27,45 +27,35 @@ class Controle(object):
         dados = dados[1:]
         dados.insert(0, msg['from']['first_name'] + " " + msg['from']["last_name"])
         for d in dados:
-            d.lower()
+            d = d.lower()
         if "/criapersonagem" in self.command:
-            # /criapersonagem Nome Classe
             self.objeto = PersonagemControle()
             self.criaPersonagem(dados)
         elif "/levelup" in self.command:
-            # /levelup Nome
             self.objeto = PersonagemControle()
             self.levelup(dados)
         elif "/ficha" in self.command:
-            # /ficha Nome
             self.objeto = PersonagemControle()
             self.ficha(dados)
         elif comando in ["/equipar", "/equipa"]:
-            # /equipar objeto slot
             self.objeto = PersonagemControle()
             self.equipar(dados)
         elif comando in ["/equips", "/equipamentos", "/equipamento", "/e"]:
-            # /equipamentos Nome
             self.objeto = PersonagemControle()
             self.equipamentos(dados)
         elif comando in ["/bag", "/inventario", "/i", "/sacola", "/saco"]:
-            # /equipamentos Nome
             self.objeto = PersonagemControle()
             self.inventario(dados)
         elif comando in ["/ncria", "/crianpc","/npc"]:
-            # /crianpc Nome Nivel
             self.objeto = NpcControle()
             self.crianpc(dados)
         elif "/criacenario" in self.command:
-            # /criacenario Nome uma descrição do mesmo
             self.objeto = CenarioControle()
             self.criacenario(dados)
         elif "/cenario" in self.command:
-            # /cenario Nome
             self.objeto = CenarioControle()
             self.pegaCenario(dados)
         elif comando in ["/criao", "/criaobjeto","/criaobjetos"] :
-            # /criaobjeto Nome Dificuldade(1 a 20) descrição
             self.objeto = ObjetosControle()
             self.criaObjeto(dados)
         elif comando in ["/npcatacar", "/npcataque", "/nataque","/na"]:
@@ -75,13 +65,9 @@ class Controle(object):
             self.objeto = ataqueControle()
             self.ataque(dados)
         elif comando in ["/roll", "/d20"]:
-            # /d20 Atributo personagem
-            # /roll Atributo personagem
             self.objeto = AcaoControle()
             self.d20Acao(dados)
         elif comando in ["/interage", "/interagir", "/ação"]:
-            # 0         1           2       3
-            # /interagir Objeto Ação
             self.objeto = ObjetosControle()
             self.criaAcao(dados)
         elif comando in ["/objetos", "/lobjetos", "/lo"]:
@@ -120,6 +106,9 @@ class Controle(object):
         elif comando in ["/killall", "/matartodos","/matatudo"]:
             self.objeto = MestreControle()
             self.killall(dados)
+        elif comando in ["/killnpc", "/matanpc","/matar"]:
+            self.objeto = MestreControle()
+            self.killnpc(dados)
         elif comando in ["/deixarmestre"]:
             self.objeto = MestreControle()
             self.addmestre(dados)
@@ -154,7 +143,9 @@ class Controle(object):
     def killall(self, dados):
         ret = self.objeto.killall(dados)
         self.retorna(ret)
-
+    def killnpc(self, dados):
+        ret = self.objeto.killNpc(dados)
+        self.retorna(ret)
     def killmestre(self, dados):
         ret = self.objeto.killMestre(dados)
         self.retorna(ret)

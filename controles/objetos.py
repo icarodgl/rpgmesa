@@ -27,11 +27,11 @@ class ObjetosControle():
     def interage(self, dados):
         # 0         1           1:len(dados-2)       :len(dados-1)
         #/interagir ação objeto
-        erro = " não existe, tente: /interagir Ação Objeto"
+        erro = " não existe, tente: /ação jogar pedra"
         try :
             objeto = Objetos.get(Objetos.nome == dados[-1])
         except  :
-            return "Objeto? "+erro
+            return "Objeto "+erro
         try:
             personagem = Personagem.get(Personagem.usuario == dados[0])
         except  :
@@ -39,9 +39,9 @@ class ObjetosControle():
         d20 = random.randint(1,20)
         frase = ""
         if d20 > objeto.dificuldade:
-            frase +=  "%s %s %s :+1:" %(personagem.nome, " ".join(dados[1:-1]), objeto.nome)
+            frase +=  "%s %s %s :+1:\n Tirou %d de %d" %(personagem.nome, " ".join(dados[1:-1]), objeto.nome, d20, objeto.dificuldade )
         else :
-            frase +=  "%s não %s %s :-1:" %(personagem.nome, " ".join(dados[1:-1]), objeto.nome)
+            frase +=  "%s não %s %s :-1:\n Tirou %d de %d" %(personagem.nome, " ".join(dados[1:-1]), objeto.nome, d20, objeto.dificuldade)
         objeto.delete_instance()
         return frase
 

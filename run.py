@@ -23,6 +23,7 @@ import os
 
 def handle(msg):
     command = emojize(msg['text'], use_aliases=True)
+    
     print('Got command: %s' % command )
     controle = Controle(bot)
     controle.comando(msg)
