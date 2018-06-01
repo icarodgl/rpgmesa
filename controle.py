@@ -26,8 +26,8 @@ class Controle(object):
         comando = self.command.split()[0]
         dados = dados[1:]
         dados.insert(0, msg['from']['first_name'] + " " + msg['from']["last_name"])
-        for d in dados:
-            d = d.lower()
+        for d in range(len(dados)):
+            dados[d] = dados[d].lower()
         if "/criapersonagem" in self.command:
             self.objeto = PersonagemControle()
             self.criaPersonagem(dados)
@@ -123,7 +123,7 @@ class Controle(object):
             self.ajudam(dados)
         else:
             ret = "comando '%s' não existe use /help :scream:" % comando
-            self.retorna(ret)
+            self.teclado(ret)
 
     def ajuda(self, dados):
         ret = self.objeto.ajuda(dados)
@@ -255,4 +255,10 @@ class Controle(object):
         self.retorna(ret)
 
     def retorna(self, ret):
-        self.bot.sendMessage(self.chat_id, emojize(ret, use_aliases=True))
+        self.bot.sendMessage(self.chat_id, emojize("`%s`" %ret, use_aliases=True))
+    def teclado(self,ret):
+        custom_keyboard = [['top-left', 'top-right'],['bottom-left', 'bottom-right']]
+        reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard)
+        bot.send_message(chat_id=chat_id, 
+                        text="Custom Keyboard Test", 
+                        reply_markup=reply_markup)
