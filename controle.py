@@ -127,11 +127,20 @@ class Controle(object):
             self.listanpc(dados)
         elif comando in ["/help","/h"]:
             self.objeto = AjudaControle()
-            self.listanpc(dados)
+            self.ajuda(dados)
+        elif comando in ["/helpm","/hm"]:
+            self.objeto = AjudaControle()
+            self.ajudam(dados)
         else:
             ret = "comando '%s' não existe use /help :scream:" % comando
             self.retorna(ret)
 
+    def ajuda(self, dados):
+        ret = self.objeto.ajuda(dados)
+        self.retorna(ret)
+    def ajudam(self, dados):
+            ret = self.objeto.ajudaM(dados)
+        self.retorna(ret)
     def listanpc(self, dados):
         ret = self.objeto.listaNpc(dados)
         self.retorna(ret)

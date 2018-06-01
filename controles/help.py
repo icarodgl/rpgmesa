@@ -1,5 +1,5 @@
 class AjudaControle:
-    def ajuda(self):
+    def ajuda(self,dados):
         ret = "/ficha - ver sua ficha\n"
         ret +="/pega faca - pegar itens\n"
         ret += "/drops -ver itens\n"
@@ -13,7 +13,7 @@ class AjudaControle:
         ret +="/lobjetos - lista objetos para interagir\n"
         ret +="/ação jogar pedra - ação sobre um objeto\n"
         ret += "/dormir - descansar seu personagem.\n"
-        ret += "/ajudam - Ajuda do mestre.\n"
+        ret += "/helpm - Ajuda do mestre.\n"
         return ret
 
     def ajudaM(self):
