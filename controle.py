@@ -260,6 +260,6 @@ class Controle(object):
     def teclado(self,ret):
         custom_keyboard = [['top-left', 'top-right'],['bottom-left', 'bottom-right']]
         reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard)
-        bot.send_message(chat_id=chat_id, 
+        self.bot.send_message(chat_id=chat_id, 
                         text="Custom Keyboard Test", 
                         reply_markup=reply_markup)
