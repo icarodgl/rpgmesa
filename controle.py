@@ -10,7 +10,7 @@ from controles.drop import DropControle
 from controles.mestre import MestreControle
 from emoji import emojize
 from controles.help import AjudaControle
-import telegram
+import telepot
 
  
 class Controle(object):
@@ -259,7 +259,7 @@ class Controle(object):
         self.bot.sendMessage(self.chat_id, emojize("` %s `" %ret, use_aliases=True))
     def teclado(self,ret):
         custom_keyboard = [['top-left', 'top-right'],['bottom-left', 'bottom-right']]
-        reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard)
+        reply_markup = telepot.namedtuple(custom_keyboard)
         self.bot.sendMessage(self.chat_id, 
                         text="Custom Keyboard Test", 
                         reply_markup=reply_markup)
