@@ -64,7 +64,7 @@ class Controle(object):
             # /cenario Nome
             self.objeto = CenarioControle()
             self.pegaCenario(dados)
-        elif  self.command in ["/criao", "/criaobjeto"] :
+        elif command in ["/criao", "/criaobjeto","/criaobjetos"] :
             # /criaobjeto Nome Dificuldade(1 a 20) descrição
             self.objeto = ObjetosControle()
             self.criaObjeto(dados)
