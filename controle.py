@@ -125,10 +125,10 @@ class Controle(object):
         elif comando in ["/listanpc","/lnpc"]:
             self.objeto = NpcControle()
             self.listanpc(dados)
-        elif comando in ["/help","/h"]:
+        elif comando in ["/help","/h","/ajuda"]:
             self.objeto = AjudaControle()
             self.ajuda(dados)
-        elif comando in ["/helpm","/hm"]:
+        elif comando in ["/helpm","/hm","/ajudam"]:
             self.objeto = AjudaControle()
             self.ajudam(dados)
         else:
@@ -139,7 +139,7 @@ class Controle(object):
         ret = self.objeto.ajuda(dados)
         self.retorna(ret)
     def ajudam(self, dados):
-            ret = self.objeto.ajudaM(dados)
+        ret = self.objeto.ajudaM(dados)
         self.retorna(ret)
     def listanpc(self, dados):
         ret = self.objeto.listaNpc(dados)
