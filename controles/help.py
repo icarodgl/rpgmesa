@@ -18,13 +18,13 @@ class AjudaControle:
 
     def ajudaM(self):
         ret = "/crianpc nome 5 - cria npc com nivel 5\n"
-        ret = "/criaobjeto pedra 5- cria objeto com dificuldade 5\n"
-        ret = "/killall - mata todos os npcs\n"
-        ret = "/dropar faca 10 1 - dropa faca com atk:10  def:1\n"
-         ret = "/decompor - limpa o drop\n"
-        ret = "/levelup personagem - sobe o nivel do personagem\n"
-        ret = "/doar personagem - doa atributos\n"
-        ret = "/deletarpersonagem nome - deleta  personagem\n"
-        ret = "/deixarmestre - para de ser mestre\n"
-         ret = "/querosermestre - assume o papel de mestre\n"
+        ret += "/criaobjeto pedra 5- cria objeto com dificuldade 5\n"
+        ret += "/killall - mata todos os npcs\n"
+        ret += "/dropar faca 10 1 - dropa faca com atk:10  def:1\n"
+        ret += "/decompor - limpa o drop\n"
+        ret += "/levelup personagem - sobe o nivel do personagem\n"
+        ret += "/doar personagem - doa atributos\n"
+        ret += "/deletarpersonagem nome - deleta  personagem\n"
+        ret += "/deixarmestre - para de ser mestre\n"
+        ret += "/querosermestre - assume o papel de mestre\n"
         return ret
