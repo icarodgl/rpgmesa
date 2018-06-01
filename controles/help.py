@@ -16,7 +16,7 @@ class AjudaControle:
         ret += "/helpm - Ajuda do mestre.\n"
         return ret
 
-    def ajudaM(self):
+    def ajudaM(self,dados):
         ret = "/crianpc nome 5 - cria npc com nivel 5\n"
         ret += "/criaobjeto pedra 5- cria objeto com dificuldade 5\n"
         ret += "/killall - mata todos os npcs\n"
