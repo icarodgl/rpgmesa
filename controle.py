@@ -255,7 +255,7 @@ class Controle(object):
         self.retorna(ret)
 
     def retorna(self, ret):
-        self.bot.sendMessage(self.chat_id, emojize("` %s `" %ret, use_aliases=True))
+        self.bot.sendMessage(self.chat_id, emojize("%s" %ret, use_aliases=True))
     def teclado(self,dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
                        InlineKeyboardButton(text='Personagem', callback_data="/ajuda"),
