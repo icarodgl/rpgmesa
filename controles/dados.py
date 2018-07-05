@@ -4,12 +4,15 @@ import random
 import re
 import copy
 class DadoControle():
-
-    def rolarDado(args):
-        dados = args[1:]
+    def rolarDado(self, args):
+        if len(args) >1:
+            dados = args[1:]
+        else:
+            dados = ['20']
         ldado = []
         for elem in dados:
             dado = {
+            "quantidade":int,
             "dado":int,
             "valor":0,
             "bonus":0
@@ -18,9 +21,9 @@ class DadoControle():
             if dx[0] == '':
                 dx.pop(0)
             if len(dx) > 1:
-                quant = int(dx[0])
+                dado["quantidade"] = int(dx[0])
             else:
-                quant = 1
+                dado["quantidade"] = 1
             if (len(elem.split('-')) > 1 ):
                 dado['bonus'] = int((elem.split('-'))[-1])*-1
                 dado['dado'] = int(re.split(' *, *',(elem.split('-')[-2].split('d')[-1]))[0])
@@ -29,21 +32,19 @@ class DadoControle():
                 dado['dado'] = int(re.split(' *, *',(elem.split('+')[-2].split('d')[-1]))[0])
             else:
                 dado['dado'] = int(dx[-1])
-            for q in range(quant):
+            for q in range(dado["quantidade"]):
                 valor = random.randint(1,dado['dado'])
-                if dado['bonus'] > 0:
-                    valor += dado['bonus']
-                dado['valor'] = valor
-                ldado.append(copy.copy(dado))
-
+                if dado['bonus'] != 0:
+                    valor = valor+dado['bonus']
+                dado['valor'] += valor
+            ldado.append(dado)
         frase = self.textificar(ldado)
-        frase = dados[0]+frase
+        frase = args[0]+' rolou:\n'+frase
         return frase
 
-    def textificar(dados):
+    def textificar(self,dados):
         frase = ''
-        
         for elem in dados:
-            frase += 'dado: %d, valor: %d, bonus:%d \n' %(elem['dado'],elem['valor'],elem['bonus'])
+            frase += '%d dados: d%d, valor: %d, bonus:%d\n' %(elem['quantidade'],elem['dado'],elem['valor'],elem['bonus'])
         return frase
         

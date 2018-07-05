@@ -21,8 +21,14 @@ class Controle(object):
         dados.insert(0, msg['from']['first_name'] + " " + msg['from']["last_name"])
         if comando in ["/d", "/dice","/dado","/d20","/roll"]:
             self.objeto = DadoControle()
-            ret = self.objeto.rolarDado(dados)
-            self.retorna(ret)
+            try:
+                ret = self.objeto.rolarDado(dados)
+                self.retorna(ret)
+            except:
+                self.retorna('Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)')
+            
+        else:
+            self.retorna('Comando não cadastrado')
     def retorna(self, ret):
         self.bot.sendMessage(self.chat_id, emojize("%s" %ret, use_aliases=True))
     def teclado(self,dados):
