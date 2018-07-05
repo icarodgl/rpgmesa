@@ -35,5 +35,15 @@ class DadoControle():
                     valor += dado['bonus']
                 dado['valor'] = valor
                 ldado.append(copy.copy(dado))
-        return ldado
+
+        frase = self.textificar(ldado)
+        frase = dados[0]+frase
+        return frase
+
+    def textificar(dados):
+        frase = ''
+        
+        for elem in dados:
+            frase += 'dado: %d, valor: %d, bonus:%d \n' %(elem['dado'],elem['valor'],elem['bonus'])
+        return frase
         
