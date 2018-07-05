@@ -1,4 +1,0 @@
-INSERT INTO `rpgmesadb`.`Usuario` (`IdUsuario`, `Username`, `Senha`, `Email`, `DataCadastro`) VALUES ('2', 'ICARO', '123456', 'icaro@gmail.com', '2017-12-05 11:35:02');
-
-
-INSERT INTO `rpgmesadb`.`Usuario` (`IdUsuario`, `Username`, `Senha`, `Email`, `DataCadastro`) VALUES ('2', 'EDUARDO', '123456', 'eduardocoouto@gmail.com', '2017-12-05 11:35:02');
