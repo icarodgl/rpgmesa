@@ -49,7 +49,7 @@ class DadoControle():
                 total+=elem['valor'][i]
                 frase += '(%d)'%(elem['valor'][i])
             if elem['bonus'] != 0:
-                frase+= '\n Total: %d, +Bonus: %d \n'%(total, total+elem['bonus'])
+                frase+= ' Total: %d, +Bonus: %d \n'%(total, total+elem['bonus'])
                 total = 0
             else:
                 frase+= ' Total: %d \n'%(total)
