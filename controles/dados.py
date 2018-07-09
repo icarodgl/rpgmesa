@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import random
 import re
-import copy
+
 class DadoControle():
     def rolarDado(self, args):
         if len(args) >1:
@@ -44,7 +44,7 @@ class DadoControle():
         frase = ''
         total = 0
         for elem in dados:
-            frase += 'd%d: '%(dados['dado'])
+            frase += 'd%d: '%(elem['dado'])
             for i in range(len(elem['valor'])):
                 total+=elem['valor'][i]
                 frase += '(%d)'%(elem['valor'][i])
