@@ -19,7 +19,7 @@ class Controle(object):
         comando = self.command.split()[0]
         dados = dados[1:]
         dados.insert(0, msg['from']['first_name'] + " " + msg['from']["last_name"])
-        if comando in ["/d", "/dice","/dado","/d20","/roll"]:
+        if comando in ["/d", "/dice","/dado","/d20","/roll", "/r"]:
             self.objeto = DadoControle()
             try:
                 ret = self.objeto.rolarDado(dados)
