@@ -37,7 +37,7 @@ class DadoControle():
                 if dado['bonus'] != 0:
                     valor = valor+dado['bonus']
                 dado['valor'] += valor
-            ldado.append(dado)
+                ldado.append(copy.copy(dado))
         frase = self.textificar(ldado)
         frase = args[0]+' rolou:\n'+frase
         return frase
