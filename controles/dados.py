@@ -14,7 +14,7 @@ class DadoControle():
             dado = {
             "quantidade":int,
             "dado":int,
-            "valor":0,
+            "valor":[],
             "bonus":0
             }
             dx = (elem.split('d'))
@@ -34,8 +34,8 @@ class DadoControle():
                 dado['dado'] = int(dx[-1])
             for q in range(dado["quantidade"]):
                 valor = random.randint(1,dado['dado'])
-                dado['valor'] += valor
-                ldado.append(copy.copy(dado))
+                dado['valor'].append( valor )
+            ldado.append(dado)
         frase = self.textificar(ldado)
         frase = args[0]+' rolou:\n'+frase
         return frase
@@ -44,11 +44,15 @@ class DadoControle():
         frase = ''
         total = 0
         for elem in dados:
+            frase += 'd%d: '%(dados['dado'])
+            for i in range(len(elem['valor'])):
+                total+=elem['valor'][i]
+                frase += '(%d)'%(elem['valor'][i])
             if elem['bonus'] != 0:
-                frase += 'd%d: %d + %d = %d \n' %(elem['dado'],elem['valor'],elem['bonus'],elem['valor']+elem['bonus'])
+                frase+= '\n Total: %d, +Bonus: %d \n'%(total, total+elem['bonus'])
+                total = 0
             else:
-                frase += 'd%d: %d\n' %(elem['dado'],elem['valor'])
-            total += elem['valor']
-        frase += 'Total: %d\n' %(total)
+                frase+= ' Total: %d \n'%(total)
+                total = 0
         return frase
         
