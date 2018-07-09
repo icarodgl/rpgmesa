@@ -34,8 +34,6 @@ class DadoControle():
                 dado['dado'] = int(dx[-1])
             for q in range(dado["quantidade"]):
                 valor = random.randint(1,dado['dado'])
-                if dado['bonus'] != 0:
-                    valor = valor+dado['bonus']
                 dado['valor'] += valor
                 ldado.append(copy.copy(dado))
         frase = self.textificar(ldado)
@@ -44,7 +42,13 @@ class DadoControle():
 
     def textificar(self,dados):
         frase = ''
+        total = 0
         for elem in dados:
-            frase += '%d dados: d%d, valor: %d, bonus:%d\n' %(elem['quantidade'],elem['dado'],elem['valor'],elem['bonus'])
+            if elem['bonus'] != 0:
+                frase += 'd%d: %d + %d = %d \n' %(elem['dado'],elem['valor'],elem['bonus'],elem['valor']+elem['bonus'])
+            else:
+                frase += 'd%d: %d\n' %(elem['dado'],elem['valor'])
+            total += elem['valor']
+        frase += 'Total: %d\n' %(total)
         return frase
         
