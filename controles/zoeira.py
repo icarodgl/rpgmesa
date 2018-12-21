@@ -2,4 +2,4 @@ import random
 class ZoeiraControle():
     def teco(self):
         abobrinhas = ["OLOOOOCO!","LIXO","SEU BATATA"]
-        return random.randint(0,len(abobrinhas))
+        return abobrinhas[random.randint(0,len(abobrinhas))]
