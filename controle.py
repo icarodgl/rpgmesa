@@ -3,7 +3,7 @@
 from emoji import emojize
 from telepot.namedtuple import InlineKeyboardMarkup,InlineKeyboardButton
 from controles.dados import DadoControle
-
+from controles.zoeira import ZoeiraControle
  
 class Controle(object):
     def __init__(self, bot):
@@ -26,6 +26,11 @@ class Controle(object):
                 self.retorna(ret)
             except:
                 self.retorna('Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)')
+            
+        if comando in ["/teco","/jadson"]:
+            self.objeto = ZoeiraControle()
+            ret = self.objeto.teco()
+            self.retorna(ret)
             
         else:
             self.retorna('Comando não cadastrado')
