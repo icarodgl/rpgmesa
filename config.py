@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from models import Personagem, Inventario, Item, Npc, Cenario, Objetos, Drop, Mestre
+from models import Personagem, Inventario, Item, Npc, Cenario, Objetos, Drop, Mestre, MyStick
 from banco import BancoConfig
 
 modelos = [
@@ -12,7 +12,8 @@ modelos = [
     Cenario,
     Objetos,
     Drop,
-    Mestre
+    Mestre,
+    MyStick
 ]
 
 if False:  # true para criar banco
