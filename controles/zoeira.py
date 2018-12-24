@@ -1,4 +1,5 @@
 import random
+from models import MyStick
 
 
 class ZoeiraControle():
@@ -15,3 +16,18 @@ class ZoeiraControle():
     def hara(self):
         abobrinhas = ["paçoca", "coé", "hã", "coé", "Tóxico"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+
+    def pegaStickAleatorio(self):
+        allsticks = MyStick.select()
+        return allsticks[random.randint(0, len(allsticks)-1)].id
+
+    def pegaStick(self, dado):
+        nome = dado[0]
+        thesticks = MyStick.get(MyStick.nome == nome)
+        return thesticks.id
+
+    def salvaStick(self, dados):
+        nome = dados[1]
+        id = dados[2]
+        stick = MyStick.create(nome=nome, id=id)
+        return stick.id

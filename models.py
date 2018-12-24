@@ -17,9 +17,12 @@ class ModeloBase(Model):
     class Meta:
         database = db
 
+
 '''
 Itens dos personagens
 '''
+
+
 class Item(ModeloBase):
     nome = CharField()
     ataque = IntegerField(default=0)
@@ -29,33 +32,37 @@ class Item(ModeloBase):
 class Mestre(ModeloBase):
     usuario = CharField(null=True)
 
+
 '''
 personagens
 '''
+
+
 class Personagem(ModeloBase):
-    #dono do personagem
+    # dono do personagem
     usuario = CharField(null=True)
-    #personagem
+    # personagem
     nome = CharField()
     classe = CharField()
     nivel = IntegerField(default=1)
     vidamax = IntegerField(default=50)
     pontos = IntegerField(default=0)
-    vida= IntegerField(default=10)
-    #atributos
+    vida = IntegerField(default=10)
+    # atributos
     forca = IntegerField()
     inteligencia = IntegerField()
     resiliencia = IntegerField()
     destreza = IntegerField()
     agilidade = IntegerField()
 
-    #itens
-    cabeca = ForeignKeyField(Item,null=True,backref="cabeca")
-    bra_dir = ForeignKeyField(Item,null=True,backref="bra_dir")
-    bra_esq = ForeignKeyField(Item,null=True,backref="bra_esq")
-    perna = ForeignKeyField(Item,null=True,backref="perna")
-    peito = ForeignKeyField(Item,null=True,backref="peito")
-    sapato = ForeignKeyField(Item,null=True,backref="sapato")
+    # itens
+    cabeca = ForeignKeyField(Item, null=True, backref="cabeca")
+    bra_dir = ForeignKeyField(Item, null=True, backref="bra_dir")
+    bra_esq = ForeignKeyField(Item, null=True, backref="bra_esq")
+    perna = ForeignKeyField(Item, null=True, backref="perna")
+    peito = ForeignKeyField(Item, null=True, backref="peito")
+    sapato = ForeignKeyField(Item, null=True, backref="sapato")
+
 
 '''
 inventario dos personagens
@@ -66,16 +73,19 @@ class Inventario(ModeloBase):
     item = ForeignKeyField(Item)
     personagem = ForeignKeyField(Personagem)
 
+
 '''
 figurantes ou monstros
 '''
+
+
 class Npc(ModeloBase):
     nome = CharField()
     classe = CharField()
     vida = IntegerField(default=50)
     vidamax = IntegerField(default=50)
     nivel = IntegerField(default=1)
-    #atributos
+    # atributos
     forca = IntegerField()
     inteligencia = IntegerField()
     resiliencia = IntegerField()
@@ -86,21 +96,33 @@ class Npc(ModeloBase):
 '''
 tudo que esta no chao
 '''
+
+
 class Drop(ModeloBase):
     item = ForeignKeyField(Item)
+
 
 '''
 Objetos do jogo para interagir
 '''
+
+
 class Objetos(ModeloBase):
     nome = CharField()
     dificuldade = IntegerField(default=1)
-    descricao = TextField()     
+    descricao = TextField()
+
 
 '''
 cenários.
 '''
+
+
 class Cenario(ModeloBase):
     nome = CharField()
     descricao = TextField()
 
+
+class MyStick(ModeloBase):
+    nome = CharField()
+    id = CharField()

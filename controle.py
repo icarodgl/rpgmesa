@@ -42,16 +42,24 @@ class Controle(object):
             self.objeto = ZoeiraControle()
             ret = self.objeto.doug()
             self.retorna(ret)
+        elif comando in ["/stick"]:
+            self.objeto = ZoeiraControle()
+            ret = self.objeto.pegaStickAleatorio()
+            self.retornaStick(ret)
+        elif comando in ["/salvastick"]:
+            self.objeto = ZoeiraControle()
+            ret = self.objeto.salvaStick(dados)
+            self.retornaStick(ret)
         else:
-            self.retornaStick()
+            self.retornaStick("CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
             ## self.retorna('Comando não cadastrado')
 
     def retorna(self, ret):
         self.bot.sendMessage(self.chat_id, emojize("%s" %
                                                    ret, use_aliases=True))
 
-    def retornaStick(self):
-        self.bot.sendSticker(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
+    def retornaStick(self, stick):
+        self.bot.sendSticker(self.chat_id, stick)
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
