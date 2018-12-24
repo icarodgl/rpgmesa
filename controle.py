@@ -15,7 +15,7 @@ class Controle(object):
 
     def comando(self, msg):
         self.chat_id = msg['chat']['id']
-        self.command = msg['text'].lower()
+        self.command = msg['text']  # .lower()
         dados = self.command.split()
         comando = self.command.split()[0]
         dados = dados[1:]
