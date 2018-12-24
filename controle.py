@@ -51,7 +51,7 @@ class Controle(object):
                                                    ret, use_aliases=True))
 
     def retornaStick(self):
-        self.bot.sendStick(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
+        self.bot.sendSticker(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
