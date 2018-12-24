@@ -58,8 +58,8 @@ class Controle(object):
         self.bot.sendMessage(self.chat_id, emojize("%s" %
                                                    ret, use_aliases=True))
 
-    def retornaStick(self, stick):
-        self.bot.sendSticker(self.chat_id, stick)
+    def retornaStick(self, stickId):
+        self.bot.sendSticker(self.chat_id, stickId)
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
