@@ -30,15 +30,15 @@ class Controle(object):
                 self.retorna(
                     'Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)')
 
-        if comando in ["/teco", "/jadson"]:
+        elif comando in ["/teco", "/jadson"]:
             self.objeto = ZoeiraControle()
             ret = self.objeto.teco()
             self.retorna(ret)
-        if comando in ["/hara", "/harã"]:
+        elif comando in ["/hara", "/harã"]:
             self.objeto = ZoeiraControle()
             ret = self.objeto.hara()
             self.retorna(ret)
-        if comando in ["/doug", "/douglas", "/bw"]:
+        elif comando in ["/doug", "/douglas", "/bw"]:
             self.objeto = ZoeiraControle()
             ret = self.objeto.doug()
             self.retorna(ret)
