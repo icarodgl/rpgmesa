@@ -124,5 +124,5 @@ class Cenario(ModeloBase):
 
 
 class MyStick(ModeloBase):
-    nome = CharField()
-    id = CharField()
+    nome = TextField()
+    id = TextField()

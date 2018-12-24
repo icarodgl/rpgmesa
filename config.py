@@ -16,10 +16,10 @@ modelos = [
     MyStick
 ]
 
-if False:  # true para criar banco
+if True:  # true para criar banco
     db = BancoConfig.banco()
     db.connect()
-    if False:  # True para Limpar banco
+    if True:  # True para Limpar banco
         db.drop_tables(modelos)
     db.create_tables(modelos)
     db.close()
