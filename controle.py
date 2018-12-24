@@ -43,11 +43,15 @@ class Controle(object):
             ret = self.objeto.doug()
             self.retorna(ret)
         else:
-            self.retorna('Comando não cadastrado')
+            self.retornaStick()
+            ## self.retorna('Comando não cadastrado')
 
     def retorna(self, ret):
         self.bot.sendMessage(self.chat_id, emojize("%s" %
                                                    ret, use_aliases=True))
+
+    def retornaStick(self):
+        self.bot.sendStick(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
