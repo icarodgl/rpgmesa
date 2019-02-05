@@ -3,9 +3,13 @@ from models import MyStick
 
 
 class ZoeiraControle():
+    def jogo(self):
+        abobrinhas = ["RB6", "CS!", "Estudar!", "rocket league", "Lolzim"]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+
     def teco(self):
         abobrinhas = ["OLOOOOCO!", "LIXO",
-                      "SEU BATATA", "Cortei o açucar", "Tóxico", ":owl:"]
+                      "SEU BATATA", "Cortei o açucar", "Tóxico", ":owl: :owl: :owl: :owl: :owl: :owl:"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
 
     def doug(self):
