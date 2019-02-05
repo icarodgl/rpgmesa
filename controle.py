@@ -50,6 +50,10 @@ class Controle(object):
             self.objeto = ZoeiraControle()
             ret = self.objeto.salvaStick(dados)
             self.retornaStick(ret)
+        elif comando in ["/jogo", "/jogar", "CS", "RB6", "lolzim", "lol"]:
+            self.objeto = ZoeiraControle()
+            ret = self.objeto.jogo()
+            self.retorna(ret)
         else:
             self.retornaStick("CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
             ## self.retorna('Comando não cadastrado')
