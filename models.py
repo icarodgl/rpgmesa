@@ -125,4 +125,4 @@ class Cenario(ModeloBase):
 
 class MyStick(ModeloBase):
     nome = TextField()
-    id = TextField()
+    imagem = TextField()

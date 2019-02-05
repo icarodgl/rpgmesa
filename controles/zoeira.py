@@ -5,7 +5,7 @@ from models import MyStick
 class ZoeiraControle():
     def teco(self):
         abobrinhas = ["OLOOOOCO!", "LIXO",
-                      "SEU BATATA", "Cortei o açucar", "Tóxico"]
+                      "SEU BATATA", "Cortei o açucar", "Tóxico", ":owl:"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
 
     def doug(self):
@@ -19,15 +19,15 @@ class ZoeiraControle():
 
     def pegaStickAleatorio(self):
         allsticks = MyStick.select()
-        return allsticks[random.randint(0, len(allsticks)-1)].id
+        return allsticks[random.randint(0, len(allsticks)-1)].imagem
 
     def pegaStick(self, dado):
-        nome = dado[0]
+        nome = dado[1]
         thesticks = MyStick.get(MyStick.nome == nome)
-        return thesticks.id
+        return thesticks.imagem
 
     def salvaStick(self, dados):
         nome = dados[1]
-        id = dados[2]
-        stick = MyStick.create(nome=nome, id=id)
+        imagem = dados[2]
+        stick = MyStick.create(nome=nome, imagem=imagem)
         return stick.id
