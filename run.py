@@ -8,7 +8,7 @@ from controle import Controle
 from emoji import emojize
 import os
 import urllib.request, json
-
+from threading import Thread
 #from flask import Flask, request
 #from flask_restful import Resource, Api
 #from json import dumps
@@ -34,6 +34,8 @@ def handle(msg):
     print('Got command: %s' % command)
     controle = Controle(bot)
     controle.comando(msg)
+    worker = Thread(target=controle.comando, args=(q,results))
+    worker.start()
 
 if __name__ == '__main__':
     bot = telepot.Bot(os.environ.get(

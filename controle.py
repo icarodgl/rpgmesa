@@ -12,6 +12,7 @@ class Controle(object):
         self.chat_id = any
         self.command = any
         self.objeto = any
+        self.threads = []
 
     def comando(self, msg):
         self.chat_id = msg['chat']['id']
@@ -57,13 +58,7 @@ class Controle(object):
         elif comando in ["/chatid"]:
             self.retorna(self.chat_id)
         elif comando in ["/flood"]:
-            msgs = 10
-            while msgs > 0:
-                msgs-=1
-                self.objeto = ZoeiraControle()
-                ret = self.objeto.teco()
-                self.retorna(ret)
-                time.sleep(100)
+            self.flood()
         else:
             self.retornaStick("CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
             ## self.retorna('Comando não cadastrado')
@@ -76,6 +71,15 @@ class Controle(object):
         print("AAAAAAAA")
         print(stickId)
         self.bot.sendSticker(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
+
+    def flood():
+        msgs = 10
+            while msgs > 0:
+                msgs-=1
+                self.objeto = ZoeiraControle()
+                ret = self.objeto.teco()
+                self.retorna(ret)
+                time.sleep(30)
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
