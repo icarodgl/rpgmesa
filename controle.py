@@ -59,11 +59,11 @@ class Controle(object):
         elif comando in ["/flood"]:
             msgs = 10
             while msgs > 0:
-                time.sleep(100*60)
                 msgs-=1
                 self.objeto = ZoeiraControle()
                 ret = self.objeto.teco()
                 self.retorna(ret)
+                time.sleep(100)
         else:
             self.retornaStick("CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
             ## self.retorna('Comando não cadastrado')
