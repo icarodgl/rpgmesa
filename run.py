@@ -33,8 +33,8 @@ def handle(msg):
     acorda_heroku()
     print('Got command: %s' % command)
     controle = Controle(bot)
-    controle.comando(msg)
-    worker = Thread(target=controle.comando, args=(q,results))
+    #controle.comando(msg)
+    worker = Thread(target=controle.comando, args=(msg))
     worker.start()
 
 if __name__ == '__main__':
