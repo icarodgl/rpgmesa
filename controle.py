@@ -4,7 +4,7 @@ from emoji import emojize
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 from controles.dados import DadoControle
 from controles.zoeira import ZoeiraControle
-
+import time
 
 class Controle(object):
     def __init__(self, bot):
@@ -54,6 +54,16 @@ class Controle(object):
             self.objeto = ZoeiraControle()
             ret = self.objeto.jogo()
             self.retorna(ret)
+        elif comando in ["/chatid"]:
+            self.retorna(self.chat_id)
+        elif comando in ["/flood"]:
+            msgs = 10
+            while msgs > 0:
+                time.sleep(100*60)
+                msgs-=1
+                self.objeto = ZoeiraControle()
+                ret = self.objeto.teco()
+                self.retorna(ret)
         else:
             self.retornaStick("CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
             ## self.retorna('Comando não cadastrado')
