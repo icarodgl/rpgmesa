@@ -34,7 +34,8 @@ def handle(msg):
     print('Got command: %s' % command)
     controle = Controle(bot)
     #controle.comando(msg)
-    worker = Thread(target=controle.comando, args=(msg))
+    worker = Thread(target=controle.comando(msg))
+    worker.setDaemon(True)
     worker.start()
 
 if __name__ == '__main__':
