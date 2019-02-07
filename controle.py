@@ -74,12 +74,12 @@ class Controle(object):
 
     def flood():
         msgs = 10
-            while msgs > 0:
-                msgs-=1
-                self.objeto = ZoeiraControle()
-                ret = self.objeto.teco()
-                self.retorna(ret)
-                time.sleep(30)
+        while msgs > 0:
+            msgs-=1
+            self.objeto = ZoeiraControle()
+            ret = self.objeto.teco()
+            self.retorna(ret)
+            time.sleep(30)
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
