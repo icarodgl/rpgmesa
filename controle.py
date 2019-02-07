@@ -72,7 +72,7 @@ class Controle(object):
         print(stickId)
         self.bot.sendSticker(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
 
-    def flood():
+    def flood(self):
         msgs = 10
         while msgs > 0:
             msgs-=1
