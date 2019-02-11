@@ -6,6 +6,7 @@ from controles.dados import DadoControle
 from controles.zoeira import ZoeiraControle
 import time
 
+
 class Controle(object):
     def __init__(self, bot):
         self.bot = bot
@@ -17,11 +18,11 @@ class Controle(object):
     def comando(self, msg):
         self.chat_id = msg['chat']['id']
         self.command = msg['text']  # .lower()
-        dados = self.command.split()
+        dados = self.command.split()[1:]
         comando = self.command.split()[0]
-        dados = dados[1:]
         dados.insert(0, msg['from']['first_name'] +
                      " " + msg['from']["last_name"])
+############################
         if comando in ["/d", "/dice", "/dado", "/d20", "/roll", "/r"]:
             self.objeto = DadoControle()
             try:
@@ -58,10 +59,10 @@ class Controle(object):
         elif comando in ["/chatid"]:
             self.retorna(self.chat_id)
         elif comando in ["/flood"]:
-            self.flood()
+            self.flood(dados)
         else:
             self.retornaStick("CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
-            ## self.retorna('Comando não cadastrado')
+            # self.retorna('Comando não cadastrado')
 
     def retorna(self, ret):
         self.bot.sendMessage(self.chat_id, emojize("%s" %
@@ -72,10 +73,12 @@ class Controle(object):
         print(stickId)
         self.bot.sendSticker(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
 
-    def flood(self):
+    def flood(self, dados):
         msgs = 10
+        if dados[1]:
+            self.chat_id = dados[1]
         while msgs > 0:
-            msgs-=1
+            msgs -= 1
             self.objeto = ZoeiraControle()
             ret = self.objeto.teco()
             self.retorna(ret)
