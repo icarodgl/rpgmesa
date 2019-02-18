@@ -74,7 +74,7 @@ class Controle(object):
         self.bot.sendSticker(self.chat_id, "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
 
     def flood(self, dados):
-        msgs = 10
+        msgs = 2
         if dados[1]:
             self.chat_id = dados[1]
         while msgs > 0:
@@ -82,7 +82,7 @@ class Controle(object):
             self.objeto = ZoeiraControle()
             ret = self.objeto.teco()
             self.retorna(ret)
-            time.sleep(30)
+            time.sleep(10)
 
     def teclado(self, dados):
         keyboard = InlineKeyboardMarkup(inline_keyboard=[[
