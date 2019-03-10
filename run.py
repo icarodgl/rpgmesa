@@ -1,50 +1,47 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-import time
+# lembrar que '791926566:AAG8WRpd0z7JKKjhKBxTWg2QiGEcCRgy6K8' é um codigo importante
+import sys
+import asyncio
 import telepot
-from telepot.loop import MessageLoop
-import config
+from telepot.aio.loop import MessageLoop
+from telepot.aio.delegate import pave_event_space, per_chat_id, create_open
 from controle import Controle
 from emoji import emojize
-import os
-import urllib.request, json
-from threading import Thread
-#from flask import Flask, request
-#from flask_restful import Resource, Api
-#from json import dumps
-#app = Flask(__name__)
-#api = Api(app)
 
 
-# class Ligar(Resource):
-#    def get(self):
-#        m ={"mensagem":"estou vivo!"}
-#        return m
-def acorda_heroku():
-    url = urllib.request.urlopen("https://rpgmesa.herokuapp.com/")
-    try:
-        data = json.loads(url.read().decode())
-        print(data)
-    except:
-        print('Erro ao acordar heroku')
-    
-def handle(msg):
-    command = emojize(msg['text'], use_aliases=True)
-    acorda_heroku()
-    print('Got command: %s' % command)
-    controle = Controle(bot)
-    #controle.comando(msg)
-    worker = Thread(target=controle.comando(msg))
-    worker.setDaemon(True)
-    worker.start()
+class SuperBot(telepot.aio.helper.ChatHandler):
+    def __init__(self, *args, **kwargs):
+        super(SuperBot, self).__init__(*args, **kwargs)
 
-if __name__ == '__main__':
-    bot = telepot.Bot(os.environ.get(
-        'KEY_BOT', '533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8'))
-    MessageLoop(bot, handle).run_as_thread()
-    
-    print('I am listening ...')
-    while 1:
-        time.sleep(10)
+    async def retorna(self, ret):
+        if ret is not None:
+            await self.sender.sendMessage(emojize("%s" % ret, use_aliases=True))
+        return
+
+    async def retornaStick(self):
+        self.sender.sendSticker( "CAADBAADpgADWSJOBYvDjrzJBxB_Ag")
+        return
+
+    async def on_chat_message(self, msg):
+        controle = Controle(msg)
+        await self.retorna(controle.comando())
+        return
+
+
+TOKEN = "533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8"  # get token from command-line
+
+
+bot = telepot.aio.DelegatorBot(TOKEN, [
+    pave_event_space()(
+        per_chat_id(), create_open, SuperBot, timeout=10),
+])
+
+loop = asyncio.get_event_loop()
+loop.create_task(MessageLoop(bot).run_forever())
+print('Listening ...')
+
+loop.run_forever()
+
 
 # lembrar que '533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8' é um codigo importante

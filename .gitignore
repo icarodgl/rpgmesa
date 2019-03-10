@@ -1,3 +1,4 @@
 .vscode
+.idea
 __pycache__
 ./controles/__pycache__
