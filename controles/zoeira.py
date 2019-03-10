@@ -1,14 +1,15 @@
 import random
+import datetime
 from models import MyStick
 
 
 class ZoeiraControle():
     def jogo(self):
+        date =  datetime.datetime.now()
         abobrinhas = ["Tem :owl: lá tambem?",
-                      "Aquele famoso: Hj nem da pra mim",
-                      "Estudar!",
+                      "Hj nem da pra mim",
                       "10 min",
-                      "23h30 +10min"
+                      "%s +10min" %(date.strftime("%H:%M"))
                       ]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
 
