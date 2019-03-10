@@ -8,7 +8,7 @@ from telepot.aio.loop import MessageLoop
 from telepot.aio.delegate import pave_event_space, per_chat_id, create_open
 from controle import Controle
 from emoji import emojize
-
+import os
 
 class SuperBot(telepot.aio.helper.ChatHandler):
     def __init__(self, *args, **kwargs):
@@ -29,7 +29,7 @@ class SuperBot(telepot.aio.helper.ChatHandler):
         return
 
 
-TOKEN = "533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8"  # get token from command-line
+TOKEN = os.environ['BOT_KEY'] # get token from command-line
 
 
 bot = telepot.aio.DelegatorBot(TOKEN, [
@@ -42,6 +42,3 @@ loop.create_task(MessageLoop(bot).run_forever())
 print('Listening ...')
 
 loop.run_forever()
-
-
-# lembrar que '533253560:AAHv5TaR1m3sYd4ek7jR1LSFm1ig0IeOTV8' é um codigo importante

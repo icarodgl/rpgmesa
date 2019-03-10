@@ -28,5 +28,6 @@ class ZoeiraControle():
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
     def feliz(self):
         abobrinhas = ["OLOOOOCO!",
+                      "Corujão do esporte :owl:",
                       ":owl: :owl: :owl: :owl: :owl: :owl:"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]

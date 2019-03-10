@@ -45,11 +45,11 @@ class Controle:
             return self.objeto.teco()
         elif self.busca_comando(["gg",
                                  "win",
-                                 "champs",
-                                 "Disney"]):
+                                 "champs"]):
             self.objeto = ZoeiraControle()
             return self.objeto.feliz()
         elif self.busca_comando(["carreguei",
+                                 "Disney",
                                  "carrega",
                                  "mochilinha ",
                                  "rage",
