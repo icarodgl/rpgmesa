@@ -34,9 +34,34 @@ class Controle:
             self.objeto = ZoeiraControle()
             return self.objeto.jogo()
 
-        elif self.busca_comando(["teco", "jadson","big","owl","doug", "douglas", "bw",":owl:"]):
+        elif self.busca_comando(["teco",
+                                 "jadson",
+                                 "big",
+                                 "owl",
+                                 "corujão",
+                                 "douglas",
+                                 ":owl:"]):
             self.objeto = ZoeiraControle()
             return self.objeto.teco()
+        elif self.busca_comando(["gg",
+                                 "win",
+                                 "champs",
+                                 "Disney"]):
+            self.objeto = ZoeiraControle()
+            return self.objeto.feliz()
+        elif self.busca_comando(["carreguei",
+                                 "carrega",
+                                 "mochilinha ",
+                                 "rage",
+                                 "quit",
+                                 "troll",
+                                 "trollitos",
+                                 "trol",
+                                 "fundo",
+                                 "afundou",
+                                 "afundando"]):
+            self.objeto = ZoeiraControle()
+            return self.objeto.rage()
 
     def busca_comando(self, palavras):
         for p in palavras:
