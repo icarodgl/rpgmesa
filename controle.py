@@ -34,7 +34,7 @@ class Controle:
             self.objeto = ZoeiraControle()
             return self.objeto.jogo()
 
-        elif self.busca_comando(["teco", "jadson","big","owl","doug", "douglas", "bw"]):
+        elif self.busca_comando(["teco", "jadson","big","owl","doug", "douglas", "bw",":owl:"]):
             self.objeto = ZoeiraControle()
             return self.objeto.teco()
 
