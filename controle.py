@@ -13,7 +13,7 @@ class Controle:
         self.objeto = ZoeiraControle()
         self.msg = msg
         self.chat_id = msg['chat']['id']
-        self.command = msg['text'].lower()
+        self.command = msg['text'].lower() or None
 
     def comando(self):
         dados = self.command.split()[1:]
@@ -71,7 +71,7 @@ class Controle:
         elif "yan" in self.msg['from']['first_name'].lower() :
             return "Olha o RAGE!"
         elif "jadson" in self.msg['from']['first_name'].lower() :
-            return self.msg['text']
+            return self.msg['text'] or "Gênio!"
         
     def busca_comando(self, palavras):
         for p in palavras:
