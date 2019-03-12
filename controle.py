@@ -33,7 +33,8 @@ class Controle:
         elif self.busca_comando(["jogo", "jogar", "cs", "rb6", "lolzim", "lol"]) :
             self.objeto = ZoeiraControle()
             return self.objeto.jogo()
-
+        
+        
         elif self.busca_comando(["teco",
                                  "jadson",
                                  "big",
@@ -62,7 +63,10 @@ class Controle:
                                  "afundando"]):
             self.objeto = ZoeiraControle()
             return self.objeto.rage()
-
+        
+        elif "douglas" in self.msg['from']['first_name'] :
+            return ":owl: :owl:"
+        
     def busca_comando(self, palavras):
         for p in palavras:
             if p in self.command:
