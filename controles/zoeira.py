@@ -19,17 +19,20 @@ class ZoeiraControle():
                       "LIXO",
                       "SEU BATATA",
                       "Tóxico",
-                      ":owl: :owl: :owl: :owl: :owl: :owl:"]
+                      ":owl: :owl: :owl: :owl: :owl: :owl:",
+                      "Carlitada no Calhau"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
     def rage(self):
         abobrinhas = ["LIXO",
                       "tá na Disney",
                       "Troll",
                       "SEU BATATA",
-                      "Tóxico"]
+                      "Tóxico",
+                      "Minecraft do carai"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
     def feliz(self):
         abobrinhas = ["OLOOOOCO!",
                       "Corujão do esporte :owl:",
-                      ":owl: :owl: :owl: :owl: :owl: :owl:"]
+                      ":owl: :owl: :owl: :owl: :owl: :owl:",
+                      "Do latim strategy"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
