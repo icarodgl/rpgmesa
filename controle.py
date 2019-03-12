@@ -72,6 +72,9 @@ class Controle:
             return "Olha o RAGE!"
         elif "jadson" in self.msg['from']['first_name'].lower() :
             return self.msg['text'] or "Gênio!"
+        elif "harã" in self.msg['from']['first_name'].lower() :
+            return self.objeto.hara()
+        
         
     def busca_comando(self, palavras):
         for p in palavras:
