@@ -64,8 +64,10 @@ class Controle:
             self.objeto = ZoeiraControle()
             return self.objeto.rage()
         
-        elif "douglas" in self.msg['from']['first_name'] :
+        elif "douglas" in self.msg['from']['first_name'].lower() :
             return ":owl: :owl:"
+        elif "carlos" in self.msg['from']['first_name'].lower() :
+            return "Só carlitada!"
         
     def busca_comando(self, palavras):
         for p in palavras:
