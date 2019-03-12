@@ -1,11 +1,12 @@
 import random
 import datetime
 from models import MyStick
+import pytz
 
 
 class ZoeiraControle():
     def jogo(self):
-        date =  datetime.datetime.now()
+        date =  datetime.datetime.now(pytz.timezone('America/Sao_Paulo'))
         abobrinhas = ["Tem :owl: lá tambem?",
                       "Hj nem da pra mim",
                       "10 min",
