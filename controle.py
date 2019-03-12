@@ -68,6 +68,9 @@ class Controle:
         elif "carlos" in self.msg['from']['first_name'].lower() :
             return "Só carlitada!"
         
+        elif "yan" in self.msg['from']['first_name'].lower() :
+            return "Olha o RAGE!"
+        
     def busca_comando(self, palavras):
         for p in palavras:
             if p in self.command:
