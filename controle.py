@@ -18,8 +18,7 @@ class Controle:
     def comando(self):
         dados = self.command.split()[1:]
         comando = self.command.split()[0]
-        dados.insert(0, self.msg['from']['first_name'] +
-                     " " + self.msg['from']["last_name"])
+        dados.insert(0, self.msg['from']['first_name'])
 ############################
         if comando in ["/d", "/dice", "/dado", "/d20", "/roll", "/r"]:
             self.objeto = DadoControle()
