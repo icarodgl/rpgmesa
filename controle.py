@@ -4,7 +4,7 @@ from typing import Any
 
 from controles.dados import DadoControle
 from controles.zoeira import ZoeiraControle
-
+import random
 
 class Controle:
     command = ...  # type: str
@@ -21,9 +21,9 @@ class Controle:
         dados.insert(0, self.msg['from']['first_name'])
 ############################
         if comando in ["/d", "/dice", "/dado", "/d20", "/roll", "/r"]:
-            self.objeto = DadoControle()
+            dados = DadoControle()
             try:
-                ret = self.objeto.rolarDado(dados)
+                ret = dados.rolarDado(dados)
                 self.retorna(ret)
             except:
                 self.retorna(
@@ -51,6 +51,7 @@ class Controle:
         elif self.busca_comando(["carreguei",
                                  "Disney",
                                  "carrega",
+                                 "mochila",
                                  "mochilinha ",
                                  "rage",
                                  "quit",
@@ -62,18 +63,24 @@ class Controle:
                                  "afundando"]):
             self.objeto = ZoeiraControle()
             return self.objeto.rage()
-        
-        elif "douglas" in self.msg['from']['first_name'].lower() :
-            return ":owl: :owl:"
-        elif "carlos" in self.msg['from']['first_name'].lower() :
-            return "Só carlitada!"
-        
-        elif "yan" in self.msg['from']['first_name'].lower() :
-            return "Olha o RAGE!"
-        elif "jadson" in self.msg['from']['first_name'].lower() :
-            return self.msg['text'] or "Gênio!"
-        elif "harã" in self.msg['from']['first_name'].lower() :
-            return self.objeto.hara()
+        elif random.randint(0,1):
+            if "douglas" in self.msg['from']['first_name'].lower() :
+                return self.objeto.douglas()
+
+            elif "carlos" in self.msg['from']['first_name'].lower() :
+                return self.objeto.carlos()
+            
+            elif "yan" in self.msg['from']['first_name'].lower() :
+                return self.objeto.yan()
+
+            elif "jadson" in self.msg['from']['first_name'].lower() :
+                return self.msg['text'] or "Gênio!"
+
+            elif "harã" in self.msg['from']['first_name'].lower() :
+                return self.objeto.hara()
+
+            elif "marcos" in self.msg['from']['first_name'].lower() :
+                return self.objeto.marcos()
         
         
     def busca_comando(self, palavras):

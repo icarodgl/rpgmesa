@@ -16,10 +16,33 @@ class ZoeiraControle():
     
     def hara(self):
         abobrinhas = ["Iraque!",
-                      "Tá careca de saber"
+                      "Tá careca de saber",
+                      "Aranha arranha a rã"
                      ]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
-    
+    def tadeu(self):
+        abobrinhas = ["Kolkamente!",
+                      "KOOOOOOLKE!"
+                     ]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+    def carlos(self):
+        abobrinhas = ["Só Carlitada!",
+                      "Trollitos!!"
+                     ]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+
+    def yan(self):
+        abobrinhas = ["Abandonou o curso?","Foi pra Russia?"]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+
+    def marcos(self):
+        abobrinhas = ["Marcuxo!"]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+    def douglas(self):
+        abobrinhas = [":owl:",
+                      "Corujão"
+                     ]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
     def teco(self):
         abobrinhas = ["OLOOOOCO!",
                       "LIXO",
