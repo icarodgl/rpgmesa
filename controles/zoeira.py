@@ -13,7 +13,13 @@ class ZoeiraControle():
                       "%s +10min" %(date.strftime("%H:%M"))
                       ]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
-
+    
+    def hara(self):
+        abobrinhas = ["Iraque!",
+                      "Tá careca de saber"
+                     ]
+        return abobrinhas[random.randint(0, len(abobrinhas)-1)]
+    
     def teco(self):
         abobrinhas = ["OLOOOOCO!",
                       "LIXO",
