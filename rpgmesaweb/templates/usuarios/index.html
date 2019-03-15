@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo mundo</title>
+</head>
+<body>
+{% if pessoas_list %}
+    <ul>
+    {% for pessoa in pessoas_list %}
+        <li><a href="/usuarios/{{ pessoa.id }}/">{{ pessoa.nome }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Ninguém cadastrado.</p>
+{% endif %}
+</body>
+</html>

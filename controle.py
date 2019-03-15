@@ -22,13 +22,11 @@ class Controle:
                      " " + self.msg['from']["last_name"])
 ############################
         if comando in ["/d", "/dice", "/dado", "/d20", "/roll", "/r"]:
-            self.objeto = DadoControle()
+            objeto = DadoControle()
             try:
-                ret = self.objeto.rolarDado(dados)
-                self.retorna(ret)
+                return objeto.rolarDado(dados)
             except:
-                self.retorna(
-                    'Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)')
+                return 'Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)'
 
         elif self.busca_comando(["jogo", "jogar", "cs", "rb6", "lolzim", "lol"]) :
             self.objeto = ZoeiraControle()
