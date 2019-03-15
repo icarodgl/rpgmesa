@@ -1,2 +1,2 @@
-web: python webrun.py
+web: python rpgmesaweb/manage.py
 worker: python run.py
