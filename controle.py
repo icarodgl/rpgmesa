@@ -21,16 +21,9 @@ class Controle:
         dados.insert(0, self.msg['from']['first_name'])
 ############################
         if comando in ["/d", "/dice", "/dado", "/d20", "/roll", "/r"]:
-<<<<<<< HEAD
             objeto = DadoControle()
             try:
                 return objeto.rolarDado(dados)
-=======
-            dados = DadoControle()
-            try:
-                ret = dados.rolarDado(dados)
-                self.retorna(ret)
->>>>>>> e54824eb4a558ee7600ab47140c982f1cf3b0b8d
             except:
                 return 'Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)'
 
