@@ -1,0 +1,31 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+
+[packages]
+
+django = "*"
+aiohttp = "*"
+async-timeout = "*"
+attrs = "*"
+chardet = "*"
+dj-database-url = "*"
+Django = "*"
+django-heroku = "*"
+emoji = "*"
+gunicorn = "*"
+idna = "*"
+multidict = "*"
+peewee = "*"
+psycopg2 = "*"
+pytz = "*"
+telepot = "*"
+urllib3 = "*"
+whitenoise = "*"
+yarl = "*"
+
+[requires]
+
+python_version = "3.7"
