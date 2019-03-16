@@ -25,7 +25,7 @@ SECRET_KEY = 'cq=lgc7k#fale8hx1)d88n)4hh_$u^a0=9ax#d28_9f9^=6%_!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rpgmesa.herokuapp.com',]
 
 
 # Application definition
