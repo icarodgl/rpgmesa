@@ -1,2 +1,2 @@
-web: python rpgmesaweb/manage.py
+web: gunicorn rpgmesaweb/rpgmesaweb.wsgi
 worker: python run.py
