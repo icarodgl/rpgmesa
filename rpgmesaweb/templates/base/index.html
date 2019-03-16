@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Acordando!</title>
-</head>
-<body>
-<h1>{{ frase }}</h1>
-</body>
-</html>
+{% extends 'base/base.html' %}
+{% block content %}
+{% if lista %}
+    <ul class="collection">
+    {% for palavra in lista %}
+        <li class="collection-item"><a href="/chave/{{ palavra.id }}/">{{ palavra.nome }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma palavra cadastrada.</p>
+{% endif %}
+{% endblock %}

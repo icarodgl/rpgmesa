@@ -9,6 +9,8 @@ from telepot.aio.delegate import pave_event_space, per_chat_id, create_open
 from controle import Controle
 from emoji import emojize
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 class SuperBot(telepot.aio.helper.ChatHandler):
     def __init__(self, *args, **kwargs):

@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+{% if resposta %}
+    <ul class="collection">
+    <li class="collection-header"><h4>{{ chave.nome }}</h4></li>
+    {% for frase in resposta %}
+        <li class="collection-item"> {{ frase.resposta }} <span data-badge-caption="" class="new badge blue">{{ frase.frequencia }}</span></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Sem cadastrado.</p>
+{% endif %}
+{% endblock %}
