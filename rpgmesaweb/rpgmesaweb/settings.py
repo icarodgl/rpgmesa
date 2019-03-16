@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 import django_heroku
+
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG']
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['rpgmesa.herokuapp.com',]
 
@@ -87,9 +91,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['PG_USER'],
-        'USER': os.environ['PG_USER'],
-        'PASSWORD': os.environ['PG_PASS'],
+        'NAME': os.getenv('PG_USER'),
+        'USER': os.getenv('PG_USER'),
+        'PASSWORD': os.getenv('PG_PASS'),
         'HOST': 'tantor.db.elephantsql.com',
         'PORT': '5432',
     }
