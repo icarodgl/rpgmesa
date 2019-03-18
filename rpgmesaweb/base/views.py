@@ -1,8 +1,11 @@
-from django.template import loader
-from django.http import Http404
+from django.template import loader, RequestContext
+from django.http import Http404, HttpResponseRedirect
 from .models import Chave, Resposta
 from django.views import generic
 from django.http import HttpResponse
+from django.forms import modelformset_factory, inlineformset_factory, formset_factory
+from django.shortcuts import render, render_to_response
+from .form import ChaveForm, RespostaForm
 
 
 class IndexView(generic.ListView):
@@ -34,3 +37,30 @@ def detalhe(request, chave_id):
         'resposta': resposta,
     }
     return HttpResponse(template.render(context, request))
+
+
+def nova_chave(request):
+    chaveForm = modelformset_factory(Chave, fields=("nome",))
+    if request.method == "POST":
+        formset = chaveForm(request.POST, request.FILES, queryset=Chave.objects.filter(nome__startswith='0'))
+        if formset.is_valid():
+            formset.save()
+            return HttpResponseRedirect('/chave/')
+    else:
+        formset = chaveForm(queryset=Chave.objects.filter(nome__startswith='0'))
+    return render(request, 'base/novo.html', {'formset': formset})
+
+
+def edit(request,pk):
+    chave = Chave.objects.get(pk=pk)
+    respostafs = inlineformset_factory(Chave, Resposta, fields='__all__',extra=1)
+    if request.method == ('POST' or None):
+        formset = respostafs(request.POST, request.FILES, instance=chave)
+        if formset.is_valid():
+            formset.save()
+            return HttpResponseRedirect('chave'+pk+'/novo')
+    else:
+        formset = respostafs(instance=chave)
+
+    return render(request,'base/novo.html', {'formset': formset,})
+

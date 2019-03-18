@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% block content %}
 
+    <div class="row">
 {% if resposta %}
     <ul class="collection">
     <li class="collection-header"><h4>{{ chave.nome }}</h4></li>
@@ -11,4 +12,11 @@
 {% else %}
     <p>Sem cadastrado.</p>
 {% endif %}
+
+    <div class="col offset-s6">
+            <a href="/chave" class="waves-effect waves-light btn"><i class="material-icons left">keyboard_backspace</i>Voltar</a>
+            <a href="/chave/{{ chave.id }}/novo" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Adicionar</a>
+
+    </div>
+    </div>
 {% endblock %}

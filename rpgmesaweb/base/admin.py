@@ -8,6 +8,7 @@ class RespostaInline(admin.StackedInline):
     extra = 1
 
 class ChavenAdmin(admin.ModelAdmin):
+
     fieldsets = [
         (None, {'fields': ['nome']})
     ]
