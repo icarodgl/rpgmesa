@@ -19,6 +19,7 @@ from django.urls import path
 urlpatterns = [
     path('', views.index,  name='index'),
     path('chave/', views.index,  name='index'),
+    path('chave/novo', views.nova_chave, name="nova chave"),
     path('chave/<int:pk>/novo', views.edit,  name='add resposta'),
     path('chave/<int:chave_id>/', views.detalhe, name="detalhes"),
 ]

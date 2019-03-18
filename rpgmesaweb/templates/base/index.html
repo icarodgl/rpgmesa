@@ -1,14 +1,25 @@
-{% extends 'base/base.html' %}
-{% block content %}
-{% if lista %}
-    <ul class="collection">
-    {% for palavra in lista %}
-        <li class="collection-item"><a href="/chave/{{ palavra.id }}/">{{ palavra.nome }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
+{% extends 'base/base.html' %} {% block content %} {% if lista %}
+<ul class="list-group list-group-flush">
+  {% for palavra in lista %}
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center "
+  >
+    <a href="/chave/{{ palavra.id }}/">{{ palavra.nome }}</a>
+  </li>
+  {% endfor %} {% else %}
+  <li
+    class="list-group-item  d-flex justify-content-between align-items-center"
+  >
     <p>Nenhuma palavra cadastrada.</p>
-{% endif %}
-    <a href="/chave/novo" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+  </li>
 
+  {% endif %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <a
+      href="/chave/novo"
+      class="btn-floating btn-large waves-effect waves-light red"
+      ><i class="material-icons">add</i></a
+    >
+  </li>
+</ul>
 {% endblock %}
