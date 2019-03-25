@@ -43,8 +43,8 @@ def detalhe_json(request, chave_id):
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
     context = {
-        'chave': chave,
-        'resposta': resposta,
+        'chave': list(chave),
+        'resposta': list(resposta),
     }
     return JsonResponse(context)
 
