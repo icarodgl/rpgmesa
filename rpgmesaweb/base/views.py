@@ -1,12 +1,11 @@
 from django.template import loader, RequestContext
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect,JsonResponse
 from .models import Chave, Resposta
 from django.views import generic
 from django.http import HttpResponse
 from django.forms import modelformset_factory, inlineformset_factory, formset_factory
 from django.shortcuts import render, render_to_response
 from .form import ChaveForm, RespostaForm
-import json
 
 class IndexView(generic.ListView):
 
@@ -44,10 +43,10 @@ def detalhe_json(request, chave_id):
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
     context = {
-        'chave': chave,
-        'resposta': resposta,
+        'chave': str(chave),
+        'resposta': list(resposta),
     }
-    return HttpResponse(json.dumps(resposta), content_type="application/json")
+    return JsonResponse(json.dumps(context),safe=False)
 
 
 def nova_chave(request):
