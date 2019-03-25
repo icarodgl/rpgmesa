@@ -28,7 +28,7 @@ def detalhe(request, chave_id):
     try:
         chave = Chave.objects.get(pk=chave_id)
         resposta = Resposta.objects.filter(chave_id=chave_id)
-    template = loader.get_template('base/detalhe.html')
+        template = loader.get_template('base/detalhe.html')
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
 
