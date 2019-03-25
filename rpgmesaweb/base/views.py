@@ -30,7 +30,7 @@ def detalhe(request, chave_id):
         template = loader.get_template('base/detalhe.html')
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
-
+    
     context = {
         'chave': chave,
         'resposta': resposta,
@@ -42,9 +42,12 @@ def detalhe_json(request, chave_id):
         resposta = Resposta.objects.filter(chave_id=chave_id)
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
+    
+    list_resposta = list(resposta)
+    str_chave = str(chave)
     context = {
-        'chave': str(chave),
-        'resposta': list(resposta),
+        'chave': str_chave,
+        'resposta': list_resposta,
     }
     return JsonResponse(context)
 
