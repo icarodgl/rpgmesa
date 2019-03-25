@@ -15,7 +15,7 @@ class IndexView(generic.ListView):
 
 
 def index(request):
-    lista = Chave.objects.order_by('-nome')[:5]
+    lista = Chave.objects.order_by('-nome')
     template = loader.get_template('base/index.html')
     context = {
         'lista': lista,
