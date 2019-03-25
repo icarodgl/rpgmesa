@@ -51,6 +51,21 @@ def detalhe_json(request, chave_id):
     for i in resposta:
         context['respostas'].append(i.resposta)
     return JsonResponse(context)
+def resposta_chave_json(request, nome):
+    try:
+        chave = Chave.objects.get(nome=nome)
+        resposta = Resposta.objects.filter(chave_id=chave.pk)
+    except Resposta.DoesNotExist:
+        raise Http404("Não existe")
+
+    str_chave = str(chave)
+    context = {
+        'chave': str_chave,
+        'respostas': [],
+    }
+    for i in resposta:
+        context['respostas'].append(i.resposta)
+    return JsonResponse(context)
 def chaves_json(request):
     try:
         chave = Chave.objects.all()
