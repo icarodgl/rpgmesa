@@ -47,7 +47,7 @@ def detalhe_json(request, chave_id):
         'chave': chave,
         'resposta': resposta,
     }
-    return HttpResponse(json.dumps(context), content_type="application/json")
+    return HttpResponse(json.dumps(resposta), content_type="application/json")
 
 
 def nova_chave(request):
