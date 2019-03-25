@@ -42,15 +42,25 @@ def detalhe_json(request, chave_id):
         resposta = Resposta.objects.filter(chave_id=chave_id)
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
-    
-    list_resposta = str(resposta)
+
     str_chave = str(chave)
     context = {
         'chave': str_chave,
-        'resposta': list_resposta,
+        'respostas': [],
     }
+    for i in resposta:
+        context['respostas'].append(i.resposta)
     return JsonResponse(context)
+def chaves_json(request):
+    try:
+        chave = Chave.objects.all()
+    except Resposta.DoesNotExist:
+        raise Http404("Não existe")
 
+    chaves = []
+    for i in chave:
+        chaves.append(i.nome)
+    return JsonResponse(chaves, safe=False)
 
 def nova_chave(request):
     chaveForm = modelformset_factory(Chave, fields=("nome",))
