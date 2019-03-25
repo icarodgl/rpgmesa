@@ -46,7 +46,7 @@ def detalhe_json(request, chave_id):
         'chave': chave,
         'resposta': resposta,
     }
-    return JsonResponse(context,safe=False)
+    return JsonResponse(context)
 
 
 def nova_chave(request):
