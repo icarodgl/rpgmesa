@@ -22,4 +22,5 @@ urlpatterns = [
     path('chave/novo', views.nova_chave, name="nova chave"),
     path('chave/<int:pk>/novo', views.edit,  name='add resposta'),
     path('chave/<int:chave_id>/', views.detalhe, name="detalhes"),
+    path('chave/rest/<int:chave_id>/', views.detalhe_json, name="detalhes"),
 ]
