@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.forms import modelformset_factory, inlineformset_factory, formset_factory
 from django.shortcuts import render, render_to_response
 from .form import ChaveForm, RespostaForm
-
+import json
 
 class IndexView(generic.ListView):
 
@@ -28,15 +28,26 @@ def detalhe(request, chave_id):
     try:
         chave = Chave.objects.get(pk=chave_id)
         resposta = Resposta.objects.filter(chave_id=chave_id)
+    template = loader.get_template('base/detalhe.html')
     except Resposta.DoesNotExist:
         raise Http404("Não existe")
 
-    template = loader.get_template('base/detalhe.html')
     context = {
         'chave': chave,
         'resposta': resposta,
     }
     return HttpResponse(template.render(context, request))
+def detalhe_json(request, chave_id):
+    try:
+        chave = Chave.objects.get(pk=chave_id)
+        resposta = Resposta.objects.filter(chave_id=chave_id)
+    except Resposta.DoesNotExist:
+        raise Http404("Não existe")
+    context = {
+        'chave': chave,
+        'resposta': resposta,
+    }
+    return HttpResponse(json.dumps(context), content_type="application/json")
 
 
 def nova_chave(request):
