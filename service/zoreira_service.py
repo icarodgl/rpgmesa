@@ -18,11 +18,11 @@ class ZoeiraService():
             return'Erro na api, tente mais tarde'
         return chaves
 
-    def chaves(self, chave):
+    def respostas(self, chave):
         URL = "https://rpgmesa.herokuapp.com/rest/chave/"
         try:
-            url = urllib.request.urlopen(URL)
-            chaves = json.loads(url.read().decode())
+            url = urllib.request.urlopen(URL+'/'+chave)
+            respostas = json.loads(url.read().decode())
         except:
             return'Erro na api, tente mais tarde'
-        return chaves
+        return respostas

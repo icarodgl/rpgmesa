@@ -4,7 +4,9 @@ from typing import Any
 
 from controles.dados import DadoControle
 from controles.zoeira import ZoeiraControle
+from service.zoreira_service import ZoeiraService
 import random
+
 
 class Controle:
     command = ...  # type: str
@@ -27,11 +29,13 @@ class Controle:
             except:
                 return 'Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)'
 
+
+'''
         elif self.busca_comando(["jogo", "jogar", "cs", "rb6", "lolzim", "lol"]) :
             self.objeto = ZoeiraControle()
             return self.objeto.jogo()
-        
-        
+
+
         elif self.busca_comando(["teco",
                                  "jadson",
                                  "big",
@@ -61,32 +65,43 @@ class Controle:
                                  "afundando"]):
             self.objeto = ZoeiraControle()
             return self.objeto.rage()
-        elif random.randint(0,1):
-            if "douglas" in self.msg['from']['first_name'].lower() :
+'''
+        elif busca_comando(self.busca_chaves()):
+            return
+
+        elif random.randint(0, 1):
+            if "douglas" in self.msg['from']['first_name'].lower():
                 return self.objeto.douglas()
 
-            elif "carlos" in self.msg['from']['first_name'].lower() :
+            elif "carlos" in self.msg['from']['first_name'].lower():
                 return self.objeto.carlos()
-            
-            elif "yan" in self.msg['from']['first_name'].lower() :
+
+            elif "yan" in self.msg['from']['first_name'].lower():
                 return self.objeto.yan()
 
-            elif "jadson" in self.msg['from']['first_name'].lower() :
+            elif "jadson" in self.msg['from']['first_name'].lower():
                 return self.msg['text'] or "Gênio!"
 
-            elif "harã" in self.msg['from']['first_name'].lower() :
+            elif "harã" in self.msg['from']['first_name'].lower():
                 return self.objeto.hara()
 
-            elif "marcos" in self.msg['from']['first_name'].lower() :
+            elif "marcos" in self.msg['from']['first_name'].lower():
                 return self.objeto.marcos()
-        
-        
+
+
     def busca_comando(self, palavras):
         for p in palavras:
             if p in self.command:
                 return True
         return False
 
+    def busca_chaves(self):
+       return  ZoeiraService.chaves()
+    
+    def busca_resposta(self,chave):
+        respostas = ZoeiraService.respostas(chave)
+        return respostas[random.randint(0, len(respostas)-1)]
+        
     def retorna(self, ret):
         return ret
 
