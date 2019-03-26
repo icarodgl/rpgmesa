@@ -27,7 +27,7 @@ class SuperBot(telepot.aio.helper.ChatHandler):
 
     async def on_chat_message(self, msg):
         controle = Controle(msg)
-        await self.retorna(controle.comando())
+        await self.retorna(controle.comando)
         return
 
 

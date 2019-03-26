@@ -18,6 +18,7 @@ class Controle:
         self.command = msg['text'].lower() or None
         self.chave = ""
 
+    @property
     def comando(self):
         dados = self.command.split()[1:]
         comando = self.command.split()[0]
@@ -31,9 +32,8 @@ class Controle:
             except:
                 return 'Erro de escrita, tente: 2d20+1.\n (quantidade: 2, dado: 20 faces, bonus: 1)'
 
-        elif self.chave != "":
-            if self.chave == 'Erro':
-                return 'Erro'
+        elif self.chave is not None:
+
             return self.busca_resposta(self.chave)
 
         elif random.randint(0, 1):
@@ -58,9 +58,9 @@ class Controle:
 
     def busca_comando(self, palavras):
         for p in palavras:
-            if p.lower() in self.command:
+            if p['nome'].lower() in self.command:
                 return p
-        return ""
+        return None
 
     def busca_chaves(self):
         chave = ZoeiraService()

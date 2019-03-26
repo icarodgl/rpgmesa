@@ -75,7 +75,7 @@ def chaves_json(request):
 
     chaves = []
     for i in chave:
-        chaves.append(i.nome)
+        chaves.append({"nome": i.nome, "id": i.pk})
     return JsonResponse(chaves, safe=False)
 
 def nova_chave(request):
