@@ -40,8 +40,8 @@ def detalhe_json(request, chave_id):
     try:
         chave = Chave.objects.get(pk=chave_id)
         resposta = Resposta.objects.filter(chave_id=chave_id)
-    except Resposta.DoesNotExist:
-        raise Http404("Não existe")
+    except:
+        return JsonResponse({'respostas':["como é que é?","que ce tá falando?"]})
 
     str_chave = str(chave)
     context = {
@@ -55,8 +55,9 @@ def resposta_chave_json(request, nome):
     try:
         chave = Chave.objects.get(nome=nome)
         resposta = Resposta.objects.filter(chave_id=chave.pk)
-    except Resposta.DoesNotExist:
-        raise Http404("Não existe")
+    except:
+
+        return JsonResponse({'respostas':["como é que é?","que ce tá falando?"]})
 
     str_chave = str(chave)
     context = {
@@ -69,8 +70,8 @@ def resposta_chave_json(request, nome):
 def chaves_json(request):
     try:
         chave = Chave.objects.all()
-    except Resposta.DoesNotExist:
-        raise Http404("Não existe")
+    except:
+        return JsonResponse({'respostas':["como é que é?","que ce tá falando?"]})
 
     chaves = []
     for i in chave:
