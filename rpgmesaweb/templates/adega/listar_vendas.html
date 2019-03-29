@@ -1,0 +1,18 @@
+{% extends 'adega/base.html' %} {% block content %}
+{% if lista %}
+  {% for venda in lista %}
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center "
+  >
+    <a href="#">{{ venda }}</a> {{ venda.data }} {{ venda.produto }} {{ venda.produto.valor }}
+
+  </li>
+  {% endfor %}
+    {% else %}
+  <li
+    class="list-group-item  d-flex justify-content-between align-items-center"
+  >
+    <p>Nenhuma venda encontrada.</p>
+  </li>
+{% endif %}
+{% endblock %}

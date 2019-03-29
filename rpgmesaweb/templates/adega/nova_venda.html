@@ -1,0 +1,25 @@
+{% extends 'adega/base.html' %} {% block content %}
+<form method="post">
+  <div class="form-group">
+    {% csrf_token %}
+      <ul class="list-group">
+          {{ formset.management_form }}
+    {% for form in formset %}
+        <li class="list-group-item">
+        <ul class="list-group">
+        {% for field in form %}
+            <li class="list-group-item">
+            {{ field.label_tag }} {{ field }}
+            </li>
+        {% endfor %}
+        </ul>
+        </li>
+    {% endfor %}
+      </ul>
+    <button class="btn btn-primary" type="submit" name="action">
+      Salvar
+    </button>
+    <a href="/chave" class="btn btn-danger" role="button">Voltar</a>
+  </div>
+</form>
+{% endblock %}

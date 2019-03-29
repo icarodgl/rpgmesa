@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 class Vendedor(User):
     nome = models.CharField(max_length=200)
-
     def __str__(self):
         return self.nome
 
@@ -19,10 +18,11 @@ class Produto(models.Model):
     def __str__(self):
         return self.nome + ': ' + self.descricao
 
+
 class Venda(models.Model):
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    data = models.DateField('date published')
+    data = models.DateField('data')
 
     def __str__(self):
         return self.vendedor.nome
