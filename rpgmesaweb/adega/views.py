@@ -1,11 +1,11 @@
 import datetime
 
-from django.forms import modelformset_factory
+from django.forms import modelformset_factory, CheckboxSelectMultiple
 from django.shortcuts import render
 from django.http import Http404, HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Vendedor, Venda, Produto
-
+from .form import VendaForm
 
 def listar_vendedores(request):
     try:
@@ -55,14 +55,15 @@ def Listar_vendas_periodo_vendedor(request,vendedor_id,mes,ano):
 
 
 def nova_venda(request):
-    vendaform = modelformset_factory(Venda, fields='__all__', extra=1)
+    # vendaform = modelformset_factory(Venda, fields='__all__')
     if request.method == "POST":
-        formset = vendaform(request.POST, request.FILES)
+        formset = VendaForm(request.POST, request.FILES)
         if formset.is_valid():
             formset.save()
             return HttpResponseRedirect('/adega/nova/venda')
     else:
-        formset = vendaform()
+        # formset = VendaForm(instance=Venda)
+        formset = modelformset_factory(Venda, form=VendaForm)
     return render(request, 'adega/nova_venda.html', {'formset': formset})
 
 
