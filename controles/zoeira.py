@@ -36,11 +36,14 @@ class ZoeiraControle():
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
 
     def marcos(self):
-        abobrinhas = ["Marcuxo!"]
+        abobrinhas = ["Marcuxo!", 
+                      "Barry Allen", 
+                      "The fastest man alive!"]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
     def douglas(self):
         abobrinhas = [":owl:",
-                      "Corujão"
+                      "Corujão",
+                      ":bike:"
                      ]
         return abobrinhas[random.randint(0, len(abobrinhas)-1)]
     def teco(self):
