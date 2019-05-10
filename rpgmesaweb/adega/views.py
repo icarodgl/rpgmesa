@@ -31,7 +31,7 @@ def index(request):
 
 def Listar_vendas_periodo(request, mes,ano):
     try:
-        vendas = Venda.objects.filter(data__year=ano, data__month=mes)
+        vendas = Venda.objects.filter(data__month=mes,data__year=ano)
     except Venda.DoesNotExist:
         raise Http404("Não existe")
     template = loader.get_template('adega/listar_vendas.html')
@@ -40,6 +40,24 @@ def Listar_vendas_periodo(request, mes,ano):
     }
     return HttpResponse(template.render(context, request))
 
+def Listar_vendas_todas(request):
+    try:
+        vendas = Venda.objects.all()
+    except Venda.DoesNotExist:
+        raise Http404("Não existe")
+    template = loader.get_template('adega/listar_vendas.html')
+    datas = []
+    for i in vendas:
+
+        data_dic = {'mes': i.data.strftime("%m"), 'ano': i.data.strftime("%y")}
+        i.data = i.data.strftime("%d/%m/%Y")
+        if data_dic not in datas:
+            datas.append(data_dic)
+    context = {
+        'datas': datas,
+        'lista': vendas,
+    }
+    return HttpResponse(template.render(context, request))
 
 def Listar_vendas_periodo_vendedor(request,vendedor_id,mes,ano):
     try:
@@ -55,15 +73,15 @@ def Listar_vendas_periodo_vendedor(request,vendedor_id,mes,ano):
 
 
 def nova_venda(request):
-    # vendaform = modelformset_factory(Venda, fields='__all__')
+    venda_form_set = modelformset_factory(model=Venda,can_delete=True, form=VendaForm)
     if request.method == "POST":
-        formset = VendaForm(request.POST, request.FILES)
+        formset = venda_form_set(request.POST, request.FILES,queryset=Venda.objects.filter(nome__startswith='0'))
         if formset.is_valid():
             formset.save()
-            return HttpResponseRedirect('/adega/nova/venda')
+            return HttpResponseRedirect('/adega/listar/vendas/todas/')
     else:
-        # formset = VendaForm(instance=Venda)
-        formset = modelformset_factory(Venda, form=VendaForm)
+        formset = venda_form_set(queryset=Venda.objects.filter(nome__startswith='0'))
+
     return render(request, 'adega/nova_venda.html', {'formset': formset})
 
 

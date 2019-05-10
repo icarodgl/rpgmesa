@@ -19,10 +19,10 @@ class Produto(models.Model):
 
 
 class Venda(models.Model):
-    nome = models.IntegerField(default=0)
+    nome = models.CharField(max_length=100)
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    data = models.DateField()
+    data = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.vendedor.nome
+        return '%s - %s '%(self.nome, self.vendedor.nome)
