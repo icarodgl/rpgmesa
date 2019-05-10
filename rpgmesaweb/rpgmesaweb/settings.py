@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.core.cache.backends.locmem.LocMemCache',
+
 ]
 
 ROOT_URLCONF = 'rpgmesaweb.urls'
@@ -77,12 +77,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'rpgmesaweb.wsgi.application'
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'OPTIONS': {'server_max_value_length': 1024 * 1024 * 2, }
-    }
-}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
