@@ -55,7 +55,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.core.cache.backends.locmem.LocMemCache',
 ]
 
 ROOT_URLCONF = 'rpgmesaweb.urls'
